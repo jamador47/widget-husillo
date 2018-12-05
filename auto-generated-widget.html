@@ -232,6 +232,7 @@ cpdefine("inline:com-chilipeppr-widget-husillo", ["chilipeppr_ready", /* other d
          */
         onM3BtnClick: function(evt) {
             console.log("saying hello 2 from btn in tab 1");
+            document.getElementById("com-chilipeppr-widget-husillo-tab1").style.backgroundColor = "green";
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Estado del Husillo",
@@ -244,6 +245,7 @@ cpdefine("inline:com-chilipeppr-widget-husillo", ["chilipeppr_ready", /* other d
                 
         onM5BtnClick: function(evt) {
             console.log("saying hello 2 from btn in tab 1");
+            document.getElementById("com-chilipeppr-widget-husillo-tab1").style.backgroundColor = "white";
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Estado del Husillo",
@@ -424,10 +426,9 @@ cpdefine("inline:com-chilipeppr-widget-husillo", ["chilipeppr_ready", /* other d
         <div class="panel-body">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="#com-chilipeppr-widget-husillo-tab1" role="tab" data-toggle="tab">Tab 1</a>
+                <li class="active"><a href="#com-chilipeppr-widget-husillo-tab1" role="tab" data-toggle="tab">Husillo</a>
                 </li>
-                <li><a href="#com-chilipeppr-widget-husillo-tab2" role="tab" data-toggle="tab">Tab 2</a></li>
-                <li><a href="#com-chilipeppr-widget-husillo-tab3" role="tab" data-toggle="tab">Tab 3</a></li>
+
             </ul>
             <!-- Tab panes -->
 

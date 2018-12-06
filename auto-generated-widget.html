@@ -237,9 +237,17 @@ cpdefine("inline:com-chilipeppr-widget-husillo", ["chilipeppr_ready", /* other d
            alert("m3");
 =======
            
+<<<<<<< HEAD
 >>>>>>> parent of d7472ab... Update auto-generated-widget.html
                       
 var HttpClient = function() {
+=======
+               
+             
+                            
+
+       var HttpClient = function() {
+>>>>>>> parent of 5bd9b82... Update auto-generated-widget.html
            this.get = function(aUrl, aCallback) {
                var anHttpRequest = new XMLHttpRequest();
                anHttpRequest.onreadystatechange = function() {
@@ -253,11 +261,7 @@ var HttpClient = function() {
        var theurl = 'http://192.168.0.88/arduino/analog/5';
        var client = new HttpClient();
        client.get(theurl, function(response) {
-	var res = response.split("Pin A5 reads analog ");
-	
-	response = parseInt(res[1]);
-
-           if (response > 850) {
+           if (response == "Pin A5 reads analog 1023") {
                
                var HttpClient = function() {
                this.get = function(aUrl, aCallback) {
@@ -273,13 +277,11 @@ var HttpClient = function() {
                var theurl = 'http://192.168.0.89/arduino/digital/11';
                var client = new HttpClient();
                client.get(theurl, function(response) {
-var res = response.split("Pin D11 set to ");
-	
-	response = parseInt(res[1]);
-alert(response)
-                   if (response == 0) {
+                   if (response == "Pin D11 set to 0") {
 var cmd  = "!";
 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+
+
 var HttpClient = function() {
 this.get = function(aUrl, aCallback) {
 var anHttpRequest = new XMLHttpRequest();
@@ -331,6 +333,8 @@ var client = new HttpClient();
 client.get(theurl, function(response) { 
 var response1 = JSON.parse(response);
 }); 
+
+
 setTimeout(function(){ var cmd  = "~";
 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
 }, 3000);
@@ -344,6 +348,7 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                        );
                    }
                });
+<<<<<<< HEAD
            } 
            else {
                chilipeppr.publish(
@@ -515,9 +520,12 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
 
 >>>>>>> parent of ecbd7a6... Update auto-generated-widget.html
 
+=======
+>>>>>>> parent of 5bd9b82... Update auto-generated-widget.html
 
 
-           } else {
+           } 
+           else {
                chilipeppr.publish(
                            '/com-chilipeppr-elem-flashmsg/flashmsg',
                            "Estado del Husillo",

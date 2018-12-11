@@ -226,11 +226,51 @@ cpdefine("inline:com-chilipeppr-widget-husillo", ["chilipeppr_ready", /* other d
             // when the callback is called
             $('#' + this.id + ' .btn-m3').click(this.onM3BtnClick.bind(this));
             $('#' + this.id + ' .btn-m5').click(this.onM5BtnClick.bind(this));
+            $('#' + this.id + ' .btn-mjuntas').click(this.onmjuntasBtnClick.bind(this));
+            $('#' + this.id + ' .btn-mseparadas').click(this.onmseparadasBtnClick.bind(this));
 
         },
         /**
          * onHelloBtnClick is an example of a button click event callback
          */
+
+
+
+         onmjuntasBtnClick: function(evt) {
+    var cmd  = "G28.2 Y0 A0";
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+
+    var home = 0; 
+
+                
+        while (home = 0){
+
+        chilipeppr.subscribe("/dev/ttyUSB0/ws/recv", this, function (msg) {
+                this.onWsMessage(msg);
+            });
+
+        }
+
+        if (home == 1){
+
+                
+
+
+        }
+
+
+
+
+         },
+
+              onmseparadasBtnClick: function(evt) {
+
+
+
+              },
+
+
+
         onM3BtnClick: function(evt) {
 
                       
@@ -609,6 +649,8 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
             <ul class="nav nav-tabs" role="tablist">
                 <li class="active"><a href="#com-chilipeppr-widget-husillo-tab1" role="tab" data-toggle="tab">Husillo</a>
                 </li>
+                <li class="active"><a href="#com-chilipeppr-widget-husillo-tab2" role="tab" data-toggle="tab">Mesas</a>
+                </li>
 
             </ul>
             <!-- Tab panes -->
@@ -628,7 +670,13 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
 
                 <!-- Tab 2 -->
                 <div class="tab-pane" id="com-chilipeppr-widget-husillo-tab2">
-                    <p>This is the content of tab 2.</p>
+                    <p>Controles de la Mesa</p>
+                    <div class="">
+                        <button type="button" class="btn btn-xs btn-default btn-mjuntas" style="margin: 4px 0;">Juntar Mesas (Eje Y)</button>
+                    </div>
+                            <div class="">
+                        <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">Separar Mesas (Ejes Y y A)</button>
+                    </div>
                 </div>
 
                 <!-- Tab 3 -->

@@ -649,7 +649,9 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
             <ul class="nav nav-tabs" role="tablist">
                 <li class="active"><a href="#com-chilipeppr-widget-husillo-tab1" role="tab" data-toggle="tab">Husillo</a>
                 </li>
-                <li class="active"><a href="#com-chilipeppr-widget-husillo-tab2" role="tab" data-toggle="tab">Mesas</a>
+                  <li class="active"><a href="#com-chilipeppr-widget-husillo-tab2" role="tab" data-toggle="tab">Taladro</a>
+                </li>
+                <li class="active"><a href="#com-chilipeppr-widget-husillo-tab3" role="tab" data-toggle="tab">Mesas</a>
                 </li>
 
             </ul>
@@ -659,7 +661,7 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
     
                 <!-- Tab 1 -->
                 <div class="tab-pane active" id="com-chilipeppr-widget-husillo-tab1">
-                    <p>El fondo de esta pantalla, muestra el estado del husillo. En caso de estar en color verde, el husillo se encuentra activo. Caso contrario, el husillo se encuentra apagado.</p>
+                    <p>Controles del Husillo.</p>
                     <div class="">
                         <button type="button" class="btn btn-xs btn-default btn-m3" style="margin: 4px 0;">Activar Husillo</button>
                     </div>
@@ -670,18 +672,30 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
 
                 <!-- Tab 2 -->
                 <div class="tab-pane" id="com-chilipeppr-widget-husillo-tab2">
-                    <p>Controles de la Mesa</p>
+                    <p>Controles del Taladro</p>
+                    <div class="">
+                        <button type="button" class="btn btn-xs btn-default btn-mjuntas" style="margin: 4px 0;">Activar Taladro</button>
+                    </div>
+                            <div class="">
+                        <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">Desactivar Taladro</button>
+                    </div>
+                                <div class="">
+                        <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">Posición de Descanso</button>
+                    </div>
+                                <div class="">
+                        <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">Posición de Trabajo</button>
+                    </div>
+                </div>
+
+                <!-- Tab 3 -->
+                <div class="tab-pane" id="com-chilipeppr-widget-husillo-tab3">
+                      <p>Controles de la Mesa</p>
                     <div class="">
                         <button type="button" class="btn btn-xs btn-default btn-mjuntas" style="margin: 4px 0;">Juntar Mesas (Eje Y)</button>
                     </div>
                             <div class="">
                         <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">Separar Mesas (Ejes Y y A)</button>
                     </div>
-                </div>
-
-                <!-- Tab 3 -->
-                <div class="tab-pane" id="com-chilipeppr-widget-husillo-tab3">
-                    <p>This is the content of tab 3.</p>
                 </div>
 
             </div>

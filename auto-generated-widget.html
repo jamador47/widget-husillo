@@ -368,7 +368,7 @@ var client = new HttpClient();
 client.get(theurl, function(response) { 
 var response1 = JSON.parse(response);
 }); 
-document.getElementById("com-chilipeppr-widget-husillo-tab1").style.backgroundColor = "#1AEB36";
+document.getElementById("indicadorhusillo").className = "led-green";
 chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Estado del Husillo",
@@ -464,7 +464,7 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
       client.get(theurl, function(response) { 
       var response1 = JSON.parse(response);
            });
-           document.getElementById("com-chilipeppr-widget-husillo-tab1").style.backgroundColor = "white";
+           document.getElementById("indicadorhusillo").className = "led-off";
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Estado del Husillo",

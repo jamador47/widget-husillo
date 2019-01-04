@@ -269,15 +269,19 @@ cpdefine("inline:com-chilipeppr-widget-husillo", ["chilipeppr_ready", /* other d
 
                 var value = document.getElementById("brocanum").value; 
                 alert(value);
+                
 
 
               },
 
               
               bajarbrocaBtnClick: function(evt) {
+                var value = document.getElementById("brocanum").value;
+                this.broca1.bind(this);
+},
 
-
-
+broca1: function(evt) {
+                alert("BROCA 1");
 },
 
 subirtbrocaBtnClick: function(evt) {

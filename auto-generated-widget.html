@@ -651,7 +651,8 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                 </li>
 
                 <li><a href="#com-chilipeppr-widget-husillo-tab2" role="tab" data-toggle="tab">Taladro</a></li>
-                <li><a href="#com-chilipeppr-widget-husillo-tab3" role="tab" data-toggle="tab">Mesas</a></li>
+                <li><a href="#com-chilipeppr-widget-husillo-tab3" role="tab" data-toggle="tab">Brocas</a></li>
+                <li><a href="#com-chilipeppr-widget-husillo-tab4" role="tab" data-toggle="tab">Mesas</a></li>
                  
 
             </ul>
@@ -687,8 +688,22 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                     </div>
                 </div>
 
-                <!-- Tab 3 -->
                 <div class="tab-pane" id="com-chilipeppr-widget-husillo-tab3">
+                        <p>Controles de Brocas</p>
+                        <div class="">
+                            <button type="button" class="btn btn-xs btn-default btn-mjuntas" style="margin: 4px 0;">Subir Broca</button>
+
+                            <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">Bajar Broca</button>
+                        </div>
+                                    <div class="">
+                            <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">Subir todas</button>
+                       
+                            <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">bajar todas</button>
+                        </div>
+                    </div>
+
+                <!-- Tab 3 -->
+                <div class="tab-pane" id="com-chilipeppr-widget-husillo-tab4">
                       <p>Controles de la Mesa</p>
                     <div class="">
                         <button type="button" class="btn btn-xs btn-default btn-mjuntas" style="margin: 4px 0;">Juntar Mesas (Eje Y)</button>

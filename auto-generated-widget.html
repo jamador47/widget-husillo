@@ -274,6 +274,27 @@ taladroabajoBtnClick: function(evt) {
                anHttpRequest.send(null);
            }
        }
+       var theurl = 'http://192.168.0.84/arduino/digital/29';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+        var res = response.split("Pin D29 set to ");
+        response = parseInt(res[1]);
+
+        if (response == 0){
+
+
+    var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
        var theurl = 'http://192.168.0.84/arduino/digital/25/1';
        var client = new HttpClient();
        client.get(theurl, function(response) {
@@ -352,6 +373,20 @@ taladroabajoBtnClick: function(evt) {
 
 
      }, 3000);
+
+    }
+        else{
+
+            chilipeppr.publish(
+                           '/com-chilipeppr-elem-flashmsg/flashmsg',
+                           "Estado del Taladro",
+                           "Taladro en posición de trabajo",
+                           5000 /* show for 2 second */
+                       );
+
+
+        }
+       });
     
 },
 

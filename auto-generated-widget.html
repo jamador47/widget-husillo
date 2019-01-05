@@ -232,12 +232,128 @@ cpdefine("inline:com-chilipeppr-widget-husillo", ["chilipeppr_ready", /* other d
             $('#' + this.id + ' .btn-bajarbroca').click(this.bajarbrocaBtnClick.bind(this));
             $('#' + this.id + ' .btn-subirtbroca').click(this.subirtbrocaBtnClick.bind(this));
             $('#' + this.id + ' .btn-bajartbroca').click(this.bajartbrocaBtnClick.bind(this));
+            $('#' + this.id + ' .btn-taladroon').click(this.taladroonBtnClick.bind(this));
+            $('#' + this.id + ' .btn-taladrooff').click(this.taladrooffBtnClick.bind(this));
+            $('#' + this.id + ' .btn-taladroarriba').click(this.taladroarribaBtnClick.bind(this));
+            $('#' + this.id + ' .btn-taladroabajo').click(this.taladroabajoBtnClick.bind(this));
+
 
         },
         /**
          * onHelloBtnClick is an example of a button click event callback
          */
 
+//taladro encendido
+taladroonBtnClick: function(evt) {
+
+    
+    var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/25/1';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+           
+
+        setTimeout(function(){ 
+            var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/25/0';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+       });
+
+}, 2000);
+
+
+
+    });
+
+    // VALIDACION TALADRO
+
+    setTimeout(function(){ 
+
+        var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/29';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+        var res = response.split("Pin D29 set to ");
+        response = parseInt(res[1]);
+
+        if (response == 1){
+
+            document.getElementById("indicadortaladropos").className = "led-green";
+        chilipeppr.publish(
+                           '/com-chilipeppr-elem-flashmsg/flashmsg',
+                           "Estado del Taladro",
+                           "Taladro en Posición de Trabajo",
+                           5000 /* show for 2 second */
+                       );
+
+        }
+        else{
+
+            chilipeppr.publish(
+                           '/com-chilipeppr-elem-flashmsg/flashmsg',
+                           "Estado del Taladro",
+                           "Taladro no llego a posición de trabajo (I.129), revisar su estado",
+                           5000 /* show for 2 second */
+                       );
+
+
+        }
+        
+
+
+     }, 3000);
+
+
+         },
+
+//taladro apagado
+taladrooffBtnClick: function(evt) {
+
+},
+
+//subir taladro
+taladroarribaBtnClick: function(evt) {
+
+},
+
+//bajar taladro
+taladroabajoBtnClick: function(evt) {
+
+},
 
 
          onmjuntasBtnClick: function(evt) {
@@ -438,106 +554,107 @@ cpdefine("inline:com-chilipeppr-widget-husillo", ["chilipeppr_ready", /* other d
 },
 
 //bajar brocas
-bajarbroca1: function(evt) {
-                alert("BROCA 1");
-},
-bajarbroca2: function(evt) {
-                alert("BROCA 2");
-},
-bajarbroca3: function(evt) {
-                alert("BROCA 3");
-},
-bajarbroca4: function(evt) {
-                alert("BROCA 1");
-},
-bajarbroca5: function(evt) {
-                alert("BROCA 1");
-},
-bajarbroca6: function(evt) {
-                alert("BROCA 1");
-},
-bajarbroca7: function(evt) {
-                alert("BROCA 1");
-},
-bajarbroca8: function(evt) {
-                alert("BROCA 1");
-},
-bajarbroca9: function(evt) {
-                alert("BROCA 1");
-},
-bajarbroca10: function(evt) {
-                alert("BROCA 1");
-},
-bajarbroca11: function(evt) {
-                alert("BROCA 1");
-},
-bajarbroca12: function(evt) {
-                alert("BROCA 1");
-},
-bajarbroca13: function(evt) {
-                alert("BROCA 1");
-},
-bajarbroca14: function(evt) {
-                alert("BROCA 1");
-},
-bajarbroca15: function(evt) {
-                alert("BROCA 1");
-},
 bajarbroca16: function(evt) {
-                alert("BROCA 1");
+    var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/28/1';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+           
+
+        setTimeout(function(){ 
+            var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/28/0';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+        document.getElementById("ib16").className = "led-green";
+        chilipeppr.publish(
+                           '/com-chilipeppr-elem-flashmsg/flashmsg',
+                           "Estado de Brocas",
+                           "Broca 16 Abajo",
+                           2000 /* show for 2 second */
+                       );
+
+       });
+
+}, 2000);
+
+    });
+
 },
 //fin bajar brocas
 
 
 //subir brocas
 
-subirbroca1: function(evt) {
-                alert("BROCA 1");
-},
-subirbroca2: function(evt) {
-                alert("BROCA 1");
-},
-subirbroca3: function(evt) {
-                alert("BROCA 1");
-},
-subirbroca4: function(evt) {
-                alert("BROCA 1");
-},
-subirbroca5: function(evt) {
-                alert("BROCA 1");
-},
-subirbroca6: function(evt) {
-                alert("BROCA 1");
-},
-subirbroca7: function(evt) {
-                alert("BROCA 1");
-},
-subirbroca8: function(evt) {
-                alert("BROCA 1");
-},
-subirbroca9: function(evt) {
-                alert("BROCA 1");
-},
-subirbroca10: function(evt) {
-                alert("BROCA 1");
-},
-subirbroca11: function(evt) {
-                alert("BROCA 1");
-},
-subirbroca12: function(evt) {
-                alert("BROCA 1");
-},
-subirbroca13: function(evt) {
-                alert("BROCA 1");
-},
-subirbroca14: function(evt) {
-                alert("BROCA 1");
-},
-subirbroca15: function(evt) {
-                alert("BROCA 1");
-},
 subirbroca16: function(evt) {
-                alert("BROCA 1");
+    var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/10/1';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+           
+
+        setTimeout(function(){ 
+            var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/10/0';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+        document.getElementById("ib16").className = "led-off";
+        chilipeppr.publish(
+                           '/com-chilipeppr-elem-flashmsg/flashmsg',
+                           "Estado de Brocas",
+                           "Broca 16 Arriba",
+                           2000 /* show for 2 second */
+                       );
+
+       });
+
+}, 2000);
+
+    });
 },
 
 
@@ -972,15 +1089,15 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                     <p>Controles del Taladro</p>
                     <div class="" style="text-align:center">
                             <b>Activación del taladro</b>
-                        <button type="button" class="btn btn-xs btn-default btn-mjuntas" style="margin: 4px 0;">Activar Taladro</button>
+                        <button type="button" class="btn btn-xs btn-default btn-taladroon" style="margin: 4px 0;">Activar Taladro</button>
               
-                        <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">Desactivar Taladro</button>
+                        <button type="button" class="btn btn-xs btn-default btn-taladrooff" style="margin: 4px 0;">Desactivar Taladro</button>
                     </div>
                                 <div class="" style="text-align:center">
                                         <b>Posición del Taladro</b>
-                        <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">Posición de Descanso</button>
+                        <button type="button" class="btn btn-xs btn-default btn-taladroarriba" style="margin: 4px 0;">Posición de Descanso</button>
                 
-                        <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">Posición de Trabajo</button>
+                        <button type="button" class="btn btn-xs btn-default btn-taladroabajo" style="margin: 4px 0;">Posición de Trabajo</button>
                     </div>
                 </div>
 

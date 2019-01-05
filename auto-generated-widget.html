@@ -258,6 +258,135 @@ taladrooffBtnClick: function(evt) {
 //subir taladro
 taladroarribaBtnClick: function(evt) {
 
+
+
+
+    
+    var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/30';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+        var res = response.split("Pin D30 set to ");
+        response = parseInt(res[1]);
+
+        if (response == 0){
+
+
+    var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/26/1';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+           
+
+        setTimeout(function(){ 
+            var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/26/0';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+       });
+
+}, 2000);
+
+
+
+    });
+
+    // VALIDACION TALADRO
+
+     setTimeout(function(){ 
+
+        var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/30';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+        var res = response.split("Pin D30 set to ");
+        response = parseInt(res[1]);
+
+        if (response == 0){
+
+            document.getElementById("indicadortaladropos").className = "led-off";
+        chilipeppr.publish(
+                           '/com-chilipeppr-elem-flashmsg/flashmsg',
+                           "Estado del Taladro",
+                           "Taladro en Posición de Descanso",
+                           5000 /* show for 2 second */
+                       );
+
+        }
+        else{
+
+            chilipeppr.publish(
+                           '/com-chilipeppr-elem-flashmsg/flashmsg',
+                           "Estado del Taladro",
+                           "Taladro no llego a posición de descanso (I.128), revisar su estado",
+                           5000 /* show for 2 second */
+                       );
+
+
+        }
+       });
+
+
+     }, 3000);
+
+    }
+        else{
+
+            chilipeppr.publish(
+                           '/com-chilipeppr-elem-flashmsg/flashmsg',
+                           "Estado del Taladro",
+                           "Taladro en posición de trabajo",
+                           5000 /* show for 2 second */
+                       );
+
+
+        }
+       });
+
 },
 
 //bajar taladro

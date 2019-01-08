@@ -371,7 +371,7 @@ taladroarribaBtnClick: function(evt) {
        });
 
 
-     }, 3000);
+     }, 5000);
 
     }
         else{
@@ -501,7 +501,7 @@ taladroabajoBtnClick: function(evt) {
        });
 
 
-     }, 3000);
+     }, 5000);
 
     }
         else{
@@ -717,8 +717,8 @@ taladroabajoBtnClick: function(evt) {
               
 },
 
-//bajar brocas
-bajarbroca16: function(evt) {
+//subir brocas
+subirbroca16: function(evt) {
     var HttpClient = function() {
            this.get = function(aUrl, aCallback) {
                var anHttpRequest = new XMLHttpRequest();
@@ -752,11 +752,11 @@ bajarbroca16: function(evt) {
        var client = new HttpClient();
        client.get(theurl, function(response) {
 
-        document.getElementById("ib16").className = "led-green";
+        document.getElementById("ib16").className = "led-off";
         chilipeppr.publish(
                            '/com-chilipeppr-elem-flashmsg/flashmsg',
                            "Estado de Brocas",
-                           "Broca 16 Abajo",
+                           "Broca 16 Arriba",
                            2000 /* show for 2 second */
                        );
 
@@ -767,12 +767,579 @@ bajarbroca16: function(evt) {
     });
 
 },
-//fin bajar brocas
 
 
-//subir brocas
+subirbroca15: function(evt) {
+    var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/23/1';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
 
-subirbroca16: function(evt) {
+           
+
+        setTimeout(function(){ 
+            var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/23/0';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+        document.getElementById("ib15").className = "led-off";
+        chilipeppr.publish(
+                           '/com-chilipeppr-elem-flashmsg/flashmsg',
+                           "Estado de Brocas",
+                           "Broca 15 Arriba",
+                           2000 /* show for 2 second */
+                       );
+
+       });
+
+}, 2000);
+
+    });
+
+},
+
+
+subirbroca14: function(evt) {
+    var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/27/1';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+           
+
+        setTimeout(function(){ 
+            var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/27/0';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+        document.getElementById("ib14").className = "led-off";
+        chilipeppr.publish(
+                           '/com-chilipeppr-elem-flashmsg/flashmsg',
+                           "Estado de Brocas",
+                           "Broca 14 Arriba",
+                           2000 /* show for 2 second */
+                       );
+
+       });
+
+}, 2000);
+
+    });
+
+},
+
+
+
+
+subirbroca13: function(evt) {
+
+
+             
+            var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.84/arduino/digital/14/0';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+        document.getElementById("ib13").className = "led-off";
+        chilipeppr.publish(
+                           '/com-chilipeppr-elem-flashmsg/flashmsg',
+                           "Estado de Brocas",
+                           "Broca 13 Arriba",
+                           2000 /* show for 2 second */
+                       );
+
+       });
+
+
+
+
+
+},
+
+
+
+subirbroca12: function(evt) {
+
+
+             
+var HttpClient = function() {
+this.get = function(aUrl, aCallback) {
+   var anHttpRequest = new XMLHttpRequest();
+   anHttpRequest.onreadystatechange = function() {
+       if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+           aCallback(anHttpRequest.responseText);
+   }
+   anHttpRequest.open("GET", aUrl, true);
+   anHttpRequest.send(null);
+}
+}
+var theurl = 'http://192.168.0.84/arduino/digital/15/0';
+var client = new HttpClient();
+client.get(theurl, function(response) {
+
+document.getElementById("ib12").className = "led-off";
+chilipeppr.publish(
+               '/com-chilipeppr-elem-flashmsg/flashmsg',
+               "Estado de Brocas",
+               "Broca 12 Arriba",
+               2000 /* show for 2 second */
+           );
+
+});
+
+
+
+
+
+},
+
+
+
+
+subirbroca11: function(evt) {
+
+
+             
+var HttpClient = function() {
+this.get = function(aUrl, aCallback) {
+   var anHttpRequest = new XMLHttpRequest();
+   anHttpRequest.onreadystatechange = function() {
+       if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+           aCallback(anHttpRequest.responseText);
+   }
+   anHttpRequest.open("GET", aUrl, true);
+   anHttpRequest.send(null);
+}
+}
+var theurl = 'http://192.168.0.84/arduino/digital/16/0';
+var client = new HttpClient();
+client.get(theurl, function(response) {
+
+document.getElementById("ib11").className = "led-off";
+chilipeppr.publish(
+               '/com-chilipeppr-elem-flashmsg/flashmsg',
+               "Estado de Brocas",
+               "Broca 11 Arriba",
+               2000 /* show for 2 second */
+           );
+
+});
+
+
+
+
+
+},
+
+subirbroca10: function(evt) {
+
+
+             
+var HttpClient = function() {
+this.get = function(aUrl, aCallback) {
+   var anHttpRequest = new XMLHttpRequest();
+   anHttpRequest.onreadystatechange = function() {
+       if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+           aCallback(anHttpRequest.responseText);
+   }
+   anHttpRequest.open("GET", aUrl, true);
+   anHttpRequest.send(null);
+}
+}
+var theurl = 'http://192.168.0.84/arduino/digital/17/0';
+var client = new HttpClient();
+client.get(theurl, function(response) {
+
+document.getElementById("ib10").className = "led-off";
+chilipeppr.publish(
+               '/com-chilipeppr-elem-flashmsg/flashmsg',
+               "Estado de Brocas",
+               "Broca 10 Arriba",
+               2000 /* show for 2 second */
+           );
+
+});
+
+
+
+
+
+},
+
+subirbroca9: function(evt) {
+
+
+             
+var HttpClient = function() {
+this.get = function(aUrl, aCallback) {
+   var anHttpRequest = new XMLHttpRequest();
+   anHttpRequest.onreadystatechange = function() {
+       if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+           aCallback(anHttpRequest.responseText);
+   }
+   anHttpRequest.open("GET", aUrl, true);
+   anHttpRequest.send(null);
+}
+}
+var theurl = 'http://192.168.0.84/arduino/digital/18/0';
+var client = new HttpClient();
+client.get(theurl, function(response) {
+
+document.getElementById("ib9").className = "led-off";
+chilipeppr.publish(
+               '/com-chilipeppr-elem-flashmsg/flashmsg',
+               "Estado de Brocas",
+               "Broca 9 Arriba",
+               2000 /* show for 2 second */
+           );
+
+});
+
+
+
+
+
+},
+
+subirbroca8: function(evt) {
+
+
+             
+var HttpClient = function() {
+this.get = function(aUrl, aCallback) {
+   var anHttpRequest = new XMLHttpRequest();
+   anHttpRequest.onreadystatechange = function() {
+       if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+           aCallback(anHttpRequest.responseText);
+   }
+   anHttpRequest.open("GET", aUrl, true);
+   anHttpRequest.send(null);
+}
+}
+var theurl = 'http://192.168.0.84/arduino/digital/9/0';
+var client = new HttpClient();
+client.get(theurl, function(response) {
+
+document.getElementById("ib8").className = "led-off";
+chilipeppr.publish(
+               '/com-chilipeppr-elem-flashmsg/flashmsg',
+               "Estado de Brocas",
+               "Broca 8 Arriba",
+               2000 /* show for 2 second */
+           );
+
+});
+
+
+
+
+
+},
+
+subirbroca7: function(evt) {
+
+
+             
+var HttpClient = function() {
+this.get = function(aUrl, aCallback) {
+   var anHttpRequest = new XMLHttpRequest();
+   anHttpRequest.onreadystatechange = function() {
+       if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+           aCallback(anHttpRequest.responseText);
+   }
+   anHttpRequest.open("GET", aUrl, true);
+   anHttpRequest.send(null);
+}
+}
+var theurl = 'http://192.168.0.84/arduino/digital/8/0';
+var client = new HttpClient();
+client.get(theurl, function(response) {
+
+document.getElementById("ib7").className = "led-off";
+chilipeppr.publish(
+               '/com-chilipeppr-elem-flashmsg/flashmsg',
+               "Estado de Brocas",
+               "Broca 7 Arriba",
+               2000 /* show for 2 second */
+           );
+
+});
+
+
+
+
+
+},
+
+subirbroca6: function(evt) {
+
+
+             
+var HttpClient = function() {
+this.get = function(aUrl, aCallback) {
+   var anHttpRequest = new XMLHttpRequest();
+   anHttpRequest.onreadystatechange = function() {
+       if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+           aCallback(anHttpRequest.responseText);
+   }
+   anHttpRequest.open("GET", aUrl, true);
+   anHttpRequest.send(null);
+}
+}
+var theurl = 'http://192.168.0.84/arduino/digital/7/0';
+var client = new HttpClient();
+client.get(theurl, function(response) {
+
+document.getElementById("ib6").className = "led-off";
+chilipeppr.publish(
+               '/com-chilipeppr-elem-flashmsg/flashmsg',
+               "Estado de Brocas",
+               "Broca 6 Arriba",
+               2000 /* show for 2 second */
+           );
+
+});
+
+
+
+
+
+},
+
+
+subirbroca5: function(evt) {
+
+
+             
+var HttpClient = function() {
+this.get = function(aUrl, aCallback) {
+   var anHttpRequest = new XMLHttpRequest();
+   anHttpRequest.onreadystatechange = function() {
+       if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+           aCallback(anHttpRequest.responseText);
+   }
+   anHttpRequest.open("GET", aUrl, true);
+   anHttpRequest.send(null);
+}
+}
+var theurl = 'http://192.168.0.84/arduino/digital/6/0';
+var client = new HttpClient();
+client.get(theurl, function(response) {
+
+document.getElementById("ib5").className = "led-off";
+chilipeppr.publish(
+               '/com-chilipeppr-elem-flashmsg/flashmsg',
+               "Estado de Brocas",
+               "Broca 5 Arriba",
+               2000 /* show for 2 second */
+           );
+
+});
+
+
+
+
+
+},
+
+
+subirbroca4: function(evt) {
+
+
+             
+var HttpClient = function() {
+this.get = function(aUrl, aCallback) {
+   var anHttpRequest = new XMLHttpRequest();
+   anHttpRequest.onreadystatechange = function() {
+       if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+           aCallback(anHttpRequest.responseText);
+   }
+   anHttpRequest.open("GET", aUrl, true);
+   anHttpRequest.send(null);
+}
+}
+var theurl = 'http://192.168.0.84/arduino/digital/5/0';
+var client = new HttpClient();
+client.get(theurl, function(response) {
+
+document.getElementById("ib4").className = "led-off";
+chilipeppr.publish(
+               '/com-chilipeppr-elem-flashmsg/flashmsg',
+               "Estado de Brocas",
+               "Broca 4 Arriba",
+               2000 /* show for 2 second */
+           );
+
+});
+
+
+
+
+
+},
+
+subirbroca3: function(evt) {
+
+
+             
+var HttpClient = function() {
+this.get = function(aUrl, aCallback) {
+   var anHttpRequest = new XMLHttpRequest();
+   anHttpRequest.onreadystatechange = function() {
+       if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+           aCallback(anHttpRequest.responseText);
+   }
+   anHttpRequest.open("GET", aUrl, true);
+   anHttpRequest.send(null);
+}
+}
+var theurl = 'http://192.168.0.84/arduino/digital/4/0';
+var client = new HttpClient();
+client.get(theurl, function(response) {
+
+document.getElementById("ib3").className = "led-off";
+chilipeppr.publish(
+               '/com-chilipeppr-elem-flashmsg/flashmsg',
+               "Estado de Brocas",
+               "Broca 3 Arriba",
+               2000 /* show for 2 second */
+           );
+
+});
+
+
+
+
+
+},
+
+subirbroca2: function(evt) {
+
+
+             
+var HttpClient = function() {
+this.get = function(aUrl, aCallback) {
+   var anHttpRequest = new XMLHttpRequest();
+   anHttpRequest.onreadystatechange = function() {
+       if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+           aCallback(anHttpRequest.responseText);
+   }
+   anHttpRequest.open("GET", aUrl, true);
+   anHttpRequest.send(null);
+}
+}
+var theurl = 'http://192.168.0.84/arduino/digital/3/0';
+var client = new HttpClient();
+client.get(theurl, function(response) {
+
+document.getElementById("ib2").className = "led-off";
+chilipeppr.publish(
+               '/com-chilipeppr-elem-flashmsg/flashmsg',
+               "Estado de Brocas",
+               "Broca 2 Arriba",
+               2000 /* show for 2 second */
+           );
+
+});
+
+
+
+
+
+},
+
+subirbroca1: function(evt) {
+
+
+             
+var HttpClient = function() {
+this.get = function(aUrl, aCallback) {
+   var anHttpRequest = new XMLHttpRequest();
+   anHttpRequest.onreadystatechange = function() {
+       if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+           aCallback(anHttpRequest.responseText);
+   }
+   anHttpRequest.open("GET", aUrl, true);
+   anHttpRequest.send(null);
+}
+}
+var theurl = 'http://192.168.0.84/arduino/digital/2/0';
+var client = new HttpClient();
+client.get(theurl, function(response) {
+
+document.getElementById("ib1").className = "led-off";
+chilipeppr.publish(
+               '/com-chilipeppr-elem-flashmsg/flashmsg',
+               "Estado de Brocas",
+               "Broca 1 Arriba",
+               2000 /* show for 2 second */
+           );
+
+});
+
+
+
+
+
+},
+//fin subir brocas
+
+
+//bajar brocas 
+
+bajarbroca16: function(evt) {
     var HttpClient = function() {
            this.get = function(aUrl, aCallback) {
                var anHttpRequest = new XMLHttpRequest();
@@ -810,7 +1377,7 @@ subirbroca16: function(evt) {
         chilipeppr.publish(
                            '/com-chilipeppr-elem-flashmsg/flashmsg',
                            "Estado de Brocas",
-                           "Broca 16 Arriba",
+                           "Broca 16 Abajo",
                            2000 /* show for 2 second */
                        );
 

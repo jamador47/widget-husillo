@@ -246,12 +246,109 @@ cpdefine("inline:com-chilipeppr-widget-husillo", ["chilipeppr_ready", /* other d
 //taladro encendido
 taladroonBtnClick: function(evt) {
 
+
+
+    var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.88/arduino/digital/22/1';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+           
+
+        setTimeout(function(){ 
+            var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.88/arduino/digital/27/1';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+        document.getElementById("indicadortaladro").className = "led-green";
+        chilipeppr.publish(
+                           '/com-chilipeppr-elem-flashmsg/flashmsg',
+                           "Estado de Taladro",
+                           "Taladro Encendido",
+                           2000 /* show for 2 second */
+                       );
+
+       });
+
+}, 1000);
+
+    });
     
 
          },
 
 //taladro apagado
 taladrooffBtnClick: function(evt) {
+
+    
+
+    var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.88/arduino/digital/27/0';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+           
+
+        setTimeout(function(){ 
+            var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.88/arduino/digital/22/0';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+        document.getElementById("indicadortaladro").className = "led-off";
+        chilipeppr.publish(
+                           '/com-chilipeppr-elem-flashmsg/flashmsg',
+                           "Estado de Taladro",
+                           "Taladro Apagado",
+                           2000 /* show for 2 second */
+                       );
+
+       });
+
+}, 1000);
+
+    });
 
 },
 

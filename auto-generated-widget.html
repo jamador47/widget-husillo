@@ -29,6 +29,7 @@
 
     <script type='text/javascript'>
     const serialPort = "/dev/ttyUSB0";
+        const serialPort2 = "/dev/ttyACM0";
     //<![CDATA[
 /* global requirejs cprequire cpdefine chilipeppr THREE */
 // Defining the globals above helps Cloud9 not show warnings for those variables
@@ -226,6 +227,8 @@ cpdefine("inline:com-chilipeppr-widget-husillo", ["chilipeppr_ready", /* other d
             // when the callback is called
             $('#' + this.id + ' .btn-m3').click(this.onM3BtnClick.bind(this));
             $('#' + this.id + ' .btn-m5').click(this.onM5BtnClick.bind(this));
+            $('#' + this.id + ' .btn-m10').click(this.onM10BtnClick.bind(this));
+            $('#' + this.id + ' .btn-m20').click(this.onM20BtnClick.bind(this));
             $('#' + this.id + ' .btn-mjuntas').click(this.onmjuntasBtnClick.bind(this));
             $('#' + this.id + ' .btn-mseparadas').click(this.onmseparadasBtnClick.bind(this));
             $('#' + this.id + ' .btn-subirbroca').click(this.subirbrocaBtnClick.bind(this));
@@ -2169,6 +2172,155 @@ onmseparadasBtnClick: function(evt) {
 
 },
 
+        
+//Husillo descanso
+        
+        onM20BtnClick : function(evt){
+          var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.97/?cmd=s';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+           
+           res = JSON.parse(response);
+            
+           // Validación
+           
+           // Si el brazo no está extendido
+            if (parseInt(res.brazo) != 1){
+                
+                var cmd  = "!";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                
+                var cmd  = "g";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort2 + " " + cmd);
+                
+                document.getElementById("indicadorposhusillo").className = "led-off";
+                
+                chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Estado del Husillo",
+                "Husillo en posición de descanso",
+                4000 /* show for 2 second */
+            );
+                
+        setTimeout(function(){ var cmd  = "~";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+}, 3000);
+            //Continúa procedimiento
+                
+            }
+           
+           
+           
+           else{
+               // Pausa la máquina y da mensaje de alerta.
+               var cmd  = "!";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                    chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "ALARMA",
+                "Brazo extendido, Husillo no puede subir, solucione el problema y presione resumir (~) para continuar.",
+                4000 /* show for 2 second */
+            );
+               
+               
+               
+           }
+           
+
+    });
+
+
+            
+            
+        },
+        
+        
+                
+//Husillo trabajo
+        
+        onM10BtnClick : function(evt){
+     
+    var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.97/?cmd=s';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+
+           
+           res = JSON.parse(response);
+            
+           // Validación
+           
+           // Si el brazo no está extendido
+            if (parseInt(res.brazo) != 1){
+                
+                var cmd  = "!";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                
+                var cmd  = "e";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort2 + " " + cmd);
+                
+                document.getElementById("indicadorposhusillo").className = "led-green";
+                
+                chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Estado del Husillo",
+                "Husillo en posición de trabajo",
+                4000 /* show for 2 second */
+            );
+                
+        setTimeout(function(){ var cmd  = "~";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+}, 3000);
+            //Continúa procedimiento
+                
+            }
+           
+           
+           
+           else{
+               // Pausa la máquina y da mensaje de alerta.
+               var cmd  = "!";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                    chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "ALARMA",
+                "Brazo extendido, Husillo no puede bajar, solucione el problema y presione resumir (~) para continuar.",
+                4000 /* show for 2 second */
+            );
+               
+               
+               
+           }
+           
+
+    });
+
+
+            
+            
+        },
 
 
 //comenzar husillo
@@ -2366,12 +2518,7 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
       var response1 = JSON.parse(response);
            });
            document.getElementById("indicadorhusillo").className = "led-off";
-            chilipeppr.publish(
-                '/com-chilipeppr-elem-flashmsg/flashmsg',
-                "Estado del Husillo",
-                "Husillo Desactivado ",
-                2000 /* show for 2 second */
-            );
+
 
     setTimeout(function(){ var cmd  = "~";
              chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
@@ -2569,6 +2716,15 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                         <button type="button" class="btn btn-xs btn-default btn-m3" style="margin: 4px 0;">Activar Husillo</button>
              
                         <button type="button" class="btn btn-xs btn-default btn-m5" style="margin: 4px 0;">Desactivar Husillo</button>
+                        
+                        <br>
+                        
+                           <b>Posición del Husillo</b>
+                        <button type="button" class="btn btn-xs btn-default btn-m20" style="margin: 4px 0;">Descanso (m20)</button>
+             
+                        <button type="button" class="btn btn-xs btn-default btn-m10" style="margin: 4px 0;">Trabajo (m10)</button>
+                        
+                        
                     </div>
                 </div>
 

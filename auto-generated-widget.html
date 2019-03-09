@@ -2176,6 +2176,17 @@ onmseparadasBtnClick: function(evt) {
 //Husillo descanso
         
         onM20BtnClick : function(evt){
+            
+            var erroresexistentes = document.getElementById("textoalarmas").value;
+            
+            erroresexistentes = erroresexistentes.concat("\\\n");
+            
+            erroresexistentes = erroresexistentes.concat("LALA");
+         
+            document.getElementById("textoalarmas").value = erroresexistentes;
+            
+            
+            
           var HttpClient = function() {
            this.get = function(aUrl, aCallback) {
                var anHttpRequest = new XMLHttpRequest();

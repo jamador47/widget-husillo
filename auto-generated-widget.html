@@ -2176,17 +2176,18 @@ onmseparadasBtnClick: function(evt) {
 //Husillo descanso
         
         onM20BtnClick : function(evt){
-            
-            var erroresexistentes = document.getElementById("textoalarmas").value;
-          
-            
-            erroresexistentes = erroresexistentes.concat("LALA");
-            
-             
-            erroresexistentes = erroresexistentes.concat("Lolo");
          
-            document.getElementById("textoalarmas").value = erroresexistentes;
+
             
+            
+         /*   var erroresexistentes = document.getElementById("textoalarmas").value;
+            
+            alarmasexistentes = alarmasexistentes.concat("\\\n");
+            
+            alarmasexistentes = alarmasexistentes.concat("LALA");
+         
+            document.getElementById("textoalarmas").value = alarmasexistentes;
+            */
             
             
           var HttpClient = function() {
@@ -2226,7 +2227,7 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                 "Husillo en posición de descanso",
                 4000 /* show for 2 second */
             );
-                
+          
         setTimeout(function(){ var cmd  = "~";
 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
 }, 3000);
@@ -2249,6 +2250,16 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                
                
                
+               //Codigo Alarmas
+               
+                       var alarmasexistentes = document.getElementById("textoalarmas").value;
+               
+            alarmasexistentes = alarmasexistentes.concat("\\\n");
+            
+            alarmasexistentes = alarmasexistentes.concat("Brazo extendido, Husillo no puede subir, solucione el problema y presione resumir (~) para continuar.");
+                        
+           document.getElementById("textoalarmas").value = alarmasexistentes;
+          
            }
            
 
@@ -2322,6 +2333,15 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                 "Brazo extendido, Husillo no puede bajar, solucione el problema y presione resumir (~) para continuar.",
                 4000 /* show for 2 second */
             );
+               
+               
+                       var alarmasexistentes = document.getElementById("textoalarmas").value;
+               
+            alarmasexistentes = alarmasexistentes.concat("\\\n");
+            
+            alarmasexistentes = alarmasexistentes.concat("Brazo extendido, Husillo no puede bajar, solucione el problema y presione resumir (~) para continuar.");
+                        
+           document.getElementById("textoalarmas").value = alarmasexistentes;
                
                
                

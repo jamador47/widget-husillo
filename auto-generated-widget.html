@@ -2194,6 +2194,13 @@ onmseparadasBtnClick: function(evt) {
         onM20BtnClick : function(evt){
          
 
+              var alarmasexistentes = document.getElementById("textoalarmas").value;
+               
+            alarmasexistentes = alarmasexistentes.concat("\\\n");
+            
+            alarmasexistentes = alarmasexistentes.concat("Brazo extendido, Husillo no puede subir, solucione el problema y presione resumir (~) para continuar.");
+                        
+           document.getElementById("textoalarmas").value = alarmasexistentes;
             
             
          /*   var erroresexistentes = document.getElementById("textoalarmas").value;

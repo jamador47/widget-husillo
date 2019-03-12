@@ -455,6 +455,7 @@ taladroarribaBtnClick: function(evt) {
                            "Taladro en Posición de Descanso",
                            5000 /* show for 2 second */
                        );
+            
 
         }
         else{
@@ -466,6 +467,14 @@ taladroarribaBtnClick: function(evt) {
                            5000 /* show for 2 second */
                        );
 
+               
+               var alarmasexistentes = document.getElementById("textoalarmas").value;
+               
+            alarmasexistentes = alarmasexistentes.concat("\\\n");
+            
+            alarmasexistentes = alarmasexistentes.concat("Taladro no llego a posición de descanso (I.128), revisar su estado");
+                        
+           document.getElementById("textoalarmas").value = alarmasexistentes;
 
         }
        });
@@ -595,6 +604,13 @@ taladroabajoBtnClick: function(evt) {
                            "Taladro no llego a posición de trabajo (I.129), revisar su estado",
                            5000 /* show for 2 second */
                        );
+             var alarmasexistentes = document.getElementById("textoalarmas").value;
+               
+            alarmasexistentes = alarmasexistentes.concat("\\\n");
+            
+            alarmasexistentes = alarmasexistentes.concat("Taladro no llego a posición de trabajo (I.129), revisar su estado");
+                        
+           document.getElementById("textoalarmas").value = alarmasexistentes;
 
 
         }
@@ -2473,6 +2489,14 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                            "El husillo no está desbloqueado (I.99) ",
                            2000 /* show for 2 second */
                        );
+                           
+                            var alarmasexistentes = document.getElementById("textoalarmas").value;
+               
+            alarmasexistentes = alarmasexistentes.concat("\\\n");
+            
+            alarmasexistentes = alarmasexistentes.concat("El husillo no está desbloqueado (I.99).");
+                        
+           document.getElementById("textoalarmas").value = alarmasexistentes;
                    }
                });
            } 
@@ -2483,6 +2507,14 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                            "El Husillo no está desocupado (I.19) ",
                            2000 /* show for 2 second */
                        );
+               
+               var alarmasexistentes = document.getElementById("textoalarmas").value;
+               
+            alarmasexistentes = alarmasexistentes.concat("\\\n");
+            
+            alarmasexistentes = alarmasexistentes.concat("El Husillo no está desocupado (I.19)");
+                        
+           document.getElementById("textoalarmas").value = alarmasexistentes;
            }
        });
 

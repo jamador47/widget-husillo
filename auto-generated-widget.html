@@ -226,6 +226,19 @@ cpdefine("inline:com-chilipeppr-widget-husillo", ["chilipeppr_ready", /* other d
             // of the slick .bind(this) technique to correctly set "this"
             // when the callback is called
             $('#' + this.id + ' .btn-m3').click(this.onM3BtnClick.bind(this));
+            
+            $('#' + this.id + ' .btn-origen1').click(this.origen1.bind(this));
+            $('#' + this.id + ' .btn-origen2').click(this.origen2.bind(this));
+            
+            $('#' + this.id + ' .btn-origen3').click(this.origen3.bind(this));
+            
+            $('#' + this.id + ' .btn-origen4').click(this.origen4.bind(this));
+            
+            $('#' + this.id + ' .btn-origen5').click(this.origen5.bind(this));
+            
+            $('#' + this.id + ' .btn-origen6').click(this.origen6.bind(this));
+            
+            
             $('#' + this.id + ' .btn-m5').click(this.onM5BtnClick.bind(this));
             $('#' + this.id + ' .btn-m10').click(this.onM10BtnClick.bind(this));
             $('#' + this.id + ' .btn-m20').click(this.onM20BtnClick.bind(this));
@@ -2187,6 +2200,161 @@ onmseparadasBtnClick: function(evt) {
 
 
 },
+        
+        
+        
+// Origen 1
+        
+
+origen1: function(evt) {
+    
+    var cmd = "G10 L2 P1 X";
+    cmd = cmd.concat(document.getElementById("x1").value);
+    cmd = cmd.concat(" Y");
+    cmd = cmd.concat(document.getElementById("y1").value);
+    cmd = cmd.concat(" Z");
+    cmd = cmd.concat(document.getElementById("z1").value);
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+    
+    
+     cmd = "G54";
+
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+   
+              chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Tabla de Origenes",
+                "Coordenadas 1 seleccionadas",
+                4000 /* show for 2 second */
+            );
+
+},
+
+        origen2: function(evt) {
+    
+    var cmd = "G10 L2 P2 X";
+    cmd = cmd.concat(document.getElementById("x2").value);
+    cmd = cmd.concat(" Y");
+    cmd = cmd.concat(document.getElementById("y2").value);
+    cmd = cmd.concat(" Z");
+    cmd = cmd.concat(document.getElementById("z2").value);
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+    
+    
+     cmd = "G55";
+
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+   
+              chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Tabla de Origenes",
+                "Coordenadas 2 seleccionadas",
+                4000 /* show for 2 second */
+            );
+
+},
+        
+                origen3: function(evt) {
+    
+    var cmd = "G10 L2 P3 X";
+    cmd = cmd.concat(document.getElementById("x3").value);
+    cmd = cmd.concat(" Y");
+    cmd = cmd.concat(document.getElementById("y3").value);
+    cmd = cmd.concat(" Z");
+    cmd = cmd.concat(document.getElementById("z3").value);
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+    
+    
+     cmd = "G56";
+
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+   
+              chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Tabla de Origenes",
+                "Coordenadas 3 seleccionadas",
+                4000 /* show for 2 second */
+            );
+
+},
+        
+                origen4: function(evt) {
+    
+    var cmd = "G10 L2 P4 X";
+    cmd = cmd.concat(document.getElementById("x4").value);
+    cmd = cmd.concat(" Y");
+    cmd = cmd.concat(document.getElementById("y4").value);
+    cmd = cmd.concat(" Z");
+    cmd = cmd.concat(document.getElementById("z4").value);
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+    
+    
+     cmd = "G57";
+
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+   
+              chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Tabla de Origenes",
+                "Coordenadas 4 seleccionadas",
+                4000 /* show for 2 second */
+            );
+
+},
+        
+        
+                origen5: function(evt) {
+    
+    var cmd = "G10 L2 P5 X";
+    cmd = cmd.concat(document.getElementById("x5").value);
+    cmd = cmd.concat(" Y");
+    cmd = cmd.concat(document.getElementById("y5").value);
+    cmd = cmd.concat(" Z");
+    cmd = cmd.concat(document.getElementById("z5").value);
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+    
+    
+     cmd = "G58";
+
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+   
+              chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Tabla de Origenes",
+                "Coordenadas 5 seleccionadas",
+                4000 /* show for 2 second */
+            );
+
+},
+        
+        
+        
+                origen6: function(evt) {
+    
+    var cmd = "G10 L2 P6 X";
+    cmd = cmd.concat(document.getElementById("x6").value);
+    cmd = cmd.concat(" Y");
+    cmd = cmd.concat(document.getElementById("y6").value);
+    cmd = cmd.concat(" Z");
+    cmd = cmd.concat(document.getElementById("z6").value);
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+    
+    
+     cmd = "G59";
+
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+   
+              chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Tabla de Origenes",
+                "Coordenadas 6 seleccionadas",
+                4000 /* show for 2 second */
+            );
+
+},
+        
+        
+        
 
         
 //Husillo descanso
@@ -2860,14 +3028,14 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                               <div class="tab-pane" id="com-chilipeppr-widget-husillo-tab5">
                      
                     <div class="" style="text-align:center">
-                            <b>Tabla de Origenes Activos</b>
+                            <b>Tabla de Origenes Activos v1.0</b>
                            </div>  
                                   
                                   <div class="" style="text-align:left">
                                        <b>Origen 1</b> <button type="button" class="btn btn-xs btn-default btn-origen1" style="margin: 4px 0;">Usar este Origen</button><br>
                                 
-                        Eje X<input type="text" id="x1"><br>
-                        Eje Y<input type="text" id="y1"><br>
+                        Eje X (Negativo)<input type="text" id="x1"><br>
+                        Eje Y (positivo)<input type="text" id="y1"><br>
                         Eje Z<input type="text" id="z1"><br>
             <br>
                   </div>
@@ -2875,8 +3043,8 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                                                         <div class="" style="text-align:left">
                                        <b>Origen 2</b> <button type="button" class="btn btn-xs btn-default btn-origen2" style="margin: 4px 0;">Usar este Origen</button><br>
                                 
-                        Eje X<input type="text" id="x2"><br>
-                        Eje Y<input type="text" id="y2"><br>
+                        Eje X (Negativo)<input type="text" id="x2"><br>
+                        Eje Y (positivo)<input type="text" id="y2"><br>
                         Eje Z<input type="text" id="z2"><br>
             <br>
                   </div>
@@ -2885,32 +3053,32 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                                                         <div class="" style="text-align:left">
                                        <b>Origen 3</b> <button type="button" class="btn btn-xs btn-default btn-origen3" style="margin: 4px 0;">Usar este Origen</button><br>
                                 
-                        Eje X<input type="text" id="x3"><br>
-                        Eje Y<input type="text" id="y3"><br>
+                        Eje X (Negativo)<input type="text" id="x3"><br>
+                        Eje Y (positivo)<input type="text" id="y3"><br>
                         Eje Z<input type="text" id="z3"><br>
             <br>
                   </div>
                                                         <div class="" style="text-align:left">
                                        <b>Origen 4</b> <button type="button" class="btn btn-xs btn-default btn-origen4" style="margin: 4px 0;">Usar este Origen</button><br>
                                 
-                        Eje X<input type="text" id="x4"><br>
-                        Eje Y<input type="text" id="y4"><br>
+                        Eje X (Negativo)<input type="text" id="x4"><br>
+                        Eje Y (positivo)<input type="text" id="y4"><br>
                         Eje Z<input type="text" id="z4"><br>
             <br>
                   </div>
                                                         <div class="" style="text-align:left">
                                        <b>Origen 5</b> <button type="button" class="btn btn-xs btn-default btn-origen5" style="margin: 4px 0;">Usar este Origen</button><br>
                                 
-                        Eje X<input type="text" id="x5"><br>
-                        Eje Y<input type="text" id="y5"><br>
+                        Eje X (Negativo)<input type="text" id="x5"><br>
+                        Eje Y (positivo)<input type="text" id="y5"><br>
                         Eje Z<input type="text" id="z5"><br>
             <br>
                   </div>
                                                         <div class="" style="text-align:left">
                                        <b>Origen 6</b> <button type="button" class="btn btn-xs btn-default btn-origen6" style="margin: 4px 0;">Usar este Origen</button><br>
                                 
-                        Eje X<input type="text" id="x6"><br>
-                        Eje Y<input type="text" id="y6"><br>
+                        Eje X(Negativo)<input type="text" id="x6"><br>
+                        Eje Y (positivo)<input type="text" id="y6"><br>
                         Eje Z<input type="text" id="z6"><br>
             <br>
                   </div>

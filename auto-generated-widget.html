@@ -657,8 +657,9 @@ taladroabajoBtnClick: function(evt) {
     var home = 0; 
                 
         while (home = 0){
-        chilipeppr.subscribe("/dev/ttyUSB0/ws/recv", this, function (msg) {
-                this.onWsMessage(
+            chilipeppr.subscribe("/com-chilipeppr-widget-serialport/ws/recv", this, function(msg) {
+    macro.status(msg);
+    })
                     
                     
                     
@@ -748,8 +749,7 @@ taladroabajoBtnClick: function(evt) {
                     
               
               */
-                );
-            });
+          
 
         }
 

@@ -650,14 +650,105 @@ taladroabajoBtnClick: function(evt) {
 
 
          onmjuntasBtnClick: function(evt) {
-    var cmd  = "G28.2 Y0 A0";
+    
+             var cmd  = "G28.2 Y0 A0";
     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
 
     var home = 0; 
                 
         while (home = 0){
         chilipeppr.subscribe("/dev/ttyUSB0/ws/recv", this, function (msg) {
-                this.onWsMessage(msg);
+                this.onWsMessage(
+                    
+                    
+                    
+                    /*
+                    var cmd  = "$3ma=1";
+                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                    
+                      var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.82/arduino/digital/3/1';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+                
+                
+                            setTimeout(function(){ 
+                        var HttpClient = function() {
+                       this.get = function(aUrl, aCallback) {
+                           var anHttpRequest = new XMLHttpRequest();
+                           anHttpRequest.onreadystatechange = function() {
+                               if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                   aCallback(anHttpRequest.responseText);
+                           }
+                           anHttpRequest.open("GET", aUrl, true);
+                           anHttpRequest.send(null);
+                       }
+                   }
+                   var theurl = 'http://192.168.0.82/arduino/digital/3/0';
+                   var client = new HttpClient();
+                   client.get(theurl, function(response) {
+
+                                          setTimeout(function(){ 
+                                        var HttpClient = function() {
+                                       this.get = function(aUrl, aCallback) {
+                                           var anHttpRequest = new XMLHttpRequest();
+                                           anHttpRequest.onreadystatechange = function() {
+                                               if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                                   aCallback(anHttpRequest.responseText);
+                                           }
+                                           anHttpRequest.open("GET", aUrl, true);
+                                           anHttpRequest.send(null);
+                                       }
+                                   }
+                                   var theurl = 'http://192.168.0.82/arduino/analog/12';
+                                   var client = new HttpClient();
+                                   client.get(theurl, function(response) {
+                                   
+                                   
+                                   var res = response.split("Pin A5 reads analog ");
+	
+                                        response = parseInt(res[1]);
+
+                                               if (response > 850) {
+
+
+                                            document.getElementById("indicadormesas").className = "led-on";
+                                            chilipeppr.publish(
+                                                               '/com-chilipeppr-elem-flashmsg/flashmsg',
+                                                               "Mesas",
+                                                               "Mesas en modo gantry",
+                                                               2000 
+                                                           );
+                                                            }
+                                                            
+                                                else{
+                                                
+                                                
+                                                ACA VA LA PARTE QUE MANDA EL ERROR.
+                                                
+                                                }
+                                        
+                   });
+
+            }, 1000);
+                
+                        
+
+            }
+                    
+              
+              */
+                );
             });
 
         }
@@ -2197,6 +2288,91 @@ this.bajarbroca16();
 //Separar mesas
 onmseparadasBtnClick: function(evt) {
 
+    /*
+                    var cmd  = "$3ma=1";
+                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                    
+                      var HttpClient = function() {
+           this.get = function(aUrl, aCallback) {
+               var anHttpRequest = new XMLHttpRequest();
+               anHttpRequest.onreadystatechange = function() {
+                   if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                       aCallback(anHttpRequest.responseText);
+               }
+               anHttpRequest.open("GET", aUrl, true);
+               anHttpRequest.send(null);
+           }
+       }
+       var theurl = 'http://192.168.0.82/arduino/digital/3/1';
+       var client = new HttpClient();
+       client.get(theurl, function(response) {
+                
+                
+                            setTimeout(function(){ 
+                        var HttpClient = function() {
+                       this.get = function(aUrl, aCallback) {
+                           var anHttpRequest = new XMLHttpRequest();
+                           anHttpRequest.onreadystatechange = function() {
+                               if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                   aCallback(anHttpRequest.responseText);
+                           }
+                           anHttpRequest.open("GET", aUrl, true);
+                           anHttpRequest.send(null);
+                       }
+                   }
+                   var theurl = 'http://192.168.0.82/arduino/digital/3/0';
+                   var client = new HttpClient();
+                   client.get(theurl, function(response) {
+
+                                          setTimeout(function(){ 
+                                        var HttpClient = function() {
+                                       this.get = function(aUrl, aCallback) {
+                                           var anHttpRequest = new XMLHttpRequest();
+                                           anHttpRequest.onreadystatechange = function() {
+                                               if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                                   aCallback(anHttpRequest.responseText);
+                                           }
+                                           anHttpRequest.open("GET", aUrl, true);
+                                           anHttpRequest.send(null);
+                                       }
+                                   }
+                                   var theurl = 'http://192.168.0.82/arduino/analog/12';
+                                   var client = new HttpClient();
+                                   client.get(theurl, function(response) {
+                                   
+                                   
+                                   var res = response.split("Pin A5 reads analog ");
+	
+                                        response = parseInt(res[1]);
+
+                                               if (response > 850) {
+
+
+                                            document.getElementById("indicadormesas").className = "led-on";
+                                            chilipeppr.publish(
+                                                               '/com-chilipeppr-elem-flashmsg/flashmsg',
+                                                               "Mesas",
+                                                               "Mesas en modo gantry",
+                                                               2000 
+                                                           );
+                                                            }
+                                                            
+                                                else{
+                                                
+                                                
+                                                ACA VA LA PARTE QUE MANDA EL ERROR.
+                                                
+                                                }
+                                        
+                   });
+
+            }, 1000);
+                
+                        
+
+            }
+            
+            */
 
 
 },
@@ -3019,9 +3195,9 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                      
                     <div class="" style="text-align:center">
                             <b>Controles de la Mesa</b>
-                        <button type="button" class="btn btn-xs btn-default btn-mjuntas" style="margin: 4px 0;">Juntar Mesas (Eje Y)</button>
+                        <button type="button" class="btn btn-xs btn-default btn-mjuntas" style="margin: 4px 0;">Juntar Mesas (G82)</button>
                 
-                        <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">Separar Mesas (Ejes Y y A)</button>
+                        <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">Separar Mesas (G83)</button>
                     </div>
                 </div>
                 

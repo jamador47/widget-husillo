@@ -674,7 +674,7 @@
 
                     var cmd = "G53 G0 Z0";
                     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
-                    var cmd = "G53 G0 Y0 A0";
+                    var cmd = "G53 G90 Y0 A0";
                     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
                     var homy = 0;
                     var homa = 0;

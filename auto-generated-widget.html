@@ -437,9 +437,71 @@
                                     var client = new HttpClient();
                                     client.get(theurl, function (response) {
 
+                                        setTimeout(function () {
+
+                                            var HttpClient = function () {
+                                                this.get = function (aUrl, aCallback) {
+                                                    var anHttpRequest = new XMLHttpRequest();
+                                                    anHttpRequest.onreadystatechange = function () {
+                                                        if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                                            aCallback(anHttpRequest.responseText);
+                                                    }
+                                                    anHttpRequest.open("GET", aUrl, true);
+                                                    anHttpRequest.send(null);
+                                                }
+                                            }
+                                            var theurl = 'http://192.168.0.84/arduino/digital/30';
+                                            var client = new HttpClient();
+                                            client.get(theurl, function (response) {
+
+                                                var res = response.split("Pin D30 set to ");
+                                                response = parseInt(res[1]);
+
+                                                if (response == 1) {
+
+                                                    document.getElementById("indicadortaladropos").className = "led-off";
+                                                    chilipeppr.publish(
+                                                        '/com-chilipeppr-elem-flashmsg/flashmsg',
+                                                        "Estado del Taladro",
+                                                        "Taladro en Posición de Descanso",
+                                                        5000 /* show for 2 second */
+                                                    );
+
+
+                                                }
+                                                else {
+
+                                                    chilipeppr.publish(
+                                                        '/com-chilipeppr-elem-flashmsg/flashmsg',
+                                                        "Estado del Taladro",
+                                                        "Taladro no llego a posición de descanso (I.128), revisar su estado",
+                                                        5000 /* show for 2 second */
+                                                    );
+
+
+                                                    var alarmasexistentes = document.getElementById("textoalarmas").value;
+                                                    document.getElementById("indicadoralarma").className = "led-yellow";
+                                                    alarmasexistentes = alarmasexistentes.concat("\\\n\\\n");
+
+                                                    alarmasexistentes = alarmasexistentes.concat("Taladro no llego a posición de descanso (I.128), revisar su estado");
+
+                                                    document.getElementById("textoalarmas").value = alarmasexistentes;
+
+                                                }
+                                            });
+
+
+                                        }, 4000);
+
                                     });
 
                                 }, 2000);
+
+
+
+                                // VALIDACION
+
+
 
 
 
@@ -447,61 +509,7 @@
 
                             // VALIDACION TALADRO
 
-                            setTimeout(function () {
 
-                                var HttpClient = function () {
-                                    this.get = function (aUrl, aCallback) {
-                                        var anHttpRequest = new XMLHttpRequest();
-                                        anHttpRequest.onreadystatechange = function () {
-                                            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                                                aCallback(anHttpRequest.responseText);
-                                        }
-                                        anHttpRequest.open("GET", aUrl, true);
-                                        anHttpRequest.send(null);
-                                    }
-                                }
-                                var theurl = 'http://192.168.0.84/arduino/digital/30';
-                                var client = new HttpClient();
-                                client.get(theurl, function (response) {
-
-                                    var res = response.split("Pin D30 set to ");
-                                    response = parseInt(res[1]);
-
-                                    if (response == 1) {
-
-                                        document.getElementById("indicadortaladropos").className = "led-off";
-                                        chilipeppr.publish(
-                                            '/com-chilipeppr-elem-flashmsg/flashmsg',
-                                            "Estado del Taladro",
-                                            "Taladro en Posición de Descanso",
-                                            5000 /* show for 2 second */
-                                        );
-
-
-                                    }
-                                    else {
-
-                                        chilipeppr.publish(
-                                            '/com-chilipeppr-elem-flashmsg/flashmsg',
-                                            "Estado del Taladro",
-                                            "Taladro no llego a posición de descanso (I.128), revisar su estado",
-                                            5000 /* show for 2 second */
-                                        );
-
-
-                                        var alarmasexistentes = document.getElementById("textoalarmas").value;
-                                        document.getElementById("indicadoralarma").className = "led-yellow";
-                                        alarmasexistentes = alarmasexistentes.concat("\\\n\\\n");
-
-                                        alarmasexistentes = alarmasexistentes.concat("Taladro no llego a posición de descanso (I.128), revisar su estado");
-
-                                        document.getElementById("textoalarmas").value = alarmasexistentes;
-
-                                    }
-                                });
-
-
-                            }, 5000);
 
                         }
                         else {
@@ -509,7 +517,7 @@
                             chilipeppr.publish(
                                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                                 "Estado del Taladro",
-                                "Taladro en posición de trabajo",
+                                "Taladro en posición de descanso",
                                 5000 /* show for 2 second */
                             );
 
@@ -576,6 +584,60 @@
                                     var client = new HttpClient();
                                     client.get(theurl, function (response) {
 
+                                        setTimeout(function () {
+
+                                            var HttpClient = function () {
+                                                this.get = function (aUrl, aCallback) {
+                                                    var anHttpRequest = new XMLHttpRequest();
+                                                    anHttpRequest.onreadystatechange = function () {
+                                                        if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                                            aCallback(anHttpRequest.responseText);
+                                                    }
+                                                    anHttpRequest.open("GET", aUrl, true);
+                                                    anHttpRequest.send(null);
+                                                }
+                                            }
+                                            var theurl = 'http://192.168.0.84/arduino/digital/29';
+                                            var client = new HttpClient();
+                                            client.get(theurl, function (response) {
+
+                                                var res = response.split("Pin D29 set to ");
+                                                response = parseInt(res[1]);
+
+                                                if (response == 1) {
+
+                                                    document.getElementById("indicadortaladropos").className = "led-green";
+                                                    chilipeppr.publish(
+                                                        '/com-chilipeppr-elem-flashmsg/flashmsg',
+                                                        "Estado del Taladro",
+                                                        "Taladro en Posición de Trabajo",
+                                                        5000 /* show for 2 second */
+                                                    );
+
+                                                }
+                                                else {
+
+                                                    chilipeppr.publish(
+                                                        '/com-chilipeppr-elem-flashmsg/flashmsg',
+                                                        "Estado del Taladro",
+                                                        "Taladro no llego a posición de trabajo (I.129), revisar su estado",
+                                                        5000 /* show for 2 second */
+                                                    );
+                                                    var alarmasexistentes = document.getElementById("textoalarmas").value;
+                                                    document.getElementById("indicadoralarma").className = "led-yellow";
+                                                    alarmasexistentes = alarmasexistentes.concat("\\\n\\\n");
+
+                                                    alarmasexistentes = alarmasexistentes.concat("Taladro no llego a posición de trabajo (I.129), revisar su estado");
+
+                                                    document.getElementById("textoalarmas").value = alarmasexistentes;
+
+
+                                                }
+                                            });
+
+
+                                        }, 5000);
+
                                     });
 
                                 }, 2000);
@@ -586,59 +648,7 @@
 
                             // VALIDACION TALADRO
 
-                            setTimeout(function () {
 
-                                var HttpClient = function () {
-                                    this.get = function (aUrl, aCallback) {
-                                        var anHttpRequest = new XMLHttpRequest();
-                                        anHttpRequest.onreadystatechange = function () {
-                                            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                                                aCallback(anHttpRequest.responseText);
-                                        }
-                                        anHttpRequest.open("GET", aUrl, true);
-                                        anHttpRequest.send(null);
-                                    }
-                                }
-                                var theurl = 'http://192.168.0.84/arduino/digital/29';
-                                var client = new HttpClient();
-                                client.get(theurl, function (response) {
-
-                                    var res = response.split("Pin D29 set to ");
-                                    response = parseInt(res[1]);
-
-                                    if (response == 1) {
-
-                                        document.getElementById("indicadortaladropos").className = "led-green";
-                                        chilipeppr.publish(
-                                            '/com-chilipeppr-elem-flashmsg/flashmsg',
-                                            "Estado del Taladro",
-                                            "Taladro en Posición de Trabajo",
-                                            5000 /* show for 2 second */
-                                        );
-
-                                    }
-                                    else {
-
-                                        chilipeppr.publish(
-                                            '/com-chilipeppr-elem-flashmsg/flashmsg',
-                                            "Estado del Taladro",
-                                            "Taladro no llego a posición de trabajo (I.129), revisar su estado",
-                                            5000 /* show for 2 second */
-                                        );
-                                        var alarmasexistentes = document.getElementById("textoalarmas").value;
-                                        document.getElementById("indicadoralarma").className = "led-yellow";
-                                        alarmasexistentes = alarmasexistentes.concat("\\\n\\\n");
-
-                                        alarmasexistentes = alarmasexistentes.concat("Taladro no llego a posición de trabajo (I.129), revisar su estado");
-
-                                        document.getElementById("textoalarmas").value = alarmasexistentes;
-
-
-                                    }
-                                });
-
-
-                            }, 5000);
 
                         }
                         else {
@@ -781,8 +791,8 @@
                 },
 
 
-/************************************************************/
-bajarstopa1BtnClick: function (evt) {
+                /************************************************************/
+                bajarstopa1BtnClick: function (evt) {
                     var value = document.getElementById("stopa1num").value;
                     switch (value) {
                         case "1":
@@ -792,7 +802,7 @@ bajarstopa1BtnClick: function (evt) {
                             this.bajarstopa1f2();
                             break;
                         case "3":
-                        this.bajarstopa1l1();
+                            this.bajarstopa1l1();
 
                             break;
                         default:
@@ -800,7 +810,7 @@ bajarstopa1BtnClick: function (evt) {
                     }
                 },
 
-    
+
                 bajarstopa2BtnClick: function (evt) {
                     var value = document.getElementById("stopa2num").value;
                     switch (value) {
@@ -811,11 +821,11 @@ bajarstopa1BtnClick: function (evt) {
                             this.bajarstopa2f2();
                             break;
                         case "3":
-                        this.bajarstopa2l1();
+                            this.bajarstopa2l1();
 
                             break;
                         case "4":
-                        this.bajarstopa2l2();
+                            this.bajarstopa2l2();
 
                             break;
                         default:
@@ -831,10 +841,10 @@ bajarstopa1BtnClick: function (evt) {
                             this.bajarstopy1f1();
                             break;
                         case "2":
-                        this.bajarstopy1f2();
+                            this.bajarstopy1f2();
                             break;
                         case "3":
-                        this.bajarstopy1l1();
+                            this.bajarstopy1l1();
                             break;
 
                         default:
@@ -849,14 +859,14 @@ bajarstopa1BtnClick: function (evt) {
                             this.bajarstopy2f1();
                             break;
                         case "2":
-                        this.bajarstopy2f2();
+                            this.bajarstopy2f2();
                             break;
                         case "3":
-                        this.bajarstopy2l1();
+                            this.bajarstopy2l1();
                             break;
                         case "4":
-                        this.bajarstopy2l2();  
-                                                  break;
+                            this.bajarstopy2l2();
+                            break;
                         default:
                             value = "papas";
                     }
@@ -872,7 +882,7 @@ bajarstopa1BtnClick: function (evt) {
                             this.subirstopa1f2();
                             break;
                         case "3":
-                        this.subirstopa1l1();
+                            this.subirstopa1l1();
 
                             break;
                         default:
@@ -880,7 +890,7 @@ bajarstopa1BtnClick: function (evt) {
                     }
                 },
 
-    
+
                 subirstopa2BtnClick: function (evt) {
                     var value = document.getElementById("stopa2num").value;
                     switch (value) {
@@ -891,11 +901,11 @@ bajarstopa1BtnClick: function (evt) {
                             this.subirstopa2f2();
                             break;
                         case "3":
-                        this.subirstopa2l1();
+                            this.subirstopa2l1();
 
                             break;
                         case "4":
-                        this.subirstopa2l2();
+                            this.subirstopa2l2();
 
                             break;
                         default:
@@ -911,10 +921,10 @@ bajarstopa1BtnClick: function (evt) {
                             this.subirstopy1f1();
                             break;
                         case "2":
-                        this.subirstopy1f2();
+                            this.subirstopy1f2();
                             break;
                         case "3":
-                        this.subirstopy1l1();
+                            this.subirstopy1l1();
                             break;
 
                         default:
@@ -929,14 +939,14 @@ bajarstopa1BtnClick: function (evt) {
                             this.subirstopy2f1();
                             break;
                         case "2":
-                        this.subirstopy2f2();
+                            this.subirstopy2f2();
                             break;
                         case "3":
-                        this.subirstopy2l1();
+                            this.subirstopy2l1();
                             break;
                         case "4":
-                        this.subirstopy2l2();  
-                                                  break;
+                            this.subirstopy2l2();
+                            break;
                         default:
                             value = "papas";
                     }
@@ -945,7 +955,7 @@ bajarstopa1BtnClick: function (evt) {
 
 
 
-/**************************************************************/
+                /**************************************************************/
 
 
 
@@ -3440,11 +3450,11 @@ bajarstopa1BtnClick: function (evt) {
 
                         <button type="button" class="btn btn-xs btn-default btn-mseparadas"
                             style="margin: 4px 0;">Separar Mesas (G83)</button>
-                    </div>  
+                    </div>
                     <br>
-                    
+
                     <div class="" style="text-align:center">
-    
+
                         <b>Control Individual de posicionadores Mesa A Area 1</b>
                         <br>
                         <select id="stopa1num">
@@ -3452,63 +3462,71 @@ bajarstopa1BtnClick: function (evt) {
                             <option value="2">Posicionador Frontal 2</option>
                             <option value="3">Posicionador Lateral</option>
                         </select>
-                        
-                        <button type="button" class="btn btn-xs btn-default btn-subirstopa1" style="margin: 4px 0;">Subir
+
+                        <button type="button" class="btn btn-xs btn-default btn-subirstopa1"
+                            style="margin: 4px 0;">Subir
                             Posicionador</button>
 
-                        <button type="button" class="btn btn-xs btn-default btn-bajarstopa1" style="margin: 4px 0;">Bajar
+                        <button type="button" class="btn btn-xs btn-default btn-bajarstopa1"
+                            style="margin: 4px 0;">Bajar
                             Posicionador</button>
 
-                            <br>
-                            <b>Control Individual de posicionadores Mesa A Area 2</b>
-                            <br>
-                            <select id="stopa2num">
-                                <option value="1">Posicionador Frontal 1</option>
-                                <option value="2">Posicionador Frontal 2</option>
-                                <option value="3">Posicionador Lateral 1</option>
-                                <option value="4">Posicionador Lateral 2</option>
-                            </select>
-                            
-                            <button type="button" class="btn btn-xs btn-default btn-subirstopa2" style="margin: 4px 0;">Subir
-                                Posicionador</button>
-    
-                            <button type="button" class="btn btn-xs btn-default btn-bajarstopa2" style="margin: 4px 0;">Bajar
-                                Posicionador</button>
-                                <br>
-                                <br>
-                                <br>
-                                <b>Control Individual de posicionadores Mesa Y Area 1</b>
-                                <br>
-                                <select id="stopy1num">
-                                    <option value="1">Posicionador Frontal 1</option>
-                                    <option value="2">Posicionador Frontal 2</option>
-                                    <option value="3">Posicionador lateral</option>
-                                    
-                                </select>
-                                
-                                <button type="button" class="btn btn-xs btn-default btn-subirstopy1" style="margin: 4px 0;">Subir
-                                    Posicionador</button>
-        
-                                <button type="button" class="btn btn-xs btn-default btn-bajarstopy1" style="margin: 4px 0;">Bajar
-                                    Posicionador</button>
-                                    <br>
-        
-                                    <b>Control Individual de posicionadores Mesa Y Area 2</b>
-                                    <br>
-                                    <select id="stopy2num">
-                                        <option value="1">Posicionador Frontal 1</option>
-                                        <option value="2">Posicionador Frontal 2</option>
-                                        <option value="3">Posicionador Lateral 1</option>
-                                        <option value="4">Posicionador Lateral 2</option>
-                                        
-                                    </select>
-                                    
-                                    <button type="button" class="btn btn-xs btn-default btn-subirstopy2" style="margin: 4px 0;">Subir
-                                        Posicionador</button>
-            
-                                    <button type="button" class="btn btn-xs btn-default btn-bajarstopy2" style="margin: 4px 0;">Bajar
-                                        Posicionador</button>
-                                        <br>
+                        <br>
+                        <b>Control Individual de posicionadores Mesa A Area 2</b>
+                        <br>
+                        <select id="stopa2num">
+                            <option value="1">Posicionador Frontal 1</option>
+                            <option value="2">Posicionador Frontal 2</option>
+                            <option value="3">Posicionador Lateral 1</option>
+                            <option value="4">Posicionador Lateral 2</option>
+                        </select>
+
+                        <button type="button" class="btn btn-xs btn-default btn-subirstopa2"
+                            style="margin: 4px 0;">Subir
+                            Posicionador</button>
+
+                        <button type="button" class="btn btn-xs btn-default btn-bajarstopa2"
+                            style="margin: 4px 0;">Bajar
+                            Posicionador</button>
+                        <br>
+                        <br>
+                        <br>
+                        <b>Control Individual de posicionadores Mesa Y Area 1</b>
+                        <br>
+                        <select id="stopy1num">
+                            <option value="1">Posicionador Frontal 1</option>
+                            <option value="2">Posicionador Frontal 2</option>
+                            <option value="3">Posicionador lateral</option>
+
+                        </select>
+
+                        <button type="button" class="btn btn-xs btn-default btn-subirstopy1"
+                            style="margin: 4px 0;">Subir
+                            Posicionador</button>
+
+                        <button type="button" class="btn btn-xs btn-default btn-bajarstopy1"
+                            style="margin: 4px 0;">Bajar
+                            Posicionador</button>
+                        <br>
+
+                        <b>Control Individual de posicionadores Mesa Y Area 2</b>
+                        <br>
+                        <select id="stopy2num">
+                            <option value="1">Posicionador Frontal 1</option>
+                            <option value="2">Posicionador Frontal 2</option>
+                            <option value="3">Posicionador Lateral 1</option>
+                            <option value="4">Posicionador Lateral 2</option>
+
+                        </select>
+
+                        <button type="button" class="btn btn-xs btn-default btn-subirstopy2"
+                            style="margin: 4px 0;">Subir
+                            Posicionador</button>
+
+                        <button type="button" class="btn btn-xs btn-default btn-bajarstopy2"
+                            style="margin: 4px 0;">Bajar
+                            Posicionador</button>
+                        <br>
                         <br>
                         <br>
                     </div>

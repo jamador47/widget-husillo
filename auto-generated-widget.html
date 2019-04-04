@@ -241,6 +241,18 @@
                     $('#' + this.id + ' .btn-mjuntas').click(this.onmjuntasBtnClick.bind(this));
                     $('#' + this.id + ' .btn-mseparadas').click(this.onmseparadasBtnClick.bind(this));
                     $('#' + this.id + ' .btn-subirbroca').click(this.subirbrocaBtnClick.bind(this));
+
+                    $('#' + this.id + ' .btn-subirstopa1').click(this.subirstopa1BtnClick.bind(this));
+                    $('#' + this.id + ' .btn-subirstopa2').click(this.subirstopa2BtnClick.bind(this));
+                    $('#' + this.id + ' .btn-subirstopy2').click(this.subirstopy2BtnClick.bind(this));
+                    $('#' + this.id + ' .btn-subirstopy1').click(this.subirstopy1BtnClick.bind(this));
+                    $('#' + this.id + ' .btn-bajarstopa1').click(this.bajarstopa1BtnClick.bind(this));
+                    $('#' + this.id + ' .btn-bajarstopy1').click(this.bajarstopy1BtnClick.bind(this));
+                    $('#' + this.id + ' .btn-bajarstopy2').click(this.bajarstopy2BtnClick.bind(this));
+                    $('#' + this.id + ' .btn-bajarstopa2').click(this.bajarstopa2BtnClick.bind(this));
+
+
+
                     $('#' + this.id + ' .btn-bajarbroca').click(this.bajarbrocaBtnClick.bind(this));
                     $('#' + this.id + ' .btn-subirtbroca').click(this.subirtbrocaBtnClick.bind(this));
                     $('#' + this.id + ' .btn-bajartbroca').click(this.bajartbrocaBtnClick.bind(this));
@@ -768,6 +780,175 @@
 
                 },
 
+
+/************************************************************/
+bajarstopa1BtnClick: function (evt) {
+                    var value = document.getElementById("stopa1num").value;
+                    switch (value) {
+                        case "1":
+                            this.bajarstopa1f1();
+                            break;
+                        case "2":
+                            this.bajarstopa1f2();
+                            break;
+                        case "3":
+                        this.bajarstopa1l1();
+
+                            break;
+                        default:
+                            value = "papas";
+                    }
+                },
+
+    
+                bajarstopa2BtnClick: function (evt) {
+                    var value = document.getElementById("stopa2num").value;
+                    switch (value) {
+                        case "1":
+                            this.bajarstopa2f1();
+                            break;
+                        case "2":
+                            this.bajarstopa2f2();
+                            break;
+                        case "3":
+                        this.bajarstopa2l1();
+
+                            break;
+                        case "4":
+                        this.bajarstopa2l2();
+
+                            break;
+                        default:
+                            value = "papas";
+                    }
+                },
+
+
+                bajarstopy1BtnClick: function (evt) {
+                    var value = document.getElementById("stopy1num").value;
+                    switch (value) {
+                        case "1":
+                            this.bajarstopy1f1();
+                            break;
+                        case "2":
+                        this.bajarstopy1f2();
+                            break;
+                        case "3":
+                        this.bajarstopy1l1();
+                            break;
+
+                        default:
+                            value = "papas";
+                    }
+                },
+
+                bajarstopy2BtnClick: function (evt) {
+                    var value = document.getElementById("stopy2num").value;
+                    switch (value) {
+                        case "1":
+                            this.bajarstopy2f1();
+                            break;
+                        case "2":
+                        this.bajarstopy2f2();
+                            break;
+                        case "3":
+                        this.bajarstopy2l1();
+                            break;
+                        case "4":
+                        this.bajarstopy2l2();  
+                                                  break;
+                        default:
+                            value = "papas";
+                    }
+                },
+
+                subirstopa1BtnClick: function (evt) {
+                    var value = document.getElementById("stopa1num").value;
+                    switch (value) {
+                        case "1":
+                            this.subirstopa1f1();
+                            break;
+                        case "2":
+                            this.subirstopa1f2();
+                            break;
+                        case "3":
+                        this.subirstopa1l1();
+
+                            break;
+                        default:
+                            value = "papas";
+                    }
+                },
+
+    
+                subirstopa2BtnClick: function (evt) {
+                    var value = document.getElementById("stopa2num").value;
+                    switch (value) {
+                        case "1":
+                            this.subirstopa2f1();
+                            break;
+                        case "2":
+                            this.subirstopa2f2();
+                            break;
+                        case "3":
+                        this.subirstopa2l1();
+
+                            break;
+                        case "4":
+                        this.subirstopa2l2();
+
+                            break;
+                        default:
+                            value = "papas";
+                    }
+                },
+
+
+                subirstopy1BtnClick: function (evt) {
+                    var value = document.getElementById("stopy1num").value;
+                    switch (value) {
+                        case "1":
+                            this.subirstopy1f1();
+                            break;
+                        case "2":
+                        this.subirstopy1f2();
+                            break;
+                        case "3":
+                        this.subirstopy1l1();
+                            break;
+
+                        default:
+                            value = "papas";
+                    }
+                },
+
+                subirstopy2BtnClick: function (evt) {
+                    var value = document.getElementById("stopy2num").value;
+                    switch (value) {
+                        case "1":
+                            this.subirstopy2f1();
+                            break;
+                        case "2":
+                        this.subirstopy2f2();
+                            break;
+                        case "3":
+                        this.subirstopy2l1();
+                            break;
+                        case "4":
+                        this.subirstopy2l2();  
+                                                  break;
+                        default:
+                            value = "papas";
+                    }
+                },
+
+
+
+
+/**************************************************************/
+
+
+
                 subirbrocaBtnClick: function (evt) {
 
                     var value = document.getElementById("brocanum").value;
@@ -939,6 +1120,11 @@
 
 
                 },
+
+
+
+
+
 
                 //subir brocas
                 subirbroca16: function (evt) {

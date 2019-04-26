@@ -251,7 +251,8 @@
                     $('#' + this.id + ' .btn-bajarstopy2').click(this.bajarstopy2BtnClick.bind(this));
                     $('#' + this.id + ' .btn-bajarstopa2').click(this.bajarstopa2BtnClick.bind(this));
 
-
+   $('#' + this.id + ' .btn-subirtstops').click(this.subirtstopsBtnClick.bind(this));
+   $('#' + this.id + ' .btn-bajartstops').click(this.bajartstopsBtnClick.bind(this));
 
                     $('#' + this.id + ' .btn-bajarbroca').click(this.bajarbrocaBtnClick.bind(this));
                     $('#' + this.id + ' .btn-subirtbroca').click(this.subirtbrocaBtnClick.bind(this));
@@ -792,6 +793,149 @@
 
 
                 },
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                subirtstopsBtnClick: function (evt) {
+
+
+
+
+
+                    var HttpClient = function () {
+                        this.get = function (aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function () {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.82/arduino/subirstops/';
+                    var client = new HttpClient();
+                    client.get(theurl, function (response) {
+                        
+                         var HttpClient = function () {
+                        this.get = function (aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function () {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.83/arduino/subirstops/';
+                    var client = new HttpClient();
+                    client.get(theurl, function (response) {
+
+                        chilipeppr.publish(
+                            '/com-chilipeppr-elem-flashmsg/flashmsg',
+                            "Mesas",
+                            "Posicionadores arriba",
+                            2000
+                        );
+                              document.getElementById("sa1f1").className = "led-green";
+                        document.getElementById("sa1f2").className = "led-green";
+                        document.getElementById("sa1l1").className = "led-green";
+                        document.getElementById("sa2f1").className = "led-green";
+                        document.getElementById("sa2f2").className = "led-green";
+                        document.getElementById("sa2l1").className = "led-green";
+                        document.getElementById("sa2l2").className = "led-green";
+                        document.getElementById("sy1f1").className = "led-green";
+                        document.getElementById("sy1f2").className = "led-green";
+                        document.getElementById("sy1l1").className = "led-green";
+                        document.getElementById("sy2f1").className = "led-green";
+                        document.getElementById("sy2f2").className = "led-green";
+                        document.getElementById("sy2l1").className = "led-green";
+                        document.getElementById("sy2l2").className = "led-green";
+
+                        
+
+
+                    });
+                    });
+                },
+                
+                
+                
+                
+                                 bajartstopsBtnClick: function (evt) {
+
+                    var HttpClient = function () {
+                        this.get = function (aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function () {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.82/arduino/bajarstops/';
+                    var client = new HttpClient();
+                    client.get(theurl, function (response) {
+                        
+                         var HttpClient = function () {
+                        this.get = function (aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function () {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.83/arduino/bajarstops/';
+                    var client = new HttpClient();
+                    client.get(theurl, function (response) {
+
+                        chilipeppr.publish(
+                            '/com-chilipeppr-elem-flashmsg/flashmsg',
+                            "Mesas",
+                            "Posicionadores Abajo",
+                            2000
+                        );
+
+                        document.getElementById("sa1f1").className = "led-off";
+                        document.getElementById("sa1f2").className = "led-off";
+                        document.getElementById("sa1l1").className = "led-off";
+                        document.getElementById("sa2f1").className = "led-off";
+                        document.getElementById("sa2f2").className = "led-off";
+                        document.getElementById("sa2l1").className = "led-off";
+                        document.getElementById("sa2l2").className = "led-off";
+                        document.getElementById("sy1f1").className = "led-off";
+                        document.getElementById("sy1f2").className = "led-off";
+                        document.getElementById("sy1l1").className = "led-off";
+                        document.getElementById("sy2f1").className = "led-off";
+                        document.getElementById("sy2f2").className = "led-off";
+                        document.getElementById("sy2l1").className = "led-off";
+                        document.getElementById("sy2l2").className = "led-off";
+
+                    });
+                    });
+                },
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
 
 
                 bajarstopa1f1: function (evt) {

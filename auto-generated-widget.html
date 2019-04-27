@@ -3532,11 +3532,27 @@
                     cmd = cmd.concat(" Z");
                     cmd = cmd.concat(document.getElementById("z1").value);
                     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
-
+                    
 
                     cmd = "G54";
 
                     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                    
+                     var HttpClient = function () {
+                        this.get = function (aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function () {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.98/api/c1/'+document.getElementById("x1").value+'&'+document.getElementById("y1").value+'&'+document.getElementById("z1").value;
+                    var client = new HttpClient();
+                    client.get(theurl, function (response) {});
+             
 
                     chilipeppr.publish(
                         '/com-chilipeppr-elem-flashmsg/flashmsg',
@@ -3562,6 +3578,22 @@
 
                     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
 
+                                   var HttpClient = function () {
+                        this.get = function (aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function () {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.98/api/c2/'+document.getElementById("x2").value+'&'+document.getElementById("y2").value+'&'+document.getElementById("z2").value;
+                    var client = new HttpClient();
+                    client.get(theurl, function (response) {});
+                    
+                    
                     chilipeppr.publish(
                         '/com-chilipeppr-elem-flashmsg/flashmsg',
                         "Tabla de Origenes",
@@ -3585,6 +3617,21 @@
                     cmd = "G56";
 
                     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                    
+                                   var HttpClient = function () {
+                        this.get = function (aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function () {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.98/api/c3/'+document.getElementById("x3").value+'&'+document.getElementById("y3").value+'&'+document.getElementById("z3").value;
+                    var client = new HttpClient();
+                    client.get(theurl, function (response) {});
 
                     chilipeppr.publish(
                         '/com-chilipeppr-elem-flashmsg/flashmsg',
@@ -3610,6 +3657,22 @@
 
                     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
 
+                    
+                                   var HttpClient = function () {
+                        this.get = function (aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function () {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.98/api/c4/'+document.getElementById("x4").value+'&'+document.getElementById("y4").value+'&'+document.getElementById("z4").value;
+                    var client = new HttpClient();
+                    client.get(theurl, function (response) {});
+                    
                     chilipeppr.publish(
                         '/com-chilipeppr-elem-flashmsg/flashmsg',
                         "Tabla de Origenes",
@@ -3635,6 +3698,20 @@
 
                     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
 
+                                   var HttpClient = function () {
+                        this.get = function (aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function () {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.98/api/c5/'+document.getElementById("x5").value+'&'+document.getElementById("y5").value+'&'+document.getElementById("z5").value;
+                    var client = new HttpClient();
+                    client.get(theurl, function (response) {});
                     chilipeppr.publish(
                         '/com-chilipeppr-elem-flashmsg/flashmsg',
                         "Tabla de Origenes",
@@ -3660,6 +3737,21 @@
                     cmd = "G59";
 
                     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                    
+                                   var HttpClient = function () {
+                        this.get = function (aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function () {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.98/api/c6/'+document.getElementById("x6").value+'&'+document.getElementById("y6").value+'&'+document.getElementById("z6").value;
+                    var client = new HttpClient();
+                    client.get(theurl, function (response) {});
 
                     chilipeppr.publish(
                         '/com-chilipeppr-elem-flashmsg/flashmsg',

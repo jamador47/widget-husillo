@@ -1724,7 +1724,8 @@ var res = response.split("Pin D32 set to ");
                                             response = parseInt(res[1]);
 
                                             if (response == 1) {
-                                                    
+                                             
+                                                alert("Mesa en trabajo");
                                                                             
                  // LEER SI ESTA DESBLOQUEADA                               
                                                 
@@ -1750,7 +1751,7 @@ var res = response.split("Pin D30 set to ");
                                             response = parseInt(res[1]);
 // SI NO ESTA DESBLOQUEADA.... 
                                             if (response == 0) {
-                                                    
+                                                    alert("No esta desbloqueada");
                                                 var HttpClient = function () {
                             this.get = function (aUrl, aCallback) {
                                 var anHttpRequest = new XMLHttpRequest();
@@ -2857,8 +2858,9 @@ var res = response.split("Pin D46 set to ");
                                             response = parseInt(res[1]);
 
                                             if (response == 1) {
+this.sacarpaletaderecha();
 alert("DESACOPLADA");                                                
-                this.sacarpaletaderecha();
+                
 					
 					}
 
@@ -7015,7 +7017,7 @@ var res = response.split("Pin D46 set to ");
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles tinal</span> <span style="font-size:9px;"
+            </div> <span class="panel-title" data-toggle="popover">Controles ainal</span> <span style="font-size:9px;"
                 class="fb-build">v2.1</span>
 
         </div>

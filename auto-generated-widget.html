@@ -445,7 +445,7 @@ var res = response.split("Pin D37 set to ");
         
 // SACARMESAizquierda
 sacarpaletaizquierda: function(evt){
-    
+    alert("sacandopaletaizq")l;
         
      var HttpClient = function () {
          
@@ -721,9 +721,9 @@ var res = response.split("Pin D38 set to ");
                         var client = new HttpClient();
                         client.get(theurl, function (response) {
                             
-                         if (this.checkposicioncargaizq){
+                         if (this.checkposicioncargaizq()){
                              
-                             this.bloquearpaletaizquierda;
+                             this.bloquearpaletaizquierda();
                              
                          }  else {
                              
@@ -933,9 +933,9 @@ var res = response.split("Pin D38 set to ");
                         var client = new HttpClient();
                         client.get(theurl, function (response) {
                             
-                                                        if (this.checkposicioncargaizq){
+                                                        if (this.checkposicioncargaizq()){
                              
-                             this.bloquearpaletaizquierda;
+                             this.bloquearpaletaizquierda();
                              
                          }   else{
                              // ERROR
@@ -1261,9 +1261,9 @@ var res = response.split("Pin D38 set to ");
  var theurl = 'http://192.168.0.85/arduino/digital/8/0';
                         var client = new HttpClient();
                         client.get(theurl, function (response) {
-                                                        if (this.checkposiciontrabajoizq){
+                                                        if (this.checkposiciontrabajoizq()){
                              
-                             this.bloquearpaletaizquierda;
+                             this.bloquearpaletaizquierda();
                              
                          }   else{
                              // ERROR
@@ -1469,9 +1469,9 @@ var res = response.split("Pin D38 set to ");
  var theurl = 'http://192.168.0.85/arduino/digital/8/0';
                         var client = new HttpClient();
                         client.get(theurl, function (response) {
-                                                     if (this.checkposiciontrabajoizq){
+                                                     if (this.checkposiciontrabajoizq()){
                              
-                             this.bloquearpaletaizquierda;
+                             this.bloquearpaletaizquierda();
                              
                          }   else{
                              // ERROR
@@ -1974,9 +1974,9 @@ var res = response.split("Pin D30 set to ");
                         var client = new HttpClient();
                         client.get(theurl, function (response) {
                             
-                         if (this.checkposicioncarga){
+                         if (this.checkposicioncarga()){
                              
-                             this.bloquearpaletaderecha;
+                             this.bloquearpaletaderecha();
                              
                          }  else {
                              
@@ -2186,9 +2186,9 @@ var res = response.split("Pin D30 set to ");
                         var client = new HttpClient();
                         client.get(theurl, function (response) {
                             
-                                                        if (this.checkposicioncarga){
+                                                        if (this.checkposicioncarga()){
                              
-                             this.bloquearpaletaderecha;
+                             this.bloquearpaletaderecha();
                              
                          }   else{
                              // ERROR
@@ -2247,7 +2247,7 @@ var res = response.split("Pin D30 set to ");
 // METERMESADERECHA
 meterpaletaderecha: function(evt){
     
-
+alert("metiendopaletader")l;
      var HttpClient = function () {
                             this.get = function (aUrl, aCallback) {
                                 var anHttpRequest = new XMLHttpRequest();
@@ -2514,9 +2514,9 @@ var res = response.split("Pin D30 set to ");
  var theurl = 'http://192.168.0.85/arduino/digital/10/0';
                         var client = new HttpClient();
                         client.get(theurl, function (response) {
-                                                        if (this.checkposiciontrabajo){
+                                                        if (this.checkposiciontrabajo()){
                              
-                             this.bloquearpaletaderecha;
+                             this.bloquearpaletaderecha();
                              
                          }   else{
                              // ERROR
@@ -2722,9 +2722,9 @@ var res = response.split("Pin D30 set to ");
  var theurl = 'http://192.168.0.85/arduino/digital/10/0';
                         var client = new HttpClient();
                         client.get(theurl, function (response) {
-                                                     if (this.checkposiciontrabajo){
+                                                     if (this.checkposiciontrabajo()){
                              
-                             this.bloquearpaletaderecha;
+                             this.bloquearpaletaderecha();
                              
                          }   else{
                              // ERROR
@@ -2889,7 +2889,7 @@ var res = response.split("Pin D46 set to ");
                                             if (response == 1) {
                                                     
                                                 
-                                                this.meterpaletaderecha;
+                                                this.meterpaletaderecha();
 					
 					}
 
@@ -2926,7 +2926,7 @@ var res = response.split("Pin D46 set to ");
                                         if (response == 1) {
                                                 
                                             
-                                            this.meterpaletaizquierda;
+                                            this.meterpaletaizquierda();
                 
                 }
 
@@ -7007,7 +7007,7 @@ var res = response.split("Pin D46 set to ");
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Conproles</span> <span style="font-size:9px;"
+            </div> <span class="panel-title" data-toggle="popover">Controles</span> <span style="font-size:9px;"
                 class="fb-build">v2.1</span>
 
         </div>

@@ -1790,7 +1790,7 @@ var res = response.split("Pin D30 set to ");
                             setTimeout(function(){
                                 
                                 client.get(theurl, function (response) {
-                                    
+                                    alert("APAGA INTERRUPTOR");
                                     // Chequea si se desacoplo 
                                     var HttpClient = function () {
                             this.get = function (aUrl, aCallback) {
@@ -1815,6 +1815,8 @@ var res = response.split("Pin D30 set to ");
 // SI NO ESTA DESBLOQUEADA.... 
                                             if (response == 0) {
                                                 
+                                                
+                                                ALERT("OTRA VEZ 0 POR ESO TE PASA");
                                              // INFORMA ERROR Y PARA PROCESO   
                                                 
                                             }
@@ -1822,7 +1824,7 @@ var res = response.split("Pin D30 set to ");
                                 
 // SI ESTA DESBLOQUEADA
                                 // Saca MESA derecha.
-                                
+                                alert("COMIENZa a sacarla");
                                  var HttpClient = function () {
                             this.get = function (aUrl, aCallback) {
                                 var anHttpRequest = new XMLHttpRequest();

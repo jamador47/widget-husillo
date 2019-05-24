@@ -670,7 +670,9 @@ var res = response.split("Pin D38 set to ");
                             }
                         }
 
-                    
+    var freno = 1;
+    
+                     while (freno == 1){
  var theurl = 'http://192.168.0.82/arduino/digital/39';
                         var client = new HttpClient();
                         client.get(theurl, function (response) {
@@ -746,7 +748,7 @@ var res = response.split("Pin D38 set to ");
                                 
                             
                         });
-                     
+                     }
                      
                  }, 1500);    
                                 
@@ -7020,7 +7022,7 @@ var res = response.split("Pin D46 set to ");
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles yuinal</span> <span style="font-size:9px;"
+            </div> <span class="panel-title" data-toggle="popover">Controles linal</span> <span style="font-size:9px;"
                 class="fb-build">v2.1</span>
 
         </div>

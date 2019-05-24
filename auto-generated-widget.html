@@ -1914,7 +1914,6 @@ var res = response.split("Pin D30 set to ");
                  setTimeout(function(){
                      
                      
-                     alert("TERMINO TIMEOUT REVISA");
                      
                      
                                                                   var HttpClient = function () {
@@ -1940,6 +1939,8 @@ var res = response.split("Pin D30 set to ");
 
                                             response = parseInt(res[1]);
 
+
+alert(response);
                                             if (response == 0) {
                                                 
                                                 
@@ -1976,6 +1977,8 @@ var res = response.split("Pin D30 set to ");
                         }
 
 // DESACTIVAR RUN
+
+alert("DESACTIVA RUN");
  var theurl = 'http://192.168.0.85/arduino/digital/10/0';
                         var client = new HttpClient();
                         client.get(theurl, function (response) {
@@ -7022,7 +7025,7 @@ var res = response.split("Pin D46 set to ");
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles A+enal</span> <span style="font-size:9px;"
+            </div> <span class="panel-title" data-toggle="popover">Controles -+enal</span> <span style="font-size:9px;"
                 class="fb-build">v2.1</span>
 
         </div>

@@ -2786,8 +2786,12 @@ var res = response.split("Pin D30 set to ");
 
                  activarM58: function(evt){
     
+
+
     // VERIFICAR SI MESA Y ESTA AFUERA
-    
+                             //BORRAR ESTO
+                             this.sacarpaletaizquierda();
+
     
     var HttpClient = function () {
                             this.get = function (aUrl, aCallback) {
@@ -2829,7 +2833,7 @@ var res = response.split("Pin D46 set to ");
 
                      alert("Entre m57");
 
-   /* var HttpClient = function () {
+   var HttpClient = function () {
                             this.get = function (aUrl, aCallback) {
                                 var anHttpRequest = new XMLHttpRequest();
                                 anHttpRequest.onreadystatechange = function () {
@@ -2854,9 +2858,9 @@ var res = response.split("Pin D46 set to ");
 alert("DESACOPLADA");                                                
                                                 this.sacarpaletaderecha();
 					
-				/*	}
+					}
 
-});*/
+});
     
                                  setTimeout(function(){ var cmd  = "~";
        }, 1500);
@@ -2864,7 +2868,9 @@ alert("DESACOPLADA");
 
 activarM67: function(evt){
 
-    alert("ENTRE M67");
+    //Borrar esto.
+    this.meterpaletaderecha();
+
     var HttpClient = function () {
                             this.get = function (aUrl, aCallback) {
                                 var anHttpRequest = new XMLHttpRequest();
@@ -2901,6 +2907,9 @@ var res = response.split("Pin D46 set to ");
 
 
 activarM68: function(evt){
+
+//BORRAR ESTO
+this.meterpaletaizquierda();
 
 var HttpClient = function () {
                         this.get = function (aUrl, aCallback) {

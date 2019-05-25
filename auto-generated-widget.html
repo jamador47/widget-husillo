@@ -1030,7 +1030,7 @@ meterpaletaizquierda: function(evt){
                                 anHttpRequest.send(null);
                             }
                         }
-// LEER SI MESA NO ESTA EN TRABAJO
+// LEER SI MESA ESTA EN CARGA
 
  var theurl = 'http://192.168.0.82/arduino/digital/37';
                         var client = new HttpClient();
@@ -1040,7 +1040,7 @@ var res = response.split("Pin D37 set to ");
 
                                             response = parseInt(res[1]);
 
-                                            if (response == 0) {
+                                            if (response == 1) {
                                                     
                                                                             
                  // LEER SI ESTA DESBLOQUEADA                               

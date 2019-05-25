@@ -2800,6 +2800,8 @@ var res = response.split("Pin D30 set to ");
 
     
     var HttpClient = function () {
+        
+        var thisorig = this;
                             this.get = function (aUrl, aCallback) {
                                 var anHttpRequest = new XMLHttpRequest();
                                 anHttpRequest.onreadystatechange = function () {
@@ -2812,6 +2814,7 @@ var res = response.split("Pin D30 set to ");
                         }
    alert("ME DIERON CLICK");
 
+                     
  var theurl = 'http://192.168.1.36/api/estados';
                         var client = new HttpClient();
                         client.get(theurl, function (response) {
@@ -2826,7 +2829,7 @@ var res = response.split("Pin D46 set to ");
                                             //if (response == 1) {
                                                     
                                                 
-                                                this.sacarpaletaizquierda();
+                                                thisorig.sacarpaletaizquierda();
 					
 					//}
 
@@ -7029,7 +7032,7 @@ var res = response.split("Pin D46 set to ");
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles 21nal</span> <span style="font-size:9px;"
+            </div> <span class="panel-title" data-toggle="popover">Controles 22nal</span> <span style="font-size:9px;"
                 class="fb-build">v2.1</span>
 
         </div>

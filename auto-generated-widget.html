@@ -2803,11 +2803,13 @@ var res = response.split("Pin D30 set to ");
     
     var HttpClient = function () {
         
+
+        
         
      this.get = function (aUrl, aCallback) {
                                 var anHttpRequest = new XMLHttpRequest();
                                 anHttpRequest.onreadystatechange = function () {
-                                    if (anHttpRequest.readyState == 4 &&2 anHttpRequest.status == 200)
+                                    if (anHttpRequest.readyState == 4 &&  anHttpRequest.status == 200)
                                         aCallback(anHttpRequest.responseText);
                                 }
                                 anHttpRequest.open("GET", aUrl, true);
@@ -7034,7 +7036,7 @@ var res = response.split("Pin D46 set to ");
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles 24nal</span> <span style="font-size:9px;"
+            </div> <span class="panel-title" data-toggle="popover">Controles 24nl</span> <span style="font-size:9px;"
                 class="fb-build">v2.1</span>
 
         </div>

@@ -301,7 +301,7 @@ bloquearpaletaizquierda:  function(evt){
                         client.get(theurl, function (response) {
 
 
-
+                            setTimeout(function(){ 
                             var HttpClient = function () {
               this.get = function (aUrl, aCallback) {
                                 var anHttpRequest = new XMLHttpRequest();
@@ -317,7 +317,9 @@ bloquearpaletaizquierda:  function(evt){
 
  var theurl = 'http://192.168.0.83/arduino/digital/34/0';
                         var client = new HttpClient();
-                      client.get(theurl, function (response) {});
+                      client.get(theurl, function (response) {
+                          alert ("BLOQUEADO");
+                      });
 
 
 
@@ -372,6 +374,7 @@ bloquearpaletaizquierda:  function(evt){
                                 
                                 
                             }
+                        },2000)
                             
 
     });
@@ -7157,7 +7160,7 @@ var res = response.split("Pin D46 set to ");
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles 30enal</span> <span style="font-size:9px;"
+            </div> <span class="panel-title" data-toggle="popover">Controles 31enal</span> <span style="font-size:9px;"
                 class="fb-build">v2.1</span>
 
         </div>

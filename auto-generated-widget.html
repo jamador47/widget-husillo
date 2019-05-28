@@ -317,7 +317,7 @@ bloquearpaletaizquierda:  function(evt){
 
  var theurl = 'http://192.168.0.83/arduino/digital/34/0';
                         var client = new HttpClient();
-                        setTimeout(function(){ client.get(theurl, function (response) {});},1000)
+                       client.get(theurl, function (response) {});}
 
 
 

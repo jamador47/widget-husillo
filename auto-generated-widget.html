@@ -979,14 +979,36 @@ var theurl = 'http://192.168.0.85/arduino/digital/8/0';
                     var client = new HttpClient();
                     client.get(theurl, function (response) {
                         
-                                                    if (self.checkposicioncargaizq()){
+                        var HttpClient = function () {
+         
+         this.get = function (aUrl, aCallback) {
+var anHttpRequest = new XMLHttpRequest();
+anHttpRequest.onreadystatechange = function () {
+if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+aCallback(anHttpRequest.responseText);
+}
+anHttpRequest.open("GET", aUrl, true);
+anHttpRequest.send(null);
+}
+}
+
+// LEE SI MESA ESTA EN CARGA
+var theurl = 'http://192.168.0.82/arduino/digital/37';
+var client = new HttpClient();
+client.get(theurl, function (response) {
+
+var res = response.split("Pin D37 set to ");
+
+    response = parseInt(res[1]);
+
+    if (response == 1) {
                          
                          self.bloquearpaletaizquierda();
                          
                      }   else{
                          // ERROR
                      }
-                        
+});
                         
                     });
                         
@@ -7135,7 +7157,7 @@ var res = response.split("Pin D46 set to ");
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles 27enal</span> <span style="font-size:9px;"
+            </div> <span class="panel-title" data-toggle="popover">Controles 28enal</span> <span style="font-size:9px;"
                 class="fb-build">v2.1</span>
 
         </div>

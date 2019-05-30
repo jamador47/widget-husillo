@@ -560,7 +560,7 @@ var theurl = 'http://192.168.0.82/arduino/digital/35/0';
                     
                         
                         
-                        setTimeout(function(){
+     setTimeout(function(){
                             
                             client.get(theurl, function (response) {
                                 
@@ -850,7 +850,7 @@ var theurl = 'http://192.168.0.85/arduino/digital/8/0';
                         
                         
                        
-                    },1500);
+                    },2500);
                                             
                                           
                 
@@ -1220,68 +1220,68 @@ var res = response.split("Pin D38 set to ");
                         
                             
                             
-                            setTimeout(function(){
+setTimeout(function(){
                                 
-                                client.get(theurl, function (response) {
-                                    
-                                    // Chequea si se desacoplo 
-                                    var HttpClient = function () {
-                            this.get = function (aUrl, aCallback) {
-                                var anHttpRequest = new XMLHttpRequest();
-                                anHttpRequest.onreadystatechange = function () {
-                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                                        aCallback(anHttpRequest.responseText);
-                                }
-                                anHttpRequest.open("GET", aUrl, true);
-                                anHttpRequest.send(null);
-                            }
-                        }
-
-
- var theurl = 'http://192.168.0.82/arduino/digital/38';
-                        var client = new HttpClient();
-                        client.get(theurl, function (response) {
-
-var res = response.split("Pin D38 set to ");
-
-                                            response = parseInt(res[1]);
-// SI NO ESTA DESBLOQUEADA.... 
-                                            if (response == 0) {
+                                            client.get(theurl, function (response) {
                                                 
-                                             var erroresexistentes = document.getElementById("textoerrores").value;
-
-                                    erroresexistentes = erroresexistentes.concat("\\\n\\\n");
-
-                                    erroresexistentes = erroresexistentes.concat("Mesa A no se pudo desbloquear, Error de Movimiento.");
-                              
-                                    document.getElementById("textoerrores").value = erroresexistentes;
-                                
-                    	var cmd  = "!";
-                        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
-                        
-                                                
+                                                // Chequea si se desacoplo 
+                                                var HttpClient = function () {
+                                        this.get = function (aUrl, aCallback) {
+                                            var anHttpRequest = new XMLHttpRequest();
+                                            anHttpRequest.onreadystatechange = function () {
+                                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                                    aCallback(anHttpRequest.responseText);
                                             }
-                            else{           setTimeout (function(){
+                                            anHttpRequest.open("GET", aUrl, true);
+                                            anHttpRequest.send(null);
+                                        }
+                                    }
 
-                var HttpClient = function () {
-                        this.get = function (aUrl, aCallback) {
-                            var anHttpRequest = new XMLHttpRequest();
-                            anHttpRequest.onreadystatechange = function () {
-                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                                    aCallback(anHttpRequest.responseText);
-                            }
-                            anHttpRequest.open("GET", aUrl, true);
-                            anHttpRequest.send(null);
-                        }
-                    }
 
-// DESACTIVAR RUN
-var theurl = 'http://192.168.0.85/arduino/digital/11/0';
-                    var client = new HttpClient();
-                    client.get(theurl, function (response) {
-                    });
+            var theurl = 'http://192.168.0.82/arduino/digital/38';
+                                    var client = new HttpClient();
+                                    client.get(theurl, function (response) {
 
-            },1500)
+            var res = response.split("Pin D38 set to ");
+
+                                                        response = parseInt(res[1]);
+            // SI NO ESTA DESBLOQUEADA.... 
+                                                        if (response == 0) {
+                                                            
+                                                        var erroresexistentes = document.getElementById("textoerrores").value;
+
+                                                erroresexistentes = erroresexistentes.concat("\\\n\\\n");
+
+                                                erroresexistentes = erroresexistentes.concat("Mesa A no se pudo desbloquear, Error de Movimiento.");
+                                        
+                                                document.getElementById("textoerrores").value = erroresexistentes;
+                                            
+                                    var cmd  = "!";
+                                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                                    
+                                                            
+                                                        }
+                                        else{           setTimeout (function(){
+
+                            var HttpClient = function () {
+                                    this.get = function (aUrl, aCallback) {
+                                        var anHttpRequest = new XMLHttpRequest();
+                                        anHttpRequest.onreadystatechange = function () {
+                                            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                                aCallback(anHttpRequest.responseText);
+                                        }
+                                        anHttpRequest.open("GET", aUrl, true);
+                                        anHttpRequest.send(null);
+                                    }
+                                }
+
+            // DESACTIVAR RUN
+            var theurl = 'http://192.168.0.85/arduino/digital/11/0';
+                                var client = new HttpClient();
+                                client.get(theurl, function (response) {
+                                });
+
+    },2500)
                                 
                               
 // SI ESTA DESBLOQUEADA
@@ -7546,7 +7546,7 @@ var res = response.split("Pin D46 set to ");
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles 45enal</span> <span style="font-size:9px;"
+            </div> <span class="panel-title" data-toggle="popover">Controles 46enal</span> <span style="font-size:9px;"
                 class="fb-build">v2.1</span>
 
         </div>

@@ -471,7 +471,6 @@ var res = response.split("Pin D37 set to ");
 sacarpaletaizquierda: function(evt){
     
     var self = this;
-    alert("Sacando paleta izquierda");
  var HttpClient = function () {
      
      
@@ -523,7 +522,6 @@ var res = response.split("Pin D38 set to ");
 // SI NO ESTA DESBLOQUEADA.... 
                                         if (response == 0) {
                                             
-                                            alert("Mesa A No desbloqueada, Desbloqueando");
                                                 
                                             var HttpClient = function () {
                         this.get = function (aUrl, aCallback) {
@@ -863,7 +861,6 @@ var theurl = 'http://192.168.0.85/arduino/digital/8/0';
                             // Saca MESA derecha.
                             
                                                 
-                                                alert("Mesa Desbloqueada");
                              var HttpClient = function () {
                         this.get = function (aUrl, aCallback) {
                             var anHttpRequest = new XMLHttpRequest();
@@ -1183,7 +1180,6 @@ var res = response.split("Pin D38 set to ");
 // SI NO ESTA DESBLOQUEADA.... 
                                             if (response == 0) {
                                              
-                                                alert("No está desbloqueada, Intentando Desbloquear");
                                                 var HttpClient = function () {
                             this.get = function (aUrl, aCallback) {
                                 var anHttpRequest = new XMLHttpRequest();
@@ -1531,7 +1527,6 @@ var res = response.split("Pin D41 set to ");
                                                 else{
                                 
 // SI ESTA DESBLOQUEADA
-                                                    alert("Esta desbloqueada");
                                 // METE MESA derecha.
                                 
                                  var HttpClient = function () {
@@ -2038,7 +2033,6 @@ var res = response.split("Pin D30 set to ");
                                             response = parseInt(res[1]);
 // SI NO ESTA DESBLOQUEADA.... 
                                             if (response == 0) {
-                                                    alert("No esta desbloqueada, intentando desbloquear");
                                                 var HttpClient = function () {
                             this.get = function (aUrl, aCallback) {
                                 var anHttpRequest = new XMLHttpRequest();
@@ -2210,7 +2204,6 @@ var res = response.split("Pin D30 set to ");
         //ESPERAR 1 SEGUNDO LEER FRENO
                             
 
-    alert("frenando");
     var HttpClient = function () {
                             this.get = function (aUrl, aCallback) {
                                 var anHttpRequest = new XMLHttpRequest();
@@ -2383,7 +2376,6 @@ var res = response.split("Pin D31 set to ");
                                                 else{
                                 
 // SI ESTA DESBLOQUEADA
-                                                    alert("Estaba Desbloqueada");
                                 // Saca MESA derecha.
                                 
                                  var HttpClient = function () {
@@ -2456,7 +2448,6 @@ var res = response.split("Pin D31 set to ");
                                 anHttpRequest.send(null);
                             }
                         }
-                        alert("encendio run");
 
  var theurl = 'http://192.168.0.85/arduino/digital/10/1';
                         var client = new HttpClient();
@@ -2469,7 +2460,6 @@ var res = response.split("Pin D31 set to ");
 
 
        
-            alert("frenando");
     var HttpClient = function () {
                             this.get = function (aUrl, aCallback) {
                                 var anHttpRequest = new XMLHttpRequest();
@@ -2711,7 +2701,6 @@ var res = response.split("Pin D30 set to ");
 // SI NO ESTA DESBLOQUEADA.... 
                                             if (response == 0) {
                                                     
-                                                alert("No esta desbloqueada, intentando desbloquear")
                                                 var HttpClient = function () {
                             this.get = function (aUrl, aCallback) {
                                 var anHttpRequest = new XMLHttpRequest();
@@ -2792,7 +2781,6 @@ var res = response.split("Pin D30 set to ");
                             else{
                                 
 // SI ESTA DESBLOQUEADA
-                                alert("Desbloqueó, moviendo mesa")
                                 // METE MESA derecha.
                                 
                                  var HttpClient = function () {
@@ -3040,7 +3028,6 @@ var res = response.split("Pin D32 set to ");
                                               
                                                 else{
                                 
-                                                    alert("Estaba desbloqueada");
 // SI ESTA DESBLOQUEADA
                                 // METE MESA derecha.
                                 

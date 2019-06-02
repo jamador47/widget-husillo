@@ -285,7 +285,7 @@
 
 guardarposactivos: function(evt){
 
-    var a1f1 = document.getElementById("ma1f1").checked;
+    var a1f1 = document.getElementById("ma1f1").checked ;
     var a1f2 = document.getElementById("ma1f2").checked;
     var a1l1 = document.getElementById("ma1l1").checked;
     var a2f1 = document.getElementById("ma2f1").checked;
@@ -343,7 +343,6 @@ guardarposactivos: function(evt){
  theurl = theurl.concat(y2l2);
 
                         var client = new HttpClient();
-                        alert(theurl);
                         client.get(theurl, function (response) {
                             alert("valores guardados");
                         });

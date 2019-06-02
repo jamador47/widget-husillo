@@ -285,7 +285,67 @@
 
 guardarposactivos: function(evt){
 
+    var a1f1 = document.getElementById("ma1f1").checked;
+    var a1f2 = document.getElementById("ma1f2").checked;
+    var a1l1 = document.getElementById("ma1l1").checked;
+    var a2f1 = document.getElementById("ma2f1").checked;
+    var a2f2 = document.getElementById("ma2f2").checked;
+    var a2l1 = document.getElementById("ma2l1").checked;
+    var a2l2 = document.getElementById("ma2l2").checked;
+    var y1f1 = document.getElementById("my1f1").checked;
+    var y1f2 = document.getElementById("my1f2").checked;
+    var y1l1 = document.getElementById("my1l1").checked;
+    var y2f1 = document.getElementById("my2f1").checked;
+    var y2f2 = document.getElementById("my2f2").checked;
+    var y2l1 = document.getElementById("my2l1").checked;
+    var y2l2 = document.getElementById("my2l2").checked;
 
+    var HttpClient = function () {
+              this.get = function (aUrl, aCallback) {
+                                var anHttpRequest = new XMLHttpRequest();
+                                anHttpRequest.onreadystatechange = function () {
+                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                        aCallback(anHttpRequest.responseText);
+                                }
+                                anHttpRequest.open("GET", aUrl, true);
+                                anHttpRequest.send(null);
+                            }
+                        }
+
+
+ var theurl = 'http://localhost:8000/postpos/';
+ theurl = theurl.concat(a1f1);
+ theurl = theurl.concat("&");
+ theurl = theurl.concat(a1f2);
+ theurl = theurl.concat("&");
+ theurl = theurl.concat(a1l1);
+ theurl = theurl.concat("&");
+ theurl = theurl.concat(a2f1);
+ theurl = theurl.concat("&");
+ theurl = theurl.concat(a2f2);
+ theurl = theurl.concat("&");
+ theurl = theurl.concat(a2l1);
+ theurl = theurl.concat("&");
+ theurl = theurl.concat(a2l2);
+ theurl = theurl.concat("&");
+ theurl = theurl.concat(y1f1);
+ theurl = theurl.concat("&");
+ theurl = theurl.concat(y1f2);
+ theurl = theurl.concat("&");
+ theurl = theurl.concat(y1l1);
+ theurl = theurl.concat("&");
+ theurl = theurl.concat(y2f1);
+ theurl = theurl.concat("&");
+ theurl = theurl.concat(y2f2);
+ theurl = theurl.concat("&");
+ theurl = theurl.concat(y2l1);
+ theurl = theurl.concat("&");
+ theurl = theurl.concat(y2l2);
+
+                        var client = new HttpClient();
+                        client.get(theurl, function (response) {
+                            alert("valores guardados");
+                        });
 
 },
 
@@ -7543,7 +7603,7 @@ var res = response.split("Pin D46 set to ");
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles 626enal</span> <span style="font-size:9px;"
+            </div> <span class="panel-title" data-toggle="popover">Controles 7enal</span> <span style="font-size:9px;"
                 class="fb-build">v2.1</span>
 
         </div>

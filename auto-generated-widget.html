@@ -268,6 +268,7 @@
                     $('#' + this.id + ' .btn-bajartbroca').click(this.bajartbrocaBtnClick.bind(this));
                     $('#' + this.id + ' .btn-taladroon').click(this.taladroonBtnClick.bind(this));
                     $('#' + this.id + ' .btn-guardarposactivos').click(this.guardarposactivos.bind(this));
+                    $('#' + this.id + ' .btn-obtenerposactivos').click(this.getposactivos.bind(this));
 
                     $('#' + this.id + ' .btn-taladrooff').click(this.taladrooffBtnClick.bind(this));
                     $('#' + this.id + ' .btn-taladroarriba').click(this.taladroarribaBtnClick.bind(this));
@@ -282,6 +283,41 @@
 
       
 // BLOQUEAR PALETA IZQUIERDA
+
+
+getposactivos: function(evt){
+var HttpClient = function() {
+                  this.get = function(aUrl, aCallback) {
+                      var anHttpRequest = new XMLHttpRequest();
+                      anHttpRequest.onreadystatechange = function() {
+                          if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                              aCallback(anHttpRequest.responseText);
+                      }
+                      anHttpRequest.open("GET", aUrl, true);
+                      anHttpRequest.send(null);
+                  }
+              }
+              var theurl = 'http://localhost:8000/getpos';
+              var client = new HttpClient();
+              client.get(theurl, function(response) {
+    var obj = JSON.parse(response);
+           
+    document.getElementById("ma1f1").checked = obj['a1f1'];
+ document.getElementById("ma1f2").checked = obj['a1f2'];
+ document.getElementById("ma1l1").checked = obj['a1l1'];
+           document.getElementById("ma2f1").checked = obj['a2f1'];
+ document.getElementById("ma2f2").checked = obj['a2f2'];
+ document.getElementById("ma2l1").checked = obj['a2l1'];
+ document.getElementById("ma2l2").checked = obj['a2l2'];
+      document.getElementById("my1f1").checked = obj['y1f1'];
+ document.getElementById("my1f2").checked = obj['y1f2'];
+ document.getElementById("my1l1").checked = obj['y1l1'];
+           document.getElementById("my2f1").checked = obj['y2f1'];
+ document.getElementById("my2f2").checked = obj['y2f2'];
+ document.getElementById("my2l1").checked = obj['y2l1'];
+ document.getElementById("my2l2").checked = obj['y2l2'];
+});
+},
 
 guardarposactivos: function(evt){
 
@@ -7791,6 +7827,9 @@ var res = response.split("Pin D46 set to ");
     <br>
     <button type="button" class="btn btn-xs btn-default btn-guardarposactivos"
     style="margin: 4px 0; background-color: greenyellow ">GUARDAR POSICIONADORES ACTIVOS</button>
+    <br>
+    <button type="button" class="btn btn-xs btn-default btn-obtenerposactivos"
+    style="margin: 4px 0; background-color: yellow ">Obtener POSICIONADORES ACTIVOS</button>
     <br>
     <br>
 </div>

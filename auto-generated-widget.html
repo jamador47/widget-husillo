@@ -335,6 +335,8 @@ guardarposactivos: function(evt){
     var y2f2 = document.getElementById("my2f2").checked;
     var y2l1 = document.getElementById("my2l1").checked;
     var y2l2 = document.getElementById("my2l2").checked;
+    var entregaon = document.getElementById("entregaon").checked;
+
 
     var HttpClient = function () {
               this.get = function (aUrl, aCallback) {
@@ -377,7 +379,9 @@ guardarposactivos: function(evt){
  theurl = theurl.concat(y2l1);
  theurl = theurl.concat("&");
  theurl = theurl.concat(y2l2);
-
+ theurl = theurl.concat("&");
+ theurl = theurl.concat(entregaon);
+ 
                         var client = new HttpClient();
                         client.get(theurl, function (response) {
                             alert("valores guardados");
@@ -8024,7 +8028,18 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
 <!-----------------------------------------------------------INICIOPINAUTO------------------>
 
 <div class="" style="text-align:center">
+    <br>
+    <br>
 
+    <b>Trabajar con paletas de entrega</b>
+    <br>
+
+       <tr><td width="50%">Paletas de Entrega<input type="checkbox" id="entregaon" value="1"></td></tr> 
+    
+
+        <br>
+        <br>
+        <br>
     <b>Control Automático de posicionadores Mesa A Area 1</b>
     <br>
 
@@ -8070,10 +8085,10 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
     
     <br>
     <button type="button" class="btn btn-xs btn-default btn-guardarposactivos"
-    style="margin: 4px 0; background-color: greenyellow ">GUARDAR POSICIONADORES ACTIVOS</button>
+    style="margin: 4px 0; background-color: greenyellow ">GUARDAR OPCIONES ACTIVAS</button>
     <br>
     <button type="button" class="btn btn-xs btn-default btn-obtenerposactivos"
-    style="margin: 4px 0; background-color: yellow ">Obtener POSICIONADORES ACTIVOS</button>
+    style="margin: 4px 0; background-color: yellow ">Obtener OPCIONES ACTIVOS</button>
     <br>
     <br>
 </div>

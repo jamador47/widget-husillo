@@ -316,6 +316,8 @@ var HttpClient = function() {
  document.getElementById("my2f2").checked = obj['y2f2'];
  document.getElementById("my2l1").checked = obj['y2l1'];
  document.getElementById("my2l2").checked = obj['y2l2'];
+ document.getElementById("entregaon").checked = obj['entregaon'];
+
 });
 },
 
@@ -381,7 +383,7 @@ guardarposactivos: function(evt){
  theurl = theurl.concat(y2l2);
  theurl = theurl.concat("&");
  theurl = theurl.concat(entregaon);
- 
+
                         var client = new HttpClient();
                         client.get(theurl, function (response) {
                             alert("valores guardados");

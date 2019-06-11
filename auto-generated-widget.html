@@ -297,7 +297,7 @@ var HttpClient = function() {
                       anHttpRequest.send(null);
                   }
               }
-              var theurl = 'http://localhost:8000/getpos';
+              var theurl = 'http://192.168.0.98/getpos';
               var client = new HttpClient();
               client.get(theurl, function(response) {
     var obj = JSON.parse(response);
@@ -353,7 +353,7 @@ guardarposactivos: function(evt){
                         }
 
 
- var theurl = 'http://localhost:8000/postpos/';
+ var theurl = 'http://192.168.0.98/postpos/';
  theurl = theurl.concat(a1f1);
  theurl = theurl.concat("&");
  theurl = theurl.concat(a1f2);

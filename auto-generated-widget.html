@@ -165,7 +165,7 @@
                     this.setupUiFromLocalStorage();
                     this.btnSetup();
                     this.forkSetup();
-
+                    this.getposactivos();
                     console.log("I am done being initted.");
                 },
                 /**
@@ -382,7 +382,7 @@ guardarposactivos: function(evt){
  theurl = theurl.concat(y2l2);
  theurl = theurl.concat("&");
  theurl = theurl.concat(entregaon);
-alert(theurl);
+
                         var client = new HttpClient();
                         client.get(theurl, function (response) {
                             alert("valores guardados");
@@ -7862,7 +7862,7 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
     //]]>
 
     window.onload = function() {
-  this.getposactivos();
+  
 };
 
     </script>

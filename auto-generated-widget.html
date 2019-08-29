@@ -222,7 +222,14 @@
                     // of the slick .bind(this) technique to correctly set "this"
                     // when the callback is called
                     $('#' + this.id + ' .btn-m3').click(this.onM3BtnClick.bind(this));
-                    
+                    $('#' + this.id + ' .btn-hometot').click(this.hometot.bind(this));
+                    $('#' + this.id + ' .btn-homex').click(this.homex.bind(this));
+                    $('#' + this.id + ' .btn-homey').click(this.homey.bind(this));
+                    $('#' + this.id + ' .btn-homez').click(this.homez.bind(this));
+                    $('#' + this.id + ' .btn-homea').click(this.homea.bind(this));
+                    $('#' + this.id + ' .btn-hometilt').click(this.hometilt.bind(this));
+                    $('#' + this.id + ' .btn-homech').click(this.homech.bind(this));
+
 
                     $('#' + this.id + ' .btn-origen1').click(this.origen1.bind(this));
                     $('#' + this.id + ' .btn-origen2').click(this.origen2.bind(this));
@@ -7388,6 +7395,90 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
  
 },
 
+
+
+
+
+homech: function (evt ){
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyACM0  a");
+},
+
+homez: function (evt ){
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 Z0");
+},
+
+homex: function (evt ){
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 X0");	
+
+},
+
+hometilt: function (evt ){
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB1  G28.2 X0");	
+
+},
+
+homea: function (evt ){
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G91 G1 A10 F1000");	
+    setTimeout(function(){
+        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 A0");	
+
+    },1000);
+},
+
+homey: function (evt ){
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G91 G1 Y10 F1000");
+    setTimeout(function(){
+        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 Y0");	
+
+    },1000);	
+},
+
+                hometot: function (evt ){
+                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 Z0");	
+                   this.onM20BtnClick();
+
+        setTimeout(function () {
+            chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G91 G1 Y10 A10 F1000");	
+        }, 7000);
+
+      
+            setTimeout(function () {
+            chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB1  G28.2 X0");	
+            
+            }, 11000);
+
+
+            setTimeout(function () {
+
+                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 Y0 A0 X0");	
+         
+                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyACM0  a");	
+                var HttpClient = function () {
+           this.get = function (aUrl, aCallback) {
+  var anHttpRequest = new XMLHttpRequest();
+  anHttpRequest.onreadystatechange = function () {
+  if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+  aCallback(anHttpRequest.responseText);
+  }
+  anHttpRequest.open("GET", aUrl, true);
+  anHttpRequest.send(null);
+  }
+  }
+  var theurl = 'http://192.168.0.98/rotarcar/1';
+  var client = new HttpClient();
+  client.get(theurl, function (response) {
+   
+  });
+              
+          //  var cmd  = "$homy";
+  // chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+            
+            
+            }, 13000);
+            		
+
+                },
+                
                 //comenzar husillo
                 onM3BtnClick: function (evt) {
 
@@ -7810,41 +7901,37 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                     <div class="tab-pane active" id="com-chilipeppr-widget-husillo-tab6">
                             <p>Controles de Home</p>
                             <div class="" style="text-align:center">
-
-
                                 <b>Home Total</b>
-                                <button type="button" class="btn btn-xs btn-default btn-m3" style="margin: 4px 0;">Home Total</button>
+                                <button type="button" class="btn btn-xs btn-default btn-hometot" style="margin: 4px 0;">Home Total</button>
                                 <br>
-        
+                                <br>
                                 <b>Home Z</b>
-                                <button type="button" class="btn btn-xs btn-default btn-m3" style="margin: 4px 0;">Home eje Z</button>
+                                <button type="button" class="btn btn-xs btn-default btn-homez" style="margin: 4px 0;">Home eje Z</button>
                                 <br>
-                                
+                                <br>
                                 <b>Home X</b>
-                                <button type="button" class="btn btn-xs btn-default btn-m3" style="margin: 4px 0;">Home eje X</button>
+                                <button type="button" class="btn btn-xs btn-default btn-homex" style="margin: 4px 0;">Home eje X</button>
                                 <br>
-                                
+                                <br>
                                 <b>Home Y</b>
-                                <button type="button" class="btn btn-xs btn-default btn-m3" style="margin: 4px 0;">Home eje Y</button>
+                                <button type="button" class="btn btn-xs btn-default btn-homey" style="margin: 4px 0;">Home eje Y</button>
                                 <br>
-                                
+                                <br>
                                 <b>Home A</b>
-                                <button type="button" class="btn btn-xs btn-default btn-m3" style="margin: 4px 0;">Home eje A</button>
+                                <button type="button" class="btn btn-xs btn-default btn-homea" style="margin: 4px 0;">Home eje A</button>
                                 <br>
-                                
+                                <br>
                                 <b>Home Tilting Head</b>
-                                <button type="button" class="btn btn-xs btn-default btn-m3" style="margin: 4px 0;">Home Tilting</button>
+                                <button type="button" class="btn btn-xs btn-default btn-hometilt" style="margin: 4px 0;">Home Tilting</button>
                                 <br>
-                                
+                                <br>
                                 <b>Home Cambio Herramienta</b>
-                                <button type="button" class="btn btn-xs btn-default btn-m3" style="margin: 4px 0;">Home CH</button>
+                                <button type="button" class="btn btn-xs btn-default btn-homech" style="margin: 4px 0;">Home CH</button>
                                 <br>
                                
-        
-        
                             </div>
                         </div>
-                        
+
 
 
                 <!-- Tab 1 -->

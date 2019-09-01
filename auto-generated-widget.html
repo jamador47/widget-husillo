@@ -7072,6 +7072,33 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
 
 
 
+
+                //Guadar Origenes.
+
+                guardarorigenes: function (evt) {
+
+                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                    
+                    var HttpClient = function () {
+                       this.get = function (aUrl, aCallback) {
+                           var anHttpRequest = new XMLHttpRequest();
+                           anHttpRequest.onreadystatechange = function () {
+                               if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                   aCallback(anHttpRequest.responseText);
+                           }
+                           anHttpRequest.open("GET", aUrl, true);
+                           anHttpRequest.send(null);
+                       }
+                   }
+                   var theurl = 'http://192.168.0.98/api/origenes/'+document.getElementById("x1").value+'&'+document.getElementById("y1").value+'&'+document.getElementById("z1").value;
+                   var client = new HttpClient();
+                   client.get(theurl, function (response) {
+
+alert("Origenes Guardados")
+
+                   });
+
+               },
                 // Origen 1
 
 
@@ -8223,6 +8250,10 @@ homey: function (evt ){
                             <td><input type="text" id="y1"></td>
                         </tr>
                         <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a1"></td>
+                        </tr>
+                        <tr>
                             <td>Eje Z</td>
                             <td><input type="text" id="z1"></td>
                         </tr>
@@ -8242,6 +8273,10 @@ homey: function (evt ){
                         <tr>
                             <td> Eje Y (positivo)</td>
                             <td><input type="text" id="y2"></td>
+                        </tr>
+                        <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a2"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
@@ -8266,6 +8301,10 @@ homey: function (evt ){
                             <td><input type="text" id="y3"></td>
                         </tr>
                         <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a3"></td>
+                        </tr>
+                        <tr>
                             <td>Eje Z</td>
                             <td><input type="text" id="z3"></td>
                         </tr>
@@ -8284,6 +8323,10 @@ homey: function (evt ){
                         <tr>
                             <td> Eje Y (positivo)</td>
                             <td><input type="text" id="y4"></td>
+                        </tr>
+                        <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a4"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
@@ -8306,6 +8349,10 @@ homey: function (evt ){
                             <td><input type="text" id="y5"></td>
                         </tr>
                         <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a5"></td>
+                        </tr>
+                        <tr>
                             <td>Eje Z</td>
                             <td><input type="text" id="z5"></td>
                         </tr>
@@ -8324,6 +8371,10 @@ homey: function (evt ){
                         <tr>
                             <td> Eje Y (positivo)</td>
                             <td><input type="text" id="y6"></td>
+                        </tr>
+                        <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a6"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
@@ -8346,6 +8397,10 @@ homey: function (evt ){
                             <td><input type="text" id="y7"></td>
                         </tr>
                         <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a7"></td>
+                        </tr>
+                        <tr>
                             <td>Eje Z</td>
                             <td><input type="text" id="z7"></td>
                         </tr>
@@ -8365,6 +8420,10 @@ homey: function (evt ){
                         <tr>
                             <td> Eje Y (positivo)</td>
                             <td><input type="text" id="y8"></td>
+                        </tr>
+                        <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a8"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
@@ -8389,6 +8448,10 @@ homey: function (evt ){
                             <td><input type="text" id="y9"></td>
                         </tr>
                         <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a9"></td>
+                        </tr>
+                        <tr>
                             <td>Eje Z</td>
                             <td><input type="text" id="z9"></td>
                         </tr>
@@ -8408,6 +8471,10 @@ homey: function (evt ){
                         <tr>
                             <td> Eje Y (positivo)</td>
                             <td><input type="text" id="y10"></td>
+                        </tr>
+                        <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a10"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
@@ -8432,6 +8499,10 @@ homey: function (evt ){
                             <td><input type="text" id="y11"></td>
                         </tr>
                         <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a11"></td>
+                        </tr>
+                        <tr>
                             <td>Eje Z</td>
                             <td><input type="text" id="z11"></td>
                         </tr>
@@ -8451,6 +8522,10 @@ homey: function (evt ){
                         <tr>
                             <td> Eje Y (positivo)</td>
                             <td><input type="text" id="y12"></td>
+                        </tr>
+                        <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a12"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
@@ -8474,6 +8549,10 @@ homey: function (evt ){
                             <td><input type="text" id="y13"></td>
                         </tr>
                         <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a13"></td>
+                        </tr>
+                        <tr>
                             <td>Eje Z</td>
                             <td><input type="text" id="z13"></td>
                         </tr>
@@ -8495,6 +8574,10 @@ homey: function (evt ){
                             <td><input type="text" id="y14"></td>
                         </tr>
                         <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a14"></td>
+                        </tr>
+                        <tr>
                             <td>Eje Z</td>
                             <td><input type="text" id="z14"></td>
                         </tr>
@@ -8514,6 +8597,10 @@ homey: function (evt ){
                         <tr>
                             <td> Eje Y (positivo)</td>
                             <td><input type="text" id="y15"></td>
+                        </tr>
+                        <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a15"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
@@ -8538,6 +8625,10 @@ homey: function (evt ){
                             <td><input type="text" id="y16"></td>
                         </tr>
                         <tr>
+                            <td> Eje A (positivo)</td>
+                            <td><input type="text" id="a16"></td>
+                        </tr>
+                        <tr>
                             <td>Eje Z</td>
                             <td><input type="text" id="z16"></td>
                         </tr>
@@ -8546,10 +8637,10 @@ homey: function (evt ){
                     
                     <br>
     <button type="button" class="btn btn-xs btn-default btn-guardarorigenes"
-    style="margin: 4px 0; background-color: greenyellow ">GUARDAR OPCIONES ACTIVAS</button>
+    style="margin: 4px 0; background-color: greenyellow ">GUARDAR ORIGENES</button>
     <br>
     <button type="button" class="btn btn-xs btn-default btn-obtenerorigenes"
-    style="margin: 4px 0; background-color: yellow ">Obtener OPCIONES ACTIVOS</button>
+    style="margin: 4px 0; background-color: yellow ">Obtener ORIGENES GUARDADOS</button>
     <br>
     <br>
 

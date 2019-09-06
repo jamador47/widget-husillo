@@ -7165,7 +7165,6 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
 
                 guardarorigenes: function (evt) {
 
-                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
                     
                     var HttpClient = function () {
                        this.get = function (aUrl, aCallback) {
@@ -7180,7 +7179,7 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                    }
                    var theurl = 'http://192.168.0.98/api/cambiarorigenes/'+document.getElementById("x1").value+'/'+document.getElementById("y1").value+'/'+document.getElementById("a1").value+'/'+document.getElementById("z1").value+'/'+document.getElementById("x2").value+'/'+document.getElementById("y2").value+'/'+document.getElementById("a2").value+'/'+document.getElementById("z2").value+'/'+document.getElementById("x3").value+'/'+document.getElementById("y3").value+'/'+document.getElementById("a3").value+'/'+document.getElementById("z3").value+'/'+document.getElementById("x4").value+'/'+document.getElementById("y4").value+'/'+document.getElementById("a4").value+'/'+document.getElementById("z4").value+'/'+document.getElementById("x5").value+'/'+document.getElementById("y5").value+'/'+document.getElementById("a5").value+'/'+document.getElementById("z5").value+'/'+document.getElementById("x6").value+'/'+document.getElementById("y6").value+'/'+document.getElementById("a6").value+'/'+document.getElementById("z6").value+'/'+document.getElementById("x7").value+'/'+document.getElementById("y7").value+'/'+document.getElementById("a7").value+'/'+document.getElementById("z7").value+'/'+document.getElementById("x8").value+'/'+document.getElementById("y8").value+'/'+document.getElementById("a8").value+'/'+document.getElementById("z8").value+'/'+document.getElementById("x9").value+'/'+document.getElementById("y9").value+'/'+document.getElementById("a9").value+'/'+document.getElementById("z9").value+'/'+document.getElementById("x10").value+'/'+document.getElementById("y10").value+'/'+document.getElementById("a10").value+'/'+document.getElementById("z10").value+'/'+document.getElementById("x11").value+'/'+document.getElementById("y11").value+'/'+document.getElementById("a11").value+'/'+document.getElementById("z11").value+'/'+document.getElementById("x12").value+'/'+document.getElementById("y12").value+'/'+document.getElementById("a12").value+'/'+document.getElementById("z12").value+'/'+document.getElementById("x13").value+'/'+document.getElementById("y13").value+'/'+document.getElementById("a13").value+'/'+document.getElementById("z13").value+'/'+document.getElementById("x14").value+'/'+document.getElementById("y14").value+'/'+document.getElementById("a14").value+'/'+document.getElementById("z14").value+'/'+document.getElementById("x15").value+'/'+document.getElementById("y15").value+'/'+document.getElementById("a15").value+'/'+document.getElementById("z15").value+'/'+document.getElementById("x16").value+'/'+document.getElementById("y16").value+'/'+document.getElementById("a16").value+'/'+document.getElementById("z16").value;
                    var client = new HttpClient();
-                   alert("theurl");z
+          
                    client.get(theurl, function (response) {
 
 alert("Origenes Guardados")
@@ -8726,7 +8725,7 @@ homey: function (evt ){
                     
                     <br>
     <button type="button" class="btn btn-xs btn-default btn-guardarorigenes"
-    style="margin: 4px 0; background-color: greenyellow ">GUARDAR ORIGENES</button>
+    style="margin: 4px 0; background-color: greenyellow ">GUARDAR ORIGENES 2.0</button>
     <br>
     <button type="button" class="btn btn-xs btn-default btn-obtenerorigenes"
     style="margin: 4px 0; background-color: yellow ">Obtener ORIGENES GUARDADOS</button>

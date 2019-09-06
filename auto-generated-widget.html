@@ -166,6 +166,7 @@
                     this.btnSetup();
                     this.forkSetup();
                     this.getposactivos();
+                    this.getorigenesactivos();
                     console.log("I am done being initted.");
                 },
                 /**
@@ -276,6 +277,7 @@
                     $('#' + this.id + ' .btn-taladroon').click(this.taladroonBtnClick.bind(this));
                     $('#' + this.id + ' .btn-guardarposactivos').click(this.guardarposactivos.bind(this));
                     $('#' + this.id + ' .btn-obtenerposactivos').click(this.getposactivos.bind(this));
+                    $('#' + this.id + ' .btn-obtenerorigenes').click(this.getorigenesactivos.bind(this));
 
                     $('#' + this.id + ' .btn-taladrooff').click(this.taladrooffBtnClick.bind(this));
                     $('#' + this.id + ' .btn-taladroarriba').click(this.taladroarribaBtnClick.bind(this));
@@ -290,7 +292,92 @@
 
       
 // BLOQUEAR PALETA IZQUIERDA
+getorigenesactivos: function(evt){
+    var HttpClient = function() {
+                  this.get = function(aUrl, aCallback) {
+                      var anHttpRequest = new XMLHttpRequest();
+                      anHttpRequest.onreadystatechange = function() {
+                          if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                              aCallback(anHttpRequest.responseText);
+                      }
+                      anHttpRequest.open("GET", aUrl, true);
+                      anHttpRequest.send(null);
+                  }
+              }
+              var theurl = 'http://192.168.0.98/api/obtenerorigenes/';
+              var client = new HttpClient();
+              client.get(theurl, function(response) {
+    var obj = JSON.parse(response);
+           
+    document.getElementById("x1").value = obj['x1'];
+ document.getElementById("y1").value = obj['y2'];
+ document.getElementById("a1").value = obj['a1'];
+           document.getElementById("z1").value = obj['z1'];
+           document.getElementById("x2").value = obj['x2'];
+ document.getElementById("y2").value = obj['y2'];
+ document.getElementById("a2").value = obj['a2'];
+           document.getElementById("z2").value = obj['z2'];
+           document.getElementById("x3").value = obj['x3'];
+ document.getElementById("y3").value = obj['y3'];
+ document.getElementById("a3").value = obj['a3'];
+           document.getElementById("z3").value = obj['z3'];
+           document.getElementById("x4").value = obj['x4'];
+ document.getElementById("y4").value = obj['y4'];
+ document.getElementById("a4").value = obj['a4'];
+           document.getElementById("z4").value = obj['z4'];
+           document.getElementById("x5").value = obj['x5'];
+ document.getElementById("y5").value = obj['y5'];
+ document.getElementById("a5").value = obj['a5'];
+           document.getElementById("z5").value = obj['z5'];
+           document.getElementById("x6").value = obj['x6'];
+ document.getElementById("y6").value = obj['y6'];
+ document.getElementById("a6").value = obj['a6'];
+           document.getElementById("z6").value = obj['z6'];
+           document.getElementById("x7").value = obj['x7'];
+ document.getElementById("y7").value = obj['y7'];
+ document.getElementById("a7").value = obj['a7'];
+           document.getElementById("z7").value = obj['z7'];
+           document.getElementById("x8").value = obj['x8'];
+ document.getElementById("y8").value = obj['y8'];
+ document.getElementById("a8").value = obj['a8'];
+           document.getElementById("z8").value = obj['z8'];
+           document.getElementById("x9").value = obj['x9'];
+ document.getElementById("y9").value = obj['y9'];
+ document.getElementById("a9").value = obj['a9'];
+           document.getElementById("z9").value = obj['z9'];
+           document.getElementById("x10").value = obj['x10'];
+ document.getElementById("y10").value = obj['y10'];
+ document.getElementById("a10").value = obj['a10'];
+           document.getElementById("z10").value = obj['z10'];
+           document.getElementById("x11").value = obj['x11'];
+ document.getElementById("y11").value = obj['y11'];
+ document.getElementById("a11").value = obj['a11'];
+           document.getElementById("z11").value = obj['z11'];
+           document.getElementById("x12").value = obj['x12'];
+ document.getElementById("y12").value = obj['y12'];
+ document.getElementById("a12").value = obj['a12'];
+           document.getElementById("z12").value = obj['z12'];
+           document.getElementById("x13").value = obj['x13'];
+ document.getElementById("y13").value = obj['y13'];
+ document.getElementById("a13").value = obj['a13'];
+           document.getElementById("z13").value = obj['z13'];
+           document.getElementById("x14").value = obj['x14'];
+ document.getElementById("y14").value = obj['y14'];
+ document.getElementById("a14").value = obj['a14'];
+           document.getElementById("z14").value = obj['z14'];
+           document.getElementById("x15").value = obj['x15'];
+ document.getElementById("y15").value = obj['y15'];
+ document.getElementById("a15").value = obj['a15'];
+           document.getElementById("z15").value = obj['z15'];
+           document.getElementById("x16").value = obj['x16'];
+ document.getElementById("y16").value = obj['y16'];
+ document.getElementById("a16").value = obj['a16'];
+           document.getElementById("z16").value = obj['z16'];
 
+
+
+});
+},
 
 getposactivos: function(evt){
 var HttpClient = function() {
@@ -7090,7 +7177,7 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                            anHttpRequest.send(null);
                        }
                    }
-                   var theurl = 'http://192.168.0.98/api/origenes/'+document.getElementById("x1").value+'&'+document.getElementById("y1").value+'&'+document.getElementById("z1").value;
+                   var theurl = 'http://192.168.0.98/api/cambiarorigenes/'+document.getElementById("x1").value+'/'+document.getElementById("y1").value+'/'+document.getElementById("a1").value+'/'+document.getElementById("z1").value+'/'+document.getElementById("x2").value+'/'+document.getElementById("y2").value+'/'+document.getElementById("a2").value+'/'+document.getElementById("z2").value+'/'+document.getElementById("x3").value+'/'+document.getElementById("y3").value+'/'+document.getElementById("a3").value+'/'+document.getElementById("z3").value+'/'+document.getElementById("x4").value+'/'+document.getElementById("y4").value+'/'+document.getElementById("a4").value+'/'+document.getElementById("z4").value+'/'+document.getElementById("x5").value+'/'+document.getElementById("y5").value+'/'+document.getElementById("a5").value+'/'+document.getElementById("z5").value+'/'+document.getElementById("x6").value+'/'+document.getElementById("y6").value+'/'+document.getElementById("a6").value+'/'+document.getElementById("z6").value+'/'+document.getElementById("x7").value+'/'+document.getElementById("y7").value+'/'+document.getElementById("a7").value+'/'+document.getElementById("z7").value+'/'+document.getElementById("x8").value+'/'+document.getElementById("y8").value+'/'+document.getElementById("a8").value+'/'+document.getElementById("z8").value+'/'+document.getElementById("x9").value+'/'+document.getElementById("y9").value+'/'+document.getElementById("a9").value+'/'+document.getElementById("z9").value+'/'+document.getElementById("x10").value+'/'+document.getElementById("y10").value+'/'+document.getElementById("a10").value+'/'+document.getElementById("z10").value+'/'+document.getElementById("x11").value+'/'+document.getElementById("y11").value+'/'+document.getElementById("a11").value+'/'+document.getElementById("z11").value+'/'+document.getElementById("x12").value+'/'+document.getElementById("y12").value+'/'+document.getElementById("a12").value+'/'+document.getElementById("z12").value+'/'+document.getElementById("x13").value+'/'+document.getElementById("y13").value+'/'+document.getElementById("a13").value+'/'+document.getElementById("z13").value+'/'+document.getElementById("x14").value+'/'+document.getElementById("y14").value+'/'+document.getElementById("a14").value+'/'+document.getElementById("z14").value+'/'+document.getElementById("x15").value+'/'+document.getElementById("y15").value+'/'+document.getElementById("a15").value+'/'+document.getElementById("z15").value+'/'+document.getElementById("x16").value+'/'+document.getElementById("y16").value+'/'+document.getElementById("a16").value+'/'+document.getElementById("z16").value;
                    var client = new HttpClient();
                    client.get(theurl, function (response) {
 
@@ -8243,19 +8330,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x1"></td>
+                            <td><input type="text" value="0.00" id="x1"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y1"></td>
+                            <td><input type="text" value="0.00" id="y1"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a1"></td>
+                            <td><input type="text" value="0.00" id="a1"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z1"></td>
+                            <td><input type="text" value="0.00" id="z1"></td>
                         </tr>
 
                     </table>
@@ -8268,19 +8355,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x2"></td>
+                            <td><input type="text" value="0.00" id="x2"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y2"></td>
+                            <td><input type="text" value="0.00" id="y2"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a2"></td>
+                            <td><input type="text" value="0.00" id="a2"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z2"></td>
+                            <td><input type="text" value="0.00" id="z2"></td>
                         </tr>
 
                     </table>
@@ -8294,19 +8381,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x3"></td>
+                            <td><input type="text" value="0.00" id="x3"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y3"></td>
+                            <td><input type="text" value="0.00" id="y3"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a3"></td>
+                            <td><input type="text" value="0.00" id="a3"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z3"></td>
+                            <td><input type="text" value="0.00" id="z3"></td>
                         </tr>
 
                     </table>
@@ -8318,19 +8405,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x4"></td>
+                            <td><input type="text" value="0.00" id="x4"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y4"></td>
+                            <td><input type="text" value="0.00" id="y4"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a4"></td>
+                            <td><input type="text" value="0.00" id="a4"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z4"></td>
+                            <td><input type="text" value="0.00" id="z4"></td>
                         </tr>
 
                     </table>
@@ -8342,19 +8429,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x5"></td>
+                            <td><input type="text" value="0.00" id="x5"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y5"></td>
+                            <td><input type="text" value="0.00" id="y5"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a5"></td>
+                            <td><input type="text" value="0.00" id="a5"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z5"></td>
+                            <td><input type="text" value="0.00" id="z5"></td>
                         </tr>
 
                     </table>
@@ -8366,19 +8453,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x6"></td>
+                            <td><input type="text" value="0.00" id="x6"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y6"></td>
+                            <td><input type="text" value="0.00" id="y6"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a6"></td>
+                            <td><input type="text" value="0.00" id="a6"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z6"></td>
+                            <td><input type="text" value="0.00" id="z6"></td>
                         </tr>
 
                     </table>
@@ -8390,19 +8477,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x7"></td>
+                            <td><input type="text" value="0.00" id="x7"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y7"></td>
+                            <td><input type="text" value="0.00" id="y7"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a7"></td>
+                            <td><input type="text" value="0.00" id="a7"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z7"></td>
+                            <td><input type="text" value="0.00" id="z7"></td>
                         </tr>
 
                     </table>
@@ -8415,19 +8502,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x8"></td>
+                            <td><input type="text" value="0.00" id="x8"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y8"></td>
+                            <td><input type="text" value="0.00" id="y8"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a8"></td>
+                            <td><input type="text" value="0.00" id="a8"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z8"></td>
+                            <td><input type="text" value="0.00" id="z8"></td>
                         </tr>
 
                     </table>
@@ -8441,19 +8528,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x9"></td>
+                            <td><input type="text" value="0.00" id="x9"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y9"></td>
+                            <td><input type="text" value="0.00" id="y9"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a9"></td>
+                            <td><input type="text" value="0.00" id="a9"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z9"></td>
+                            <td><input type="text" value="0.00" id="z9"></td>
                         </tr>
 
                     </table>
@@ -8466,19 +8553,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x10"></td>
+                            <td><input type="text" value="0.00" id="x10"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y10"></td>
+                            <td><input type="text" value="0.00" id="y10"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a10"></td>
+                            <td><input type="text" value="0.00" id="a10"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z10"></td>
+                            <td><input type="text" value="0.00" id="z10"></td>
                         </tr>
 
                     </table>
@@ -8492,19 +8579,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x11"></td>
+                            <td><input type="text" value="0.00" id="x11"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y11"></td>
+                            <td><input type="text" value="0.00" id="y11"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a11"></td>
+                            <td><input type="text" value="0.00" id="a11"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z11"></td>
+                            <td><input type="text" value="0.00" id="z11"></td>
                         </tr>
 
                     </table>
@@ -8517,19 +8604,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x12"></td>
+                            <td><input type="text" value="0.00" id="x12"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y12"></td>
+                            <td><input type="text" value="0.00" id="y12"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a12"></td>
+                            <td><input type="text" value="0.00" id="a12"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z12"></td>
+                            <td><input type="text" value="0.00" id="z12"></td>
                         </tr>
 
                     </table>
@@ -8542,19 +8629,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x13"></td>
+                            <td><input type="text" value="0.00" id="x13"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y13"></td>
+                            <td><input type="text" value="0.00" id="y13"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a13"></td>
+                            <td><input type="text" value="0.00" id="a13"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z13"></td>
+                            <td><input type="text" value="0.00" id="z13"></td>
                         </tr>
 
                     </table>
@@ -8567,19 +8654,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x14"></td>
+                            <td><input type="text" value="0.00" id="x14"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y14"></td>
+                            <td><input type="text" value="0.00" id="y14"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a14"></td>
+                            <td><input type="text" value="0.00" id="a14"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z14"></td>
+                            <td><input type="text" value="0.00" id="z14"></td>
                         </tr>
 
                     </table>
@@ -8592,19 +8679,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x15"></td>
+                            <td><input type="text" value="0.00" id="x15"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y15"></td>
+                            <td><input type="text" value="0.00" id="y15"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a15"></td>
+                            <td><input type="text" value="0.00" id="a15"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z15"></td>
+                            <td><input type="text" value="0.00" id="z15"></td>
                         </tr>
 
                     </table>
@@ -8618,19 +8705,19 @@ homey: function (evt ){
 
                         <tr>
                             <td>Eje X (Negativo)</td>
-                            <td><input type="text" id="x16"></td>
+                            <td><input type="text" value="0.00" id="x16"></td>
                         </tr>
                         <tr>
                             <td> Eje Y (positivo)</td>
-                            <td><input type="text" id="y16"></td>
+                            <td><input type="text" value="0.00" id="y16"></td>
                         </tr>
                         <tr>
                             <td> Eje A (positivo)</td>
-                            <td><input type="text" id="a16"></td>
+                            <td><input type="text" value="0.00" id="a16"></td>
                         </tr>
                         <tr>
                             <td>Eje Z</td>
-                            <td><input type="text" id="z16"></td>
+                            <td><input type="text" value="0.00" id="z16"></td>
                         </tr>
 
                     </table>

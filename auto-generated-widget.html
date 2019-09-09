@@ -4314,7 +4314,143 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
                 onmjuntasBtnClick: function (evt) {
 
                   
+                   
+                    var HttpClient = function() {
+                  this.get = function(aUrl, aCallback) {
+                      var anHttpRequest = new XMLHttpRequest();
+                      anHttpRequest.onreadystatechange = function() {
+                          if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                              aCallback(anHttpRequest.responseText);
+                      }
+                      anHttpRequest.open("GET", aUrl, true);
+                      anHttpRequest.send(null);
+                  }
+              }
+              var theurl = 'http://192.168.0.98/api/estados';
+              var client = new HttpClient();
+              client.get(theurl, function(response) {
+    var obj = JSON.parse(response);
+                            
 
+// PRIMEROS DOS, SI LAS MESAS EStÁN EN HOME,  SEGUNDOS SI ESTÁN EN TRABAJO, TERCEROS SI ESTÁN BLOQUEADOS EN TRABAJO.
+if (parseInt(obj['I']["417"]) == 1 && parseInt(obj['I']["361"]) == 1 && parseInt(obj['I']["258"]) == 1 && parseInt(obj['I']["306"]) == 1 && parseInt(obj['I']["307"]) == 1 && parseInt(obj['I']["259"]) == 1) {
+
+
+                // FALTA UN QUERY A LA API PREGUNTANDOLE SI LA POSICIÒN ACTUAL ESTA BIEN. SI SI, HACE ESTO.
+
+
+                      
+                        var HttpClient = function () {
+                            this.get = function (aUrl, aCallback) {
+                                var anHttpRequest = new XMLHttpRequest();
+                                anHttpRequest.onreadystatechange = function () {
+                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                        aCallback(anHttpRequest.responseText);
+                                }
+                                anHttpRequest.open("GET", aUrl, true);
+                                anHttpRequest.send(null);
+                            }
+                        }
+                        var theurl = 'http://192.168.0.82/arduino/digital/3/1';
+                        var client = new HttpClient();
+                        client.get(theurl, function (response) {
+
+
+                            setTimeout(function () {
+                                var HttpClient = function () {
+                                    this.get = function (aUrl, aCallback) {
+                                        var anHttpRequest = new XMLHttpRequest();
+                                        anHttpRequest.onreadystatechange = function () {
+                                            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                                aCallback(anHttpRequest.responseText);
+                                        }
+                                        anHttpRequest.open("GET", aUrl, true);
+                                        anHttpRequest.send(null);
+                                    }
+                                }
+                                var theurl = 'http://192.168.0.82/arduino/digital/3/0';
+                                var client = new HttpClient();
+                                client.get(theurl, function (response) {
+
+                                    setTimeout(function () {
+                                        var HttpClient = function () {
+                                            this.get = function (aUrl, aCallback) {
+                                                var anHttpRequest = new XMLHttpRequest();
+                                                anHttpRequest.onreadystatechange = function () {
+                                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                                        aCallback(anHttpRequest.responseText);
+                                                }
+                                                anHttpRequest.open("GET", aUrl, true);
+                                                anHttpRequest.send(null);
+                                            }
+                                        }
+                                        var theurl = 'http://192.168.0.82/arduino/analog/12';
+                                        var client = new HttpClient();
+                                        client.get(theurl, function (response) {
+
+
+                                            var res = response.split("Pin A12 reads analog ");
+
+                                            response = parseInt(res[1]);
+
+                                            if (response > 850) {
+
+                                                var cmd = "$3ma=1";
+                                                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+                                                var cmd = "$asn=0";
+                                                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+                                                document.getElementById("indicadormesas").className = "led-green";
+                                                chilipeppr.publish(
+                                                    '/com-chilipeppr-elem-flashmsg/flashmsg',
+                                                    "Mesas",
+                                                    "Mesas en modo gantry",
+                                                    2000
+                                                );
+                                            }
+
+                                            else {
+
+                                                var alarmasexistentes = document.getElementById("textoalarmas").value;
+                                                document.getElementById("indicadoralarma").className = "led-yellow";
+                                                alarmasexistentes = alarmasexistentes.concat("\\\n\\\n");
+
+                                                alarmasexistentes = alarmasexistentes.concat("Acople de las mesas no se terminó de realizar (I.324)");
+
+                                                document.getElementById("textoalarmas").value = alarmasexistentes;
+
+
+                                            }
+
+                                        });
+
+                                    }, 2000);
+
+
+
+                                });
+
+
+
+                            }, 1000);
+
+                        });
+
+} 
+else{
+
+alert("ERROR: Para habilitar el modo gantry asegurate que las mesas estén en posición de HOME y las paletas estén en posición de trabajo y bloqueadas");
+
+}
+
+              });
+
+
+                        /*
+                       
+                  
+                  */
+
+                
 
 
 

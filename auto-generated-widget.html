@@ -7626,13 +7626,14 @@ if (response == 1){
                    esto.onM20BtnClick();
 
         setTimeout(function () {
-            chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G91 G1 Y20 A20 F1000");	
+            	
             esto.onM10BtnClick();
 
         }, 5000);
 
       
             setTimeout(function () {
+                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G91 G1 Y20 A20 F1000");
             chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB1  G28.2 X0");	
             
             }, 11000);
@@ -8074,7 +8075,7 @@ alert("Debe bloquear las válvula del carrusel para poder moverlo.");
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles 21enal</span> <span style="font-size:9px;"
+            </div> <span class="panel-title" data-toggle="popover">Controles 22enal</span> <span style="font-size:9px;"
                 class="fb-build">v1.1</span>
 
         </div>

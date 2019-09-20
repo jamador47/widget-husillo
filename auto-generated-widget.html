@@ -7528,7 +7528,42 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
 
 
 homech: function (evt ){
+                           
+var HttpClient = function() {
+                  this.get = function(aUrl, aCallback) {
+                      var anHttpRequest = new XMLHttpRequest();
+                      anHttpRequest.onreadystatechange = function() {
+                          if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                              aCallback(anHttpRequest.responseText);
+                      }
+                      anHttpRequest.open("GET", aUrl, true);
+                      anHttpRequest.send(null);
+                  }
+              }
+              var theurl = 'http://192.168.0.80/arduino/digital/29';
+              var client = new HttpClient();
+              client.get(theurl, function(response) {
+                  
+                var res = response.split("Pin D29 set to ");
+
+response = parseInt(res[1]);
+
+if (response == 1){
     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyACM0  a");
+
+                }
+else{
+
+alert("Debe bloquear las válvula del carrusel para poder moverlo.");
+
+}
+
+
+
+                    }   
+                    );
+
+                    
 },
 
 homez: function (evt ){
@@ -7562,6 +7597,31 @@ homey: function (evt ){
 },
 
                 hometot: function (evt ){
+
+                                           
+var HttpClient = function() {
+                  this.get = function(aUrl, aCallback) {
+                      var anHttpRequest = new XMLHttpRequest();
+                      anHttpRequest.onreadystatechange = function() {
+                          if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                              aCallback(anHttpRequest.responseText);
+                      }
+                      anHttpRequest.open("GET", aUrl, true);
+                      anHttpRequest.send(null);
+                  }
+              }
+              var theurl = 'http://192.168.0.80/arduino/digital/29';
+              var client = new HttpClient();
+              client.get(theurl, function(response) {
+                  
+                var res = response.split("Pin D29 set to ");
+
+response = parseInt(res[1]);
+
+if (response == 1){
+                       
+                    
+ 
                     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 Z0");	
                    this.onM20BtnClick();
 
@@ -7603,7 +7663,20 @@ homey: function (evt ){
             
             
             }, 13000);
-            		
+
+                               }
+else{
+
+alert("Debe bloquear las válvula del carrusel para poder moverlo.");
+
+}
+
+
+
+                    }   
+                    );
+
+                    
 
                 },
                 

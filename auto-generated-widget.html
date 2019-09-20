@@ -7598,7 +7598,7 @@ homey: function (evt ){
 
                 hometot: function (evt ){
 
-                                           
+                               var esto = this;            
 var HttpClient = function() {
                   this.get = function(aUrl, aCallback) {
                       var anHttpRequest = new XMLHttpRequest();
@@ -7623,11 +7623,14 @@ if (response == 1){
                     
  
                     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 Z0");	
-                   this.onM20BtnClick();
+                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyACM0  a");	
+                   esto.onM20BtnClick();
 
         setTimeout(function () {
             chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G91 G1 Y10 A10 F1000");	
-        }, 7000);
+            esto.onM10BtnClick();
+
+        }, 5000);
 
       
             setTimeout(function () {
@@ -8072,7 +8075,7 @@ alert("Debe bloquear las válvula del carrusel para poder moverlo.");
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles 9enal</span> <span style="font-size:9px;"
+            </div> <span class="panel-title" data-toggle="popover">Controles 10enal</span> <span style="font-size:9px;"
                 class="fb-build">v1.1</span>
 
         </div>

@@ -24,8 +24,8 @@
     </style>
 
     <script type='text/javascript'>
-        const serialPort = "/dev/ttyUSB0";
-        const serialPort2 = "/dev/ttyACM0";
+        const serialPort = "COM3";
+        const serialPort2 = "COM4";
         //<![CDATA[
         /* global requirejs cprequire cpdefine chilipeppr THREE */
         // Defining the globals above helps Cloud9 not show warnings for those variables
@@ -7123,9 +7123,9 @@ alert("ERROR: Para habilitar el modo gantry asegurate que las mesas estén en po
                         var cmd = "$asn=1";
                         chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
 
-                        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G91 G1 A10 F1000");	
+                        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 A10 F1000");	
     setTimeout(function(){
-        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 A0");	
+        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G28.2 A0");	
 
     },1000);
 
@@ -7549,7 +7549,7 @@ var HttpClient = function() {
 response = parseInt(res[1]);
 
 if (response == 1){
-    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyACM0  a");
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM4  a");
 
                 }
 else{
@@ -7567,31 +7567,31 @@ alert("Debe bloquear las válvula del carrusel para poder moverlo.");
 },
 
 homez: function (evt ){
-    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 Z0");
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G28.2 Z0");
 },
 
 homex: function (evt ){
-    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 X0");	
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G28.2 X0");	
 
 },
 
 hometilt: function (evt ){
-    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB1  G28.2 X0");	
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM5  G28.2 X0");	
 
 },
 
 homea: function (evt ){
-    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G91 G1 A10 F1000");	
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 A10 F1000");	
     setTimeout(function(){
-        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 A0");	
+        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G28.2 A0");	
 
     },1000);
 },
 
 homey: function (evt ){
-    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G91 G1 Y10 F1000");
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 Y10 F1000");
     setTimeout(function(){
-        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 Y0");	
+        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G28.2 Y0");	
 
     },1000);	
 },
@@ -7622,7 +7622,7 @@ if (response == 1){
                        
                     
  
-                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 Z0");	
+                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G28.2 Z0");	
                    esto.onM20BtnClick();
 
         setTimeout(function () {
@@ -7633,17 +7633,17 @@ if (response == 1){
 
       
             setTimeout(function () {
-                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G91 G1 Y20 A20 F1000");
-            chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB1  G28.2 X0");	
+                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 Y20 A20 F1000");
+            chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM5  G28.2 X0");	
             
             }, 11000);
 
 
             setTimeout(function () {
 
-                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyUSB0  G28.2 Y0 A0 X0");	
+                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G28.2 Y0 A0 X0");	
          
-                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf /dev/ttyACM0  a");	
+                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM4  a");	
                 var HttpClient = function () {
            this.get = function (aUrl, aCallback) {
   var anHttpRequest = new XMLHttpRequest();

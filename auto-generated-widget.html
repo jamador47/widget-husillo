@@ -7469,9 +7469,7 @@ alert("Origenes Guardados")
            
            // Si el brazo no está extendido
     
-                var cmd  = "!";
-chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
-                
+
                 var cmd  = "g";
 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort2 + " " + cmd);
                 
@@ -7500,8 +7498,7 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serial
      
 
                 
-     var cmd  = "!";
-chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+ 
      
      var cmd  = "p";
 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort2 + " " + cmd);
@@ -7729,8 +7726,7 @@ alert("Debe bloquear las válvula del carrusel para poder moverlo.");
                                 response = parseInt(res[1]);
 
                                 if (response == 0) {
-                                    var cmd = "!";
-                                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                                  
                                     var HttpClient = function () {
                                         this.get = function (aUrl, aCallback) {
                                             var anHttpRequest = new XMLHttpRequest();
@@ -7841,9 +7837,7 @@ alert("Debe bloquear las válvula del carrusel para poder moverlo.");
 
                 onM5BtnClick: function (evt) {
                     console.log("saying hello 2 from btn in tab 1");
-                    var cmd = "!";
-                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
-
+                   
 
                     var HttpClient = function () {
                         this.get = function (aUrl, aCallback) {
@@ -8076,7 +8070,7 @@ alert("Debe bloquear las válvula del carrusel para poder moverlo.");
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles 22enal</span> <span style="font-size:9px;"
+            </div> <span class="panel-title" data-toggle="popover">Controles 25enal</span> <span style="font-size:9px;"
                 class="fb-build">v1.1</span>
 
         </div>

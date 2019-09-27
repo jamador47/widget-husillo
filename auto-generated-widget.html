@@ -305,7 +305,7 @@ getorigenesactivos: function(evt){
                       anHttpRequest.send(null);
                   }
               }
-              var theurl = 'http://192.168.0.98/api/obtenerorigenesf/';
+              var theurl = 'http://192.168.0.98/api/obtenerorigenesusar/';
               var client = new HttpClient();
               client.get(theurl, function(response) {
     var obj = JSON.parse(response);

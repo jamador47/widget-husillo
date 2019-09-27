@@ -294,6 +294,7 @@
       
 // BLOQUEAR PALETA IZQUIERDA
 getorigenesactivos: function(evt){
+    
     var HttpClient = function() {
                   this.get = function(aUrl, aCallback) {
                       var anHttpRequest = new XMLHttpRequest();
@@ -305,7 +306,7 @@ getorigenesactivos: function(evt){
                       anHttpRequest.send(null);
                   }
               }
-              var theurl = 'http://192.168.0.98/api/obtenerorigenesusar/';
+              var theurl = 'http://192.168.0.98/getpos';
               var client = new HttpClient();
               client.get(theurl, function(response) {
     var obj = JSON.parse(response);

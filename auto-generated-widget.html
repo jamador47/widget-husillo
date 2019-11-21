@@ -7124,7 +7124,7 @@ alert("ERROR: Para habilitar el modo gantry asegurate que las mesas estén en po
                         var cmd = "$asn=1";
                         chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
 
-                        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 A10 F1000");	
+                        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 -A10 F1000");	
     setTimeout(function(){
         chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G28.2 A0");	
 
@@ -7579,7 +7579,7 @@ hometilt: function (evt ){
 },
 
 homea: function (evt ){
-    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 A10 F1000");	
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 -A10 F1000");	
     setTimeout(function(){
         chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G28.2 A0");	
 
@@ -7587,7 +7587,7 @@ homea: function (evt ){
 },
 
 homey: function (evt ){
-    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 Y10 F1000");
+    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 -Y10 F1000");
     setTimeout(function(){
         chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G28.2 Y0");	
 
@@ -7631,7 +7631,7 @@ if (response == 1){
 
       
             setTimeout(function () {
-                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 Y20 A20 F1000");
+                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 -Y20 -A20 F1000");
             chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM5  G28.2 X0");	
             
             }, 11000);

@@ -7093,7 +7093,9 @@
 
                                             var cmd = "$3ma=3";
                                             chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
-                                            var cmd = "$asn=1";
+                                            var cmd = "$asn=0";
+                                            chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+                                            var cmd = "$asx=1";
                                             chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
 
                                             chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 A-10 F1000");
@@ -8197,7 +8199,7 @@
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">1Controles</span> <span style="font-size:9px;" class="fb-build">v1.1</span>
+            </div> <span class="panel-title" data-toggle="popover">2Controles</span> <span style="font-size:9px;" class="fb-build">v1.1</span>
 
         </div>
         <div class="panel-body">

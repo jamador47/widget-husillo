@@ -7486,6 +7486,33 @@
                 },
 
 
+                onM10Home: function(evt) {
+
+      
+
+
+
+                 var cmd = "p";
+                 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort2 + " " + cmd);
+
+                 document.getElementById("indicadorposhusillo").className = "led-green";
+
+                 chilipeppr.publish(
+                     '/com-chilipeppr-elem-flashmsg/flashmsg',
+                     "Estado del Husillo",
+                     "Husillo en posición de trabajo",
+                     4000 /* show for 2 second */
+                 );
+
+
+                 //Continúa procedimiento
+
+
+
+
+
+             },
+
 
 
                 //Husillo trabajo
@@ -7647,7 +7674,7 @@
 
                             setTimeout(function() {
 
-                                esto.onM10BtnClick();
+                                esto.onM10home();
 
                             }, 5000);
 
@@ -7732,7 +7759,7 @@
 
                             setTimeout(function() {
 
-                                esto.onM10BtnClick();
+                                esto.onM10home();
 
                             }, 5000);
 
@@ -8170,7 +8197,7 @@
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">KJontroles</span> <span style="font-size:9px;" class="fb-build">v1.1</span>
+            </div> <span class="panel-title" data-toggle="popover">Controles</span> <span style="font-size:9px;" class="fb-build">v1.1</span>
 
         </div>
         <div class="panel-body">

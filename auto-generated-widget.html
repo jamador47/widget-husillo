@@ -7492,14 +7492,14 @@
 
                 onM10BtnClick: function(evt) {
 
-                    var HttpClient = function() {
+   var HttpClient = function() {
                         this.get = function(aUrl, aCallback) {
                             var anHttpRequest = new XMLHttpRequest();
                             anHttpRequest.onreadystatechange = function() {
                                 if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
                                     aCallback(anHttpRequest.responseText);
                             }
-                            anHttpRequest.Ropen("GET", aUrl, true);
+                            anHttpRequest.open("GET", aUrl, true);
                             anHttpRequest.send(null);
                         }
                     }
@@ -7508,7 +7508,7 @@
                     client.get(theurl, function(response) {
                         setTimeout(function(){
 
-                          
+                           
                     var theurl = 'http://192.168.0.80/arduino/digital/3/0';
                     var client = new HttpClient();
                     client.get(theurl, function(response) {});
@@ -8170,7 +8170,7 @@
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles</span> <span style="font-size:9px;" class="fb-build">v1.1</span>
+            </div> <span class="panel-title" data-toggle="popover">KJontroles</span> <span style="font-size:9px;" class="fb-build">v1.1</span>
 
         </div>
         <div class="panel-body">

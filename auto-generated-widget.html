@@ -7876,7 +7876,10 @@
                                     var client = new HttpClient();
                                     client.get(theurl, function(response) {
                                         var response1 = JSON.parse(response);
-                                        var HttpClient = function() {
+                                    });
+
+setTimeout(function(){
+                                    var HttpClient = function() {
                                         this.get = function(aUrl, aCallback) {
                                             var anHttpRequest = new XMLHttpRequest();
                                             anHttpRequest.onreadystatechange = function() {
@@ -7891,7 +7894,11 @@
                                     var client = new HttpClient();
                                     client.get(theurl, function(response) {
                                         var response1 = JSON.parse(response);
-                                        var HttpClient = function() {
+                                    });
+                            
+                                    setTimeout(function(){
+
+                                    var HttpClient = function() {
                                         this.get = function(aUrl, aCallback) {
                                             var anHttpRequest = new XMLHttpRequest();
                                             anHttpRequest.onreadystatechange = function() {
@@ -7907,13 +7914,6 @@
                                     client.get(theurl, function(response) {
                                         var response1 = JSON.parse(response);
                                     });
-                                    });
-                                    });
-
-
-                                    
-
-                                   
                                     document.getElementById("indicadorhusillo").className = "led-green";
                                     chilipeppr.publish(
                                         '/com-chilipeppr-elem-flashmsg/flashmsg',
@@ -7921,6 +7921,9 @@
                                         "Husillo Activado ",
                                         2000 /* show for 2 second */
                                     );
+                                },1200);
+
+                                },1200);
 
                                     setTimeout(function() {
                                         var cmd = "~";
@@ -8201,7 +8204,7 @@
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">1Controles</span> <span style="font-size:9px;" class="fb-build">v1.1</span>
+            </div> <span class="panel-title" data-toggle="popover">4Controles</span> <span style="font-size:9px;" class="fb-build">v1.1</span>
 
         </div>
         <div class="panel-body">

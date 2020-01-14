@@ -7875,9 +7875,20 @@
                                     var theurl = 'http://192.168.0.88/arduino/digital/29/1';
                                     var client = new HttpClient();
                                     client.get(theurl, function(response) {
+                                        
+                                    theurl = 'http://192.168.0.88/arduino/digital/19/1';
+                                    client.get(theurl, function(response) {
+                                        var response1 = JSON.parse(response);
+                                        theurl = 'http://192.168.0.88/arduino/digital/22/1';
+                                     client = new HttpClient();
+                                    client.get(theurl, function(response) {
                                         var response1 = JSON.parse(response);
                                     });
+                                    });
+                                    });
 
+
+                                    
 
                                     var HttpClient = function() {
                                         this.get = function(aUrl, aCallback) {
@@ -7890,28 +7901,7 @@
                                             anHttpRequest.send(null);
                                         }
                                     }
-                                    var theurl = 'http://192.168.0.88/arduino/digital/19/1';
-                                    var client = new HttpClient();
-                                    client.get(theurl, function(response) {
-                                        var response1 = JSON.parse(response);
-                                    });
-
-                                    var HttpClient = function() {
-                                        this.get = function(aUrl, aCallback) {
-                                            var anHttpRequest = new XMLHttpRequest();
-                                            anHttpRequest.onreadystatechange = function() {
-                                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                                                    aCallback(anHttpRequest.responseText);
-                                            }
-                                            anHttpRequest.open("GET", aUrl, true);
-                                            anHttpRequest.send(null);
-                                        }
-                                    }
-                                    var theurl = 'http://192.168.0.88/arduino/digital/22/1';
-                                    var client = new HttpClient();
-                                    client.get(theurl, function(response) {
-                                        var response1 = JSON.parse(response);
-                                    });
+                                   
                                     document.getElementById("indicadorhusillo").className = "led-green";
                                     chilipeppr.publish(
                                         '/com-chilipeppr-elem-flashmsg/flashmsg',
@@ -8199,7 +8189,7 @@
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">2Controles</span> <span style="font-size:9px;" class="fb-build">v1.1</span>
+            </div> <span class="panel-title" data-toggle="popover">3Controles</span> <span style="font-size:9px;" class="fb-build">v1.1</span>
 
         </div>
         <div class="panel-body">

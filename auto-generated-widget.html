@@ -286,6 +286,21 @@
                     $('#' + this.id + ' .btn-taladroabajo').click(this.taladroabajoBtnClick.bind(this));
 
 
+
+
+                    $('#' + this.id + ' .btn-encendervacior1').click(this.encendervacior1.bind(this));
+                    $('#' + this.id + ' .btn-encendervaciol1').click(this.encendervaciol1.bind(this));
+                    $('#' + this.id + ' .btn-encendervacior2').click(this.encendervacior1.bind(this));
+                    $('#' + this.id + ' .btn-encendervaciol2').click(this.encendervaciol1.bind(this));
+                    $('#' + this.id + ' .btn-apagarvacior1').click(this.apagarvacior1.bind(this));
+                    $('#' + this.id + ' .btn-apagarvaciol1').click(this.apagarvaciol1.bind(this));
+                    $('#' + this.id + ' .btn-apagarvacior2').click(this.apagarvacior1.bind(this));
+                    $('#' + this.id + ' .btn-apagarvaciol2').click(this.apagarvaciol1.bind(this));
+
+
+
+
+
                 },
                 /**
                  * onHelloBtnClick is an example of a button click event callback
@@ -294,6 +309,350 @@
 
 
                 // BLOQUEAR PALETA IZQUIERDA
+
+                encendervacior1: function(evt) {
+
+                    var HttpClient = function() {
+                        this.get = function(aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function() {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.83/arduino/digital/47/1';
+                    var client = new HttpClient();
+                    client.get(theurl, function(response) {
+
+                        var HttpClient = function() {
+                            this.get = function(aUrl, aCallback) {
+                                var anHttpRequest = new XMLHttpRequest();
+                                anHttpRequest.onreadystatechange = function() {
+                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                        aCallback(anHttpRequest.responseText);
+                                }
+                                anHttpRequest.open("GET", aUrl, true);
+                                anHttpRequest.send(null);
+                            }
+                        }
+                        var theurl = 'http://192.168.0.83/arduino/digital/47/0';
+                        var client = new HttpClient();
+                        client.get(theurl, function(response) {
+
+
+                        });
+
+
+                    });
+
+
+                },
+
+
+                encendervacior2: function(evt) {
+
+                    var HttpClient = function() {
+                        this.get = function(aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function() {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.83/arduino/digital/12/1';
+                    var client = new HttpClient();
+                    client.get(theurl, function(response) {
+
+                        var HttpClient = function() {
+                            this.get = function(aUrl, aCallback) {
+                                var anHttpRequest = new XMLHttpRequest();
+                                anHttpRequest.onreadystatechange = function() {
+                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                        aCallback(anHttpRequest.responseText);
+                                }
+                                anHttpRequest.open("GET", aUrl, true);
+                                anHttpRequest.send(null);
+                            }
+                        }
+                        var theurl = 'http://192.168.0.83/arduino/digital/12/0';
+                        var client = new HttpClient();
+                        client.get(theurl, function(response) {
+
+
+                        });
+
+
+                    });
+
+
+                },
+
+
+
+                encendervaciol1: function(evt) {
+                    var HttpClient = function() {
+                        this.get = function(aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function() {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.82/arduino/digital/33/1';
+                    var client = new HttpClient();
+                    client.get(theurl, function(response) {
+
+                        var HttpClient = function() {
+                            this.get = function(aUrl, aCallback) {
+                                var anHttpRequest = new XMLHttpRequest();
+                                anHttpRequest.onreadystatechange = function() {
+                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                        aCallback(anHttpRequest.responseText);
+                                }
+                                anHttpRequest.open("GET", aUrl, true);
+                                anHttpRequest.send(null);
+                            }
+                        }
+                        var theurl = 'http://192.168.0.82/arduino/digital/33/0';
+                        var client = new HttpClient();
+                        client.get(theurl, function(response) {
+
+
+                        });
+
+
+                    });
+
+
+
+
+                },
+
+                encendervaciol2: function(evt) {
+
+                    var HttpClient = function() {
+                        this.get = function(aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function() {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.82/arduino/digital/44/1';
+                    var client = new HttpClient();
+                    client.get(theurl, function(response) {
+
+                        var HttpClient = function() {
+                            this.get = function(aUrl, aCallback) {
+                                var anHttpRequest = new XMLHttpRequest();
+                                anHttpRequest.onreadystatechange = function() {
+                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                        aCallback(anHttpRequest.responseText);
+                                }
+                                anHttpRequest.open("GET", aUrl, true);
+                                anHttpRequest.send(null);
+                            }
+                        }
+                        var theurl = 'http://192.168.0.82/arduino/digital/44/0';
+                        var client = new HttpClient();
+                        client.get(theurl, function(response) {
+
+
+                        });
+
+
+                    });
+
+
+
+
+                },
+
+                apagarvacior1: function(evt) {
+
+                    var HttpClient = function() {
+                        this.get = function(aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function() {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.83/arduino/digital/48/1';
+                    var client = new HttpClient();
+                    client.get(theurl, function(response) {
+
+                        var HttpClient = function() {
+                            this.get = function(aUrl, aCallback) {
+                                var anHttpRequest = new XMLHttpRequest();
+                                anHttpRequest.onreadystatechange = function() {
+                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                        aCallback(anHttpRequest.responseText);
+                                }
+                                anHttpRequest.open("GET", aUrl, true);
+                                anHttpRequest.send(null);
+                            }
+                        }
+                        var theurl = 'http://192.168.0.83/arduino/digital/48/0';
+                        var client = new HttpClient();
+                        client.get(theurl, function(response) {
+
+
+                        });
+
+
+                    });
+
+
+
+                },
+
+
+                apagarvacior2: function(evt) {
+
+                    var HttpClient = function() {
+                        this.get = function(aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function() {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.83/arduino/digital/5/1';
+                    var client = new HttpClient();
+                    client.get(theurl, function(response) {
+
+                        var HttpClient = function() {
+                            this.get = function(aUrl, aCallback) {
+                                var anHttpRequest = new XMLHttpRequest();
+                                anHttpRequest.onreadystatechange = function() {
+                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                        aCallback(anHttpRequest.responseText);
+                                }
+                                anHttpRequest.open("GET", aUrl, true);
+                                anHttpRequest.send(null);
+                            }
+                        }
+                        var theurl = 'http://192.168.0.83/arduino/digital/5/0';
+                        var client = new HttpClient();
+                        client.get(theurl, function(response) {
+
+
+                        });
+
+
+                    });
+
+
+
+                },
+
+
+
+                apagarvaciol1: function(evt) {
+                    var HttpClient = function() {
+                        this.get = function(aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function() {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.82/arduino/digital/32/1';
+                    var client = new HttpClient();
+                    client.get(theurl, function(response) {
+
+                        var HttpClient = function() {
+                            this.get = function(aUrl, aCallback) {
+                                var anHttpRequest = new XMLHttpRequest();
+                                anHttpRequest.onreadystatechange = function() {
+                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                        aCallback(anHttpRequest.responseText);
+                                }
+                                anHttpRequest.open("GET", aUrl, true);
+                                anHttpRequest.send(null);
+                            }
+                        }
+                        var theurl = 'http://192.168.0.82/arduino/digital/32/0';
+                        var client = new HttpClient();
+                        client.get(theurl, function(response) {
+
+
+                        });
+
+
+                    });
+
+
+
+                },
+
+                apagarvaciol2: function(evt) {
+                    var HttpClient = function() {
+                        this.get = function(aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function() {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.82/arduino/digital/5/1';
+                    var client = new HttpClient();
+                    client.get(theurl, function(response) {
+
+                        var HttpClient = function() {
+                            this.get = function(aUrl, aCallback) {
+                                var anHttpRequest = new XMLHttpRequest();
+                                anHttpRequest.onreadystatechange = function() {
+                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                        aCallback(anHttpRequest.responseText);
+                                }
+                                anHttpRequest.open("GET", aUrl, true);
+                                anHttpRequest.send(null);
+                            }
+                        }
+                        var theurl = 'http://192.168.0.82/arduino/digital/5/0';
+                        var client = new HttpClient();
+                        client.get(theurl, function(response) {
+
+
+                        });
+
+
+                    });
+
+
+
+                },
+
+
+
+
+
                 getorigenesactivos: function(evt) {
 
                     var HttpClient = function() {
@@ -7454,14 +7813,14 @@
                     var theurl = 'http://192.168.0.80/arduino/digital/8/1';
                     var client = new HttpClient();
                     client.get(theurl, function(response) {
-                        setTimeout(function(){
+                        setTimeout(function() {
 
-                           
-                    var theurl = 'http://192.168.0.80/arduino/digital/8/0';
-                    var client = new HttpClient();
-                    client.get(theurl, function(response) {});
 
-                        },2000);
+                            var theurl = 'http://192.168.0.80/arduino/digital/8/0';
+                            var client = new HttpClient();
+                            client.get(theurl, function(response) {});
+
+                        }, 2000);
 
 
                     });
@@ -7490,30 +7849,30 @@
 
                 onM10Home: function(evt) {
 
-      
-
-
-
-                 var cmd = "p";
-                 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort2 + " " + cmd);
-
-                 document.getElementById("indicadorposhusillo").className = "led-green";
-
-                 chilipeppr.publish(
-                     '/com-chilipeppr-elem-flashmsg/flashmsg',
-                     "Estado del Husillo",
-                     "Husillo en posición de trabajo",
-                     4000 /* show for 2 second */
-                 );
-
-
-                 //Continúa procedimiento
 
 
 
 
+                    var cmd = "p";
+                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort2 + " " + cmd);
 
-             },
+                    document.getElementById("indicadorposhusillo").className = "led-green";
+
+                    chilipeppr.publish(
+                        '/com-chilipeppr-elem-flashmsg/flashmsg',
+                        "Estado del Husillo",
+                        "Husillo en posición de trabajo",
+                        4000 /* show for 2 second */
+                    );
+
+
+                    //Continúa procedimiento
+
+
+
+
+
+                },
 
 
 
@@ -7521,7 +7880,7 @@
 
                 onM10BtnClick: function(evt) {
 
-   
+
 
 
                     var cmd = "p";
@@ -7853,52 +8212,52 @@
                                         var response1 = JSON.parse(response);
                                     });
 
-setTimeout(function(){
-                                    var HttpClient = function() {
-                                        this.get = function(aUrl, aCallback) {
-                                            var anHttpRequest = new XMLHttpRequest();
-                                            anHttpRequest.onreadystatechange = function() {
-                                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                                                    aCallback(anHttpRequest.responseText);
+                                    setTimeout(function() {
+                                        var HttpClient = function() {
+                                            this.get = function(aUrl, aCallback) {
+                                                var anHttpRequest = new XMLHttpRequest();
+                                                anHttpRequest.onreadystatechange = function() {
+                                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                                        aCallback(anHttpRequest.responseText);
+                                                }
+                                                anHttpRequest.open("GET", aUrl, true);
+                                                anHttpRequest.send(null);
                                             }
-                                            anHttpRequest.open("GET", aUrl, true);
-                                            anHttpRequest.send(null);
                                         }
-                                    }
-                                    var theurl = 'http://192.168.0.88/arduino/digital/19/1';
-                                    var client = new HttpClient();
-                                    client.get(theurl, function(response) {
-                                        var response1 = JSON.parse(response);
-                                    });
-                            
-                                    setTimeout(function(){
+                                        var theurl = 'http://192.168.0.88/arduino/digital/19/1';
+                                        var client = new HttpClient();
+                                        client.get(theurl, function(response) {
+                                            var response1 = JSON.parse(response);
+                                        });
 
-                                    var HttpClient = function() {
-                                        this.get = function(aUrl, aCallback) {
-                                            var anHttpRequest = new XMLHttpRequest();
-                                            anHttpRequest.onreadystatechange = function() {
-                                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                                                    aCallback(anHttpRequest.responseText);
+                                        setTimeout(function() {
+
+                                            var HttpClient = function() {
+                                                this.get = function(aUrl, aCallback) {
+                                                    var anHttpRequest = new XMLHttpRequest();
+                                                    anHttpRequest.onreadystatechange = function() {
+                                                        if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                                            aCallback(anHttpRequest.responseText);
+                                                    }
+                                                    anHttpRequest.open("GET", aUrl, true);
+                                                    anHttpRequest.send(null);
+                                                }
                                             }
-                                            anHttpRequest.open("GET", aUrl, true);
-                                            anHttpRequest.send(null);
-                                        }
-                                    }
-                                    var theurl = 'http://192.168.0.88/arduino/digital/22/1';
-                                    var client = new HttpClient();
-                                    client.get(theurl, function(response) {
-                                        var response1 = JSON.parse(response);
-                                    });
-                                    document.getElementById("indicadorhusillo").className = "led-green";
-                                    chilipeppr.publish(
-                                        '/com-chilipeppr-elem-flashmsg/flashmsg',
-                                        "Estado del Husillo",
-                                        "Husillo Activado ",
-                                        2000 /* show for 2 second */
-                                    );
-                                },1200);
+                                            var theurl = 'http://192.168.0.88/arduino/digital/22/1';
+                                            var client = new HttpClient();
+                                            client.get(theurl, function(response) {
+                                                var response1 = JSON.parse(response);
+                                            });
+                                            document.getElementById("indicadorhusillo").className = "led-green";
+                                            chilipeppr.publish(
+                                                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                                                "Estado del Husillo",
+                                                "Husillo Activado ",
+                                                2000 /* show for 2 second */
+                                            );
+                                        }, 1200);
 
-                                },1200);
+                                    }, 1200);
 
                                     setTimeout(function() {
                                         var cmd = "~";
@@ -8333,6 +8692,30 @@ setTimeout(function(){
                         <button type="button" class="btn btn-xs btn-default btn-mjuntas" style="margin: 4px 0;">Juntar Mesas</button>
 
                         <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">Separar Mesas</button>
+                    </div>
+                    <br>
+
+                    <div class="" style="text-align:center">
+                        <b>Control de Vacio</b>
+                        <br>
+                        <br>
+                        <br>
+                        <b>Mesa A zona 1:</b>
+                        <button type="button" class="btn btn-xs btn-default btn-encendervaciol1" style="margin: 4px 0;">Encender</button>
+                        <button type="button" class="btn btn-xs btn-default btn-apagarvaciol1" style="margin: 4px 0;">Apagar</button>
+                        <br>
+                        <b>Mesa A zona 2:</b>
+                        <button type="button" class="btn btn-xs btn-default btn-encendervaciol2" style="margin: 4px 0;">Encender</button>
+                        <button type="button" class="btn btn-xs btn-default btn-apagarvaciol2" style="margin: 4px 0;">Apagar</button>
+                        <br>
+                        <b>Mesa Y zona 1:</b>
+                        <button type="button" class="btn btn-xs btn-default btn-encendervacior1" style="margin: 4px 0;">Encender</button>
+                        <button type="button" class="btn btn-xs btn-default btn-apagarvacior1" style="margin: 4px 0;">Apagar</button>
+                        <br>
+                        <b>Mesa Y zona 2:</b>
+                        <button type="button" class="btn btn-xs btn-default btn-encendervacior2" style="margin: 4px 0;">Encender</button>
+                        <button type="button" class="btn btn-xs btn-default btn-apagarvacior2" style="margin: 4px 0;">Apagar</button>
+
                     </div>
                     <br>
                     <div class="" style="text-align:center">

@@ -298,6 +298,10 @@
                     $('#' + this.id + ' .btn-apagarvaciol2').click(this.apagarvaciol1.bind(this));
 
 
+                    $('#' + this.id + ' .btn-encenderblower').click(this.encenderblower.bind(this));
+                    $('#' + this.id + ' .btn-apagarblower').click(this.apagarblower.bind(this));
+
+
 
 
 
@@ -309,6 +313,42 @@
 
 
                 // BLOQUEAR PALETA IZQUIERDA
+
+                encenderblower: function(evt) {
+                    var HttpClient = function() {
+                        this.get = function(aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function() {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.80/arduino/digital/7/1';
+                    var client = new HttpClient();
+                    client.get(theurl, function(response) {});
+
+                },
+
+                apagarblower: function(evt) {
+                    var HttpClient = function() {
+                        this.get = function(aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function() {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.80/arduino/digital/7/0';
+                    var client = new HttpClient();
+                    client.get(theurl, function(response) {});
+
+                },
 
                 encendervacior1: function(evt) {
 
@@ -8613,6 +8653,14 @@
 
                         <button type="button" class="btn btn-xs btn-default btn-m5" style="margin: 4px 0;">Desactivar
                             Husillo</button>
+
+                        <br>
+                        <b>Activación del Blower</b>
+                        <button type="button" class="btn btn-xs btn-default btn-encenderblower" style="margin: 4px 0;">Activar
+                            Blower</button>
+
+                        <button type="button" class="btn btn-xs btn-default btn-apagarblower" style="margin: 4px 0;">Desactivar
+                            blower</button>
 
                         <br>
 

@@ -7512,13 +7512,14 @@
                                             );
                                         } else {
 
-                                            var alarmasexistentes = document.getElementById("textoalarmas").value;
-                                            document.getElementById("indicadoralarma").className = "led-yellow";
+                                            var alarmasexistentes = document.getElementById("textoerrores").value;
+                                            document.getElementById("indicadorerrorejec").className = "led-red";
+
                                             alarmasexistentes = alarmasexistentes.concat("\\\n\\\n");
 
                                             alarmasexistentes = alarmasexistentes.concat("Desacople de las mesas no se terminó de realizar (I.325)");
 
-                                            document.getElementById("textoalarmas").value = alarmasexistentes;
+                                            document.getElementById("textoerrores").value = alarmasexistentes;
 
 
                                         }

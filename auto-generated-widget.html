@@ -8066,6 +8066,7 @@
                             setTimeout(function() {
 
                                 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G28.2 Y0 X0");
+                                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G0 X-10");
 
                                 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM4  a");
                                 var HttpClient = function() {
@@ -8151,6 +8152,7 @@
                             setTimeout(function() {
 
                                 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G28.2 Y0 A0 X0");
+                                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G0 X-10");
 
                                 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM4  a");
                                 var HttpClient = function() {

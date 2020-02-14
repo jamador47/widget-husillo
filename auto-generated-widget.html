@@ -223,6 +223,9 @@
                     // when the callback is called
                     $('#' + this.id + ' .btn-m3').click(this.onM3BtnClick.bind(this));
                     $('#' + this.id + ' .btn-hometot').click(this.hometot.bind(this));
+                    $('#' + this.id + ' .btn-velocpruebas').click(this.velocpruebas.bind(this));
+                    $('#' + this.id + ' .btn-velocprod').click(this.velocprod.bind(this));
+
                     $('#' + this.id + ' .btn-hometoty').click(this.hometoty.bind(this));
 
                     $('#' + this.id + ' .btn-homex').click(this.homex.bind(this));
@@ -313,6 +316,22 @@
 
 
                 // BLOQUEAR PALETA IZQUIERDA
+                // BLOQUEAR PALETA IZQUIERDA
+
+                velocpruebas: function(evt) {
+
+                    var cmd = "$xvm=15000";
+                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+
+
+                },
+
+                velocprod: function(evt) {
+                    var cmd = "$xvm=35000";
+                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+
+                },
+
 
                 encenderblower: function(evt) {
                     var HttpClient = function() {
@@ -8252,10 +8271,6 @@
                                     var theurl = 'http://192.168.0.88/arduino/digital/29/1';
                                     var client = new HttpClient();
                                     client.get(theurl, function(response) {
-                                        var response1 = JSON.parse(response);
-                                    });
-
-                                    setTimeout(function() {
                                         var HttpClient = function() {
                                             this.get = function(aUrl, aCallback) {
                                                 var anHttpRequest = new XMLHttpRequest();
@@ -8270,10 +8285,6 @@
                                         var theurl = 'http://192.168.0.88/arduino/digital/19/1';
                                         var client = new HttpClient();
                                         client.get(theurl, function(response) {
-                                            var response1 = JSON.parse(response);
-                                        });
-
-                                        setTimeout(function() {
 
                                             var HttpClient = function() {
                                                 this.get = function(aUrl, aCallback) {
@@ -8289,23 +8300,23 @@
                                             var theurl = 'http://192.168.0.88/arduino/digital/22/1';
                                             var client = new HttpClient();
                                             client.get(theurl, function(response) {
-                                                var response1 = JSON.parse(response);
+                                                document.getElementById("indicadorhusillo").className = "led-green";
+                                                chilipeppr.publish(
+                                                    '/com-chilipeppr-elem-flashmsg/flashmsg',
+                                                    "Estado del Husillo",
+                                                    "Husillo Activado ",
+                                                    2000 /* show for 2 second */
+                                                );
+
+
                                             });
-                                            document.getElementById("indicadorhusillo").className = "led-green";
-                                            chilipeppr.publish(
-                                                '/com-chilipeppr-elem-flashmsg/flashmsg',
-                                                "Estado del Husillo",
-                                                "Husillo Activado ",
-                                                2000 /* show for 2 second */
-                                            );
-                                        }, 1200);
+                                        });
 
-                                    }, 1200);
+                                    });
 
-                                    setTimeout(function() {
-                                        var cmd = "~";
-                                        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
-                                    }, 3000);
+
+
+
 
                                 } else {
                                     chilipeppr.publish(
@@ -8581,7 +8592,7 @@
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles</span> <span style="font-size:9px;" class="fb-build">v1.1</span>
+            </div> <span class="panel-title" data-toggle="popover">Controles</span> <span style="font-size:9px;" class="fb-build">vP.1</span>
 
         </div>
         <div class="panel-body">
@@ -8596,6 +8607,7 @@
                 <li><a href="#com-chilipeppr-widget-husillo-tab3" role="tab" data-toggle="tab">Brocas</a></li>
                 <li><a href="#com-chilipeppr-widget-husillo-tab4" role="tab" data-toggle="tab">Mesas V3.5f</a></li>
                 <li><a href="#com-chilipeppr-widget-husillo-tab5" role="tab" data-toggle="tab">Origenes Activos</a></li>
+                <li><a href="#com-chilipeppr-widget-husillo-tab7" role="tab" data-toggle="tab">Velocidades</a></li>
 
 
             </ul>
@@ -8604,6 +8616,20 @@
             <div class="tab-content">
 
                 <!--Tab 6-->
+                <div class="tab-pane active" id="com-chilipeppr-widget-husillo-tab7">
+                    <p>Velocidades</p>
+                    <div class="" style="text-align:center">
+                        <b>Pruebas</b>
+                        <button type="button" class="btn btn-xs btn-default btn-velocpruebas" style="margin: 4px 0;">Velocidad de Prueba</button>
+                        <br>
+                        <br>
+                        <b>Producción</b>
+                        <button type="button" class="btn btn-xs btn-default btn-velocprod" style="margin: 4px 0;">Velocidad de Producción</button>
+                        <br>
+                        <br>
+
+                    </div>
+                </div>
 
                 <div class="tab-pane active" id="com-chilipeppr-widget-husillo-tab1">
                     <p>Controles de Home</p>

@@ -322,12 +322,16 @@
 
                     var cmd = "$xvm=15000";
                     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                    var cmd = "$yvm=8000";
+                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
 
 
                 },
 
                 velocprod: function(evt) {
                     var cmd = "$xvm=35000";
+                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                    var cmd = "$yvm=20000";
                     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
 
                 },

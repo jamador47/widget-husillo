@@ -7944,6 +7944,25 @@
 
                 onM10BtnClick: function(evt) {
 
+                    var HttpClient = function() {
+                        this.get = function(aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function() {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.80/arduino/distancia/1';
+                    var client = new HttpClient();
+                    client.get(theurl, function(response) {
+                        var res = parseFloat(response);
+                        if (res>30){
+
+                   
+
 
 
 
@@ -7958,7 +7977,8 @@
                         "Husillo en posición de trabajo",
                         4000 /* show for 2 second */
                     );
-
+                }
+                    });
 
                     //Continúa procedimiento
 
@@ -8596,7 +8616,7 @@
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles</span> <span style="font-size:9px;" class="fb-build">vP.1</span>
+            </div> <span class="panel-title" data-toggle="popover">Controles</span> <span style="font-size:9px;" class="fb-build">vQ.1</span>
 
         </div>
         <div class="panel-body">

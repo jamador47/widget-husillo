@@ -26,6 +26,7 @@
     <script type='text/javascript'>
         const serialPort = "COM3";
         const serialPort2 = "COM4";
+        var entrabajo = 0;
         //<![CDATA[
         /* global requirejs cprequire cpdefine chilipeppr THREE */
         // Defining the globals above helps Cloud9 not show warnings for those variables
@@ -7846,7 +7847,7 @@
 
                 onM20BtnClick: function(evt) {
 
-
+entrabajo = 0;
 
 
                     /*   var erroresexistentes = document.getElementById("textoalarmas").value;
@@ -7943,7 +7944,7 @@
                 //Husillo trabajo
 
                 onM10BtnClick: function(evt) {
-
+                    
                     var HttpClient = function() {
                         this.get = function(aUrl, aCallback) {
                             var anHttpRequest = new XMLHttpRequest();
@@ -7960,7 +7961,8 @@
                     client.get(theurl, function(response) {
                         var res = parseFloat(response);
                    alert(res);
-                        if (res<30){
+                   alert(entrabajo);
+                        if (res<30 && entrabajo == 0){
 
                    
 
@@ -7969,7 +7971,7 @@
 
                     var cmd = "p";
                     chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort2 + " " + cmd);
-
+entrabajo = 1;
                     document.getElementById("indicadorposhusillo").className = "led-green";
 
                     chilipeppr.publish(

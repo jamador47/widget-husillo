@@ -3926,6 +3926,19 @@
 
                 activarM58: function(evt) {
 
+                    var cmd = "$3ma=3";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+var cmd = "$asn=0";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+var cmd = "$asx=1";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+
+var cmd = "$2ma=1";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+var cmd = "$ysn=0";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+var cmd = "$ysx=1";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
 
 
                     // VERIFICAR SI MESA A ESTA AFUERA
@@ -4024,7 +4037,20 @@
 
                 activarM57: function(evt) {
 
+                    var cmd = "$3ma=1";
+ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+ var cmd = "$ysn=0";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+var cmd = "$ysx=1";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
 
+
+ var cmd = "$2ma=3";
+ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+ var cmd = "$asn=0";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+var cmd = "$asx=1";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
 
                     // VERIFICAR SI MESA A ESTA AFUERA
 
@@ -4794,10 +4820,7 @@
 
                                                 if (response > 850) {
 
-                                                    var cmd = "$3ma=1";
-                                                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
-                                                    var cmd = "$asn=0";
-                                                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+                                                                                   chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
                                                     document.getElementById("indicadormesas").className = "led-green";
                                                     chilipeppr.publish(
                                                         '/com-chilipeppr-elem-flashmsg/flashmsg',
@@ -7514,12 +7537,21 @@
                                         if (response == 1) {
 
 
-                                            var cmd = "$3ma=3";
-                                            chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
-                                            var cmd = "$asn=0";
-                                            chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
-                                            var cmd = "$asx=1";
-                                            chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+                                            var cmd = "$3ma=1";
+ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+ var cmd = "$ysn=0";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+var cmd = "$ysx=1";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+
+
+ var cmd = "$2ma=3";
+ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+ var cmd = "$asn=0";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+var cmd = "$asx=1";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+
 
                                             chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 A-10 F1000");
                                             setTimeout(function() {
@@ -8618,7 +8650,7 @@ entrabajo = 1;
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles</span> <span style="font-size:9px;" class="fb-build">vQ.1</span>
+            </div> <span class="panel-title" data-toggle="popover">Controles</span> <span style="font-size:9px;" class="fb-build">vZ.1</span>
 
         </div>
         <div class="panel-body">

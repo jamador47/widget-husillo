@@ -4819,9 +4819,12 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + s
                                                 response = parseInt(res[1]);
 
                                                 if (response > 850) {
-
-                                                                                   chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
-                                                    document.getElementById("indicadormesas").className = "led-green";
+                                                    var cmd = "$3ma=1";
+                                                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+                                                    var cmd = "$asn=0";
+                                                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+                                                    
+                                                     document.getElementById("indicadormesas").className = "led-green";
                                                     chilipeppr.publish(
                                                         '/com-chilipeppr-elem-flashmsg/flashmsg',
                                                         "Mesas",
@@ -8650,7 +8653,7 @@ entrabajo = 1;
                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                     </div>
                 </div>
-            </div> <span class="panel-title" data-toggle="popover">Controles</span> <span style="font-size:9px;" class="fb-build">vZ.1</span>
+            </div> <span class="panel-title" data-toggle="popover">Controles</span> <span style="font-size:9px;" class="fb-build">vR.1</span>
 
         </div>
         <div class="panel-body">

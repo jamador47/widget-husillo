@@ -253,6 +253,9 @@
                     $('#' + this.id + ' .btn-m10').click(this.onM10BtnClick.bind(this));
                     $('#' + this.id + ' .btn-m20').click(this.onM20BtnClick.bind(this));
                     $('#' + this.id + ' .btn-mjuntas').click(this.onmjuntasBtnClick.bind(this));
+                    $('#' + this.id + ' .btn-yder').click(this.yder.bind(this));
+                    $('#' + this.id + ' .btn-yizq').click(this.yizq.bind(this));
+
 
                     $('#' + this.id + ' .btn-m57').click(this.activarM57.bind(this));
                     $('#' + this.id + ' .btn-m58').click(this.activarM58.bind(this));
@@ -3924,6 +3927,27 @@
 
                 },
 
+                yder: function(evt){
+                  
+
+var cmd = "$3ma=3";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+var cmd = "$asn=0";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+var cmd = "$asx=1";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+
+var cmd = "$2ma=1";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+var cmd = "$ysn=0";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+var cmd = "$ysx=1";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+
+
+
+                },
+
                 activarM58: function(evt) {
 
                     var cmd = "$3ma=3";
@@ -4033,6 +4057,24 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + s
                 },
 
 
+yizq: function(evt){
+    var cmd = "$3ma=1";
+ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+ var cmd = "$ysn=0";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+var cmd = "$ysx=1";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+
+
+ var cmd = "$2ma=3";
+ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+ var cmd = "$asn=0";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+var cmd = "$asx=1";
+chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
+
+
+},
 
 
                 activarM57: function(evt) {
@@ -8833,6 +8875,11 @@ entrabajo = 1;
                         <button type="button" class="btn btn-xs btn-default btn-mjuntas" style="margin: 4px 0;">Juntar Mesas</button>
 
                         <button type="button" class="btn btn-xs btn-default btn-mseparadas" style="margin: 4px 0;">Separar Mesas</button>
+                  
+
+                        <button type="button" class="btn btn-xs btn-default btn-yizq" style="margin: 4px 0;">Asignar Y a mesa Izquierda</button>
+                        <button type="button" class="btn btn-xs btn-default btn-yder" style="margin: 4px 0;">Asignar Y a mesa derecha</button>
+
                     </div>
                     <br>
 

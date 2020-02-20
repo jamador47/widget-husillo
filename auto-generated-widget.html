@@ -4065,14 +4065,14 @@ chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + s
 var cmd = "$ysx=1";
 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
 
-
+setTimeout(function(){
  var cmd = "$2ma=3";
  chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
  var cmd = "$asn=0";
 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
 var cmd = "$asx=1";
 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf " + serialPort + " " + cmd);
-
+},1000)
 
 },
 

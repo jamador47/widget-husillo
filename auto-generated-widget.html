@@ -917,27 +917,77 @@
                 bloquearpaletaizquierda: function(evt) {
 
                     var HttpClient = function() {
-                        this.get = function(aUrl, aCallback) {
-                            var anHttpRequest = new XMLHttpRequest();
-                            anHttpRequest.onreadystatechange = function() {
-                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                                    aCallback(anHttpRequest.responseText);
-                            }
-                            anHttpRequest.open("GET", aUrl, true);
-                            anHttpRequest.send(null);
-                        }
+                this.get = function(aUrl, aCallback) {
+                    var anHttpRequest = new XMLHttpRequest();
+                    anHttpRequest.onreadystatechange = function() {
+                        if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                            aCallback(anHttpRequest.responseText);
                     }
+                    anHttpRequest.open("GET", aUrl, true);
+                    anHttpRequest.send(null);
+                }
+            }
 
 
-                    var theurl = 'http://192.168.0.82/arduino/digital/34/1';
-                    var client = new HttpClient();
-                    client.get(theurl, function(response) {
+            var theurl = 'http://192.168.0.82/arduino/digital/34/1';
+            var client = new HttpClient();
+            client.get(theurl, function(response) {
 
-                    });
+            });
 
-                    setTimeout(function() {
+            setTimeout(function() {
 
+                var HttpClient = function() {
+                    this.get = function(aUrl, aCallback) {
+                        var anHttpRequest = new XMLHttpRequest();
+                        anHttpRequest.onreadystatechange = function() {
+                            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                aCallback(anHttpRequest.responseText);
+                        }
+                        anHttpRequest.open("GET", aUrl, true);
+                        anHttpRequest.send(null);
+                    }
+                }
+
+
+                var theurl = 'http://192.168.0.82/arduino/digital/34/0';
+                var client = new HttpClient();
+                client.get(theurl, function(response) {
+                    //alert ("BLOQUEADO");
+                });
+
+
+
+                var HttpClient = function() {
+                    this.get = function(aUrl, aCallback) {
+                        var anHttpRequest = new XMLHttpRequest();
+                        anHttpRequest.onreadystatechange = function() {
+                            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                aCallback(anHttpRequest.responseText);
+                        }
+                        anHttpRequest.open("GET", aUrl, true);
+                        anHttpRequest.send(null);
+                    }
+                }
+
+
+                var theurl = 'http://192.168.0.82/arduino/digital/40';
+                var client = new HttpClient();
+                client.get(theurl, function(response) {
+
+
+                    var res = response.split("Pin D40 set to ");
+
+                    response = parseInt(res[1]);
+
+                    if (response == 1) {
+                        // SI SE BLOQUEO
+                        // http://192.168.0.85/arduino/digital/7/0
+
+                        // APAGAR LED
                         var HttpClient = function() {
+
+
                             this.get = function(aUrl, aCallback) {
                                 var anHttpRequest = new XMLHttpRequest();
                                 anHttpRequest.onreadystatechange = function() {
@@ -949,80 +999,30 @@
                             }
                         }
 
-
-                        var theurl = 'http://192.168.0.82/arduino/digital/34/0';
+                        var theurl = 'http://192.168.0.85/arduino/digital/6/0';
                         var client = new HttpClient();
-                        client.get(theurl, function(response) {
-                            // alert ("BLOQUEADO");
-                        });
+                        client.get(theurl, function(response) {});
+                    } else {
 
 
+                        var erroresexistentes = document.getElementById("textoerrores").value;
+                        document.getElementById("indicadorerrorejec").className = "led-red";
+                        erroresexistentes = erroresexistentes.concat("\\\n\\\n");
 
-                        var HttpClient = function() {
-                            this.get = function(aUrl, aCallback) {
-                                var anHttpRequest = new XMLHttpRequest();
-                                anHttpRequest.onreadystatechange = function() {
-                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                                        aCallback(anHttpRequest.responseText);
-                                }
-                                anHttpRequest.open("GET", aUrl, true);
-                                anHttpRequest.send(null);
-                            }
-                        }
+                        erroresexistentes = erroresexistentes.concat("Mesas A no pudo ser bloqueada, Error de Movimiento");
 
+                        document.getElementById("textoerrores").value = erroresexistentes;
 
-                        var theurl = 'http://192.168.0.82/arduino/digital/40';
-                        var client = new HttpClient();
-                        client.get(theurl, function(response) {
-
-                            var res = response.split("Pin D40 set to ");
-
-                            response = parseInt(res[1]);
-
-                            if (response == 1) {
+                        var cmd = "!";
+                        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+                        // SI NO SE BLOQUEO (ERROR)
 
 
-                                // SI SE BLOQUEO
-                                // http://192.168.0.85/arduino/digital/7/0
+                    }
+                })
 
-                                // APAGAR LED
-                                var HttpClient = function() {
+            }, 2000)
 
-
-                                    this.get = function(aUrl, aCallback) {
-                                        var anHttpRequest = new XMLHttpRequest();
-                                        anHttpRequest.onreadystatechange = function() {
-                                            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                                                aCallback(anHttpRequest.responseText);
-                                        }
-                                        anHttpRequest.open("GET", aUrl, true);
-                                        anHttpRequest.send(null);
-                                    }
-                                }
-
-                                var theurl = 'http://192.168.0.85/arduino/digital/6/0';
-                                var client = new HttpClient();
-                                client.get(theurl, function(response) {});
-                            } else {
-
-
-                                var erroresexistentes = document.getElementById("textoerrores").value;
-
-                                erroresexistentes = erroresexistentes.concat("\\\n\\\n");
-
-                                erroresexistentes = erroresexistentes.concat("Mesas A no pudo ser bloqueada, Error de Movimiento");
-
-                                document.getElementById("textoerrores").value = erroresexistentes;
-
-                                var cmd = "!";
-                                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
-                                // SI NO SE BLOQUEO (ERROR)
-
-
-                            }
-                        })
-
-                    }, 1000)
 
 
 
@@ -2430,106 +2430,108 @@
 
                 bloquearpaletaderecha: function(evt) {
                     var self = this;
-                    var HttpClient = function() {
-                        this.get = function(aUrl, aCallback) {
-                            var anHttpRequest = new XMLHttpRequest();
-                            anHttpRequest.onreadystatechange = function() {
-                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                                    aCallback(anHttpRequest.responseText);
-                            }
-                            anHttpRequest.open("GET", aUrl, true);
-                            anHttpRequest.send(null);
+            var HttpClient = function() {
+                this.get = function(aUrl, aCallback) {
+                    var anHttpRequest = new XMLHttpRequest();
+                    anHttpRequest.onreadystatechange = function() {
+                        if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                            aCallback(anHttpRequest.responseText);
+                    }
+                    anHttpRequest.open("GET", aUrl, true);
+                    anHttpRequest.send(null);
+                }
+            }
+
+
+            var theurl = 'http://192.168.0.83/arduino/digital/42/1';
+            var client = new HttpClient();
+            client.get(theurl, function(response) {
+
+                var HttpClient = function() {
+                    this.get = function(aUrl, aCallback) {
+                        var anHttpRequest = new XMLHttpRequest();
+                        anHttpRequest.onreadystatechange = function() {
+                            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                aCallback(anHttpRequest.responseText);
                         }
+                        anHttpRequest.open("GET", aUrl, true);
+                        anHttpRequest.send(null);
+                    }
+                }
+
+
+                var theurl = 'http://192.168.0.83/arduino/digital/42/0';
+                var client = new HttpClient();
+                client.get(theurl, function(response) {});
+
+
+
+
+                var HttpClient = function() {
+                    this.get = function(aUrl, aCallback) {
+                        var anHttpRequest = new XMLHttpRequest();
+                        anHttpRequest.onreadystatechange = function() {
+                            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                aCallback(anHttpRequest.responseText);
+                        }
+                        anHttpRequest.open("GET", aUrl, true);
+                        anHttpRequest.send(null);
+                    }
+                }
+
+
+                var theurl = 'http://192.168.0.83/arduino/digital/29';
+                var client = new HttpClient();
+                client.get(theurl, function(response) {
+
+                    var res = response.split("Pin D29 set to ");
+
+                    response = parseInt(res[1]);
+
+                    if (response == 1) {
+
+
+                        // SI SE BLOQUEO
+                        // http://192.168.0.85/arduino/digital/7/0
+
+                        // APAGAR LED
+                        var HttpClient = function() {
+
+
+                            this.get = function(aUrl, aCallback) {
+                                var anHttpRequest = new XMLHttpRequest();
+                                anHttpRequest.onreadystatechange = function() {
+                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                        aCallback(anHttpRequest.responseText);
+                                }
+                                anHttpRequest.open("GET", aUrl, true);
+                                anHttpRequest.send(null);
+                            }
+                        }
+
+                        // LEE SI MESA ESTA EN TRABAJO
+                        var theurl = 'http://192.168.0.85/arduino/digital/7/0';
+                        var client = new HttpClient();
+                        client.get(theurl, function(response) {});
+                    } else {
+                        // SI NO SE BLOQUEO (ERROR)
+
+                        var erroresexistentes = document.getElementById("textoerrores").value;
+                        document.getElementById("indicadorerrorejec").className = "led-red";
+                        erroresexistentes = erroresexistentes.concat("\\\n\\\n");
+
+                        erroresexistentes = erroresexistentes.concat("Mesas derecha no pudo ser bloqueada, Error de Movimiento");
+
+                        document.getElementById("textoerrores").value = erroresexistentes;
+
+                        var cmd = "!";
+                        chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
+
                     }
 
 
-                    var theurl = 'http://192.168.0.83/arduino/digital/42/1';
-                    var client = new HttpClient();
-                    client.get(theurl, function(response) {
-
-                        var HttpClient = function() {
-                            this.get = function(aUrl, aCallback) {
-                                var anHttpRequest = new XMLHttpRequest();
-                                anHttpRequest.onreadystatechange = function() {
-                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                                        aCallback(anHttpRequest.responseText);
-                                }
-                                anHttpRequest.open("GET", aUrl, true);
-                                anHttpRequest.send(null);
-                            }
-                        }
-
-
-                        var theurl = 'http://192.168.0.83/arduino/digital/42/0';
-                        var client = new HttpClient();
-                        client.get(theurl, function(response) {});
-
-
-
-
-                        var HttpClient = function() {
-                            this.get = function(aUrl, aCallback) {
-                                var anHttpRequest = new XMLHttpRequest();
-                                anHttpRequest.onreadystatechange = function() {
-                                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                                        aCallback(anHttpRequest.responseText);
-                                }
-                                anHttpRequest.open("GET", aUrl, true);
-                                anHttpRequest.send(null);
-                            }
-                        }
-
-
-                        var theurl = 'http://192.168.0.83/arduino/digital/29';
-                        var client = new HttpClient();
-                        client.get(theurl, function(response) {
-
-                            var res = response.split("Pin D29 set to ");
-
-                            response = parseInt(res[1]);
-
-                            if (response == 1) {
-                                // SI SE BLOQUEO
-                                // http://192.168.0.85/arduino/digital/7/0
-
-                                // APAGAR LED
-                                var HttpClient = function() {
-
-
-                                    this.get = function(aUrl, aCallback) {
-                                        var anHttpRequest = new XMLHttpRequest();
-                                        anHttpRequest.onreadystatechange = function() {
-                                            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                                                aCallback(anHttpRequest.responseText);
-                                        }
-                                        anHttpRequest.open("GET", aUrl, true);
-                                        anHttpRequest.send(null);
-                                    }
-                                }
-
-                                // LEE SI MESA ESTA EN TRABAJO
-                                var theurl = 'http://192.168.0.85/arduino/digital/7/0';
-                                var client = new HttpClient();
-                                client.get(theurl, function(response) {});
-                            } else {
-                                // SI NO SE BLOQUEO (ERROR)
-
-                                var erroresexistentes = document.getElementById("textoerrores").value;
-
-                                erroresexistentes = erroresexistentes.concat("\\\n\\\n");
-
-                                erroresexistentes = erroresexistentes.concat("Mesas derecha no pudo ser bloqueada, Error de Movimiento");
-
-                                document.getElementById("textoerrores").value = erroresexistentes;
-
-                                var cmd = "!";
-                                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "send " + serialPort + " " + cmd);
-
-                            }
-
-
-                        });
-                    });
+                });
+            });
 
 
                 },

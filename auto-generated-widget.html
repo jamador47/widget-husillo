@@ -229,6 +229,10 @@
 
                     $('#' + this.id + ' .btn-hometoty').click(this.hometoty.bind(this));
 
+                    $('#' + this.id + ' .btn-subircampana').click(this.subircampana.bind(this));
+                    $('#' + this.id + ' .btn-bajarcampana').click(this.bajarcampana.bind(this));
+
+
                     $('#' + this.id + ' .btn-homex').click(this.homex.bind(this));
                     $('#' + this.id + ' .btn-homey').click(this.homey.bind(this));
                     $('#' + this.id + ' .btn-homez').click(this.homez.bind(this));
@@ -321,6 +325,65 @@
 
                 // BLOQUEAR PALETA IZQUIERDA
                 // BLOQUEAR PALETA IZQUIERDA
+                subircampana: function(evt) {
+                    var esto = this;
+                    var HttpClient = function() {
+                        this.get = function(aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function() {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+                    var theurl = 'http://192.168.0.80/arduino/digital/3/0';
+                    var client = new HttpClient();
+                    client.get(theurl, function(response) {
+
+
+                    });
+
+                    theurl = 'http://192.168.0.80/arduino/digital/8/1';
+                    client = new HttpClient();
+                    client.get(theurl, function(response) {
+
+
+                    });
+
+
+                },
+
+                bajarcampana: function(evt) {
+
+                    var HttpClient = function() {
+                                this.get = function(aUrl, aCallback) {
+                                    var anHttpRequest = new XMLHttpRequest();
+                                    anHttpRequest.onreadystatechange = function() {
+                                        if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                            aCallback(anHttpRequest.responseText);
+                                    }
+                                    anHttpRequest.open("GET", aUrl, true);
+                                    anHttpRequest.send(null);
+                                }
+                            }
+                            var theurl = 'http://192.168.0.80/arduino/digital/8/0';
+                            var client = new HttpClient();
+                            client.get(theurl, function(response) {
+
+
+
+                            });
+
+
+                            theurl = 'http://192.168.0.80/arduino/digital/3/1';
+                            client.get(theurl, function(response) {
+
+
+
+                            });
+                },
 
                 velocpruebas: function(evt) {
 
@@ -8149,7 +8212,7 @@ entrabajo = 1;
                 },
 
                 homea: function(evt) {
-                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 A-10 F1000");
+                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 A-80 F1000");
                     setTimeout(function() {
                         chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G28.2 A0");
 
@@ -8157,7 +8220,7 @@ entrabajo = 1;
                 },
 
                 homey: function(evt) {
-                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 Y-10 F1000");
+                    chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 Y-80 F1000");
                     setTimeout(function() {
                         chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G28.2 Y0");
 
@@ -8205,7 +8268,7 @@ entrabajo = 1;
 
 
                             setTimeout(function() {
-                                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 Y-20 F1000");
+                                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 Y-80 F1000");
                                 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM5  G28.2 X0");
 
                             }, 11000);
@@ -8291,7 +8354,7 @@ entrabajo = 1;
 
 
                             setTimeout(function() {
-                                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 Y-20 A-20 F1000");
+                                chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM3  G91 G1 Y-80 A-80 F1000");
                                 chilipeppr.publish("/com-chilipeppr-widget-serialport/ws/send", "sendnobuf COM5  G28.2 X0");
 
                             }, 11000);
@@ -8820,7 +8883,14 @@ entrabajo = 1;
                         <button type="button" class="btn btn-xs btn-default btn-apagarblower" style="margin: 4px 0;">Desactivar
                             blower</button>
 
-                        <br>
+                        
+                            <br>
+                            <b>Activación de Campana</b>
+                            <button type="button" class="btn btn-xs btn-default btn-bajarcampana" style="margin: 4px 0;"> Bajar Campana </button>
+    
+                            <button type="button" class="btn btn-xs btn-default btn-subircampana" style="margin: 4px 0;">Subir Campana</button>
+    
+                            <br>
 
                         <b>Posición del Husillo</b>
                         <button type="button" class="btn btn-xs btn-default btn-m20" style="margin: 4px 0;">Descanso
